@@ -134,7 +134,7 @@ to generate output/ files.
 enter:
 ```text
 git add -u (only add changes of tracked files)
-git commit -m "XXX"
+git commit -m "."
 git push origin source
 ```
 to commit.
