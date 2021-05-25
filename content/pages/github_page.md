@@ -148,7 +148,7 @@ to put new output content to main branch.
 also enter:
 ```text
 git checkout main
-git push origin source
+git push origin main
 ```
 to commit.
 
