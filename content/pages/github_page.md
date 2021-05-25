@@ -123,6 +123,22 @@ Now the exciting part is here when you get to view what you've published for eve
 
 <br />
 
+
+# How to modify in the future
+In the source category, enter: 
+```text
+pelican content
+``` 
+to generate output/ files.
+
+enter:
+```text
+python -m pelican.server
+```
+to listen local webpage. Then open [http://localhost:8000/](http://localhost:8000/)~
+
+<br />
+
 # References
 1. Another useful blog: [https://opensource.com/article/19/5/run-your-blog-github-pages-python](https://opensource.com/article/19/5/run-your-blog-github-pages-python)
 2. Pelican document: [https://docs.getpelican.com/en/stable/quickstart.html](https://docs.getpelican.com/en/stable/quickstart.html)
