@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>学习笔记 Tech Notebook - pytorch</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">学习笔记 Tech Notebook</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
+                    <li><a href="/category/technote.html">TechNote</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html">Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-05-25T00:00:00+08:00">
+                Published: 周二 25 五月 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-05-25T00:00:00+08:00">
+                Updated: 周二 25 五月 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
+        </address>
+<p>In <a href="/category/technote.html">TechNote</a>.</p>
+<p>tags: <a href="/tag/pytorch.html">pytorch</a> </p>
+</footer><!-- /.post-info --><hr>
+<p><br /></p>
+<p>In a recent PyTorch practice, I used the <strong>torch.nn.Parameter()</strong> class to create a module parameter but found the parameter was initialized with diminutive values like 1.4013e-45, which brought about very strange returned results. I replaced <strong>torch.nn.Parameter()</strong> with <strong>torch.nn.Linear()</strong> later, and surprisingly found the initialized values not odd anymore and the returned results reasonable.</p>
+<p>I want to find an explanation for this. What do <strong>nn.Parameter()</strong> and <strong>nn.Linear()</strong> accurately do after being called? And what are the differences between them, and furthermore, <strong>nn.Embedding()</strong>, these frequently-used parameter building modules?</p>
+<p><br /></p>
+<h2>nn.Parameter</h2>
+<div class="highlight"><pre><span></span><code>weight = torch.nn.Parameter(torch.FloatTensor(2,2))
+</code></pre></div>
+
+<p>This code above shows an example of how to use <strong>nn.Parameter()</strong> to create a module parameter. We can see weight is created using a given tensor, which means the initialized value of weight should be the same as the given tensor torch.FloatTensor(2,2). Now I understand the diminutive values I got are original from the given tensor! Let’s move on, what’s the value we get using <strong>torch.FloatTensor()</strong>.</p>
+<div class="highlight"><pre><span></span><code>a = torch.FloatTensor(2,2)
+print(a)
+&gt;&gt; tensor([[4.6837e-39, 9.9184e-39],
+           [9.0000e-39, 1.0561e-38]])
+</code></pre></div>
+
+<p>Extremely small values in all elements! Near to 0.</p>
+<p>In the online official guide, it says ‘torch.Tensor() is just an alias to torch.FloatTensor()’. And from the torch for numpy users notes, it seems that torch.FloatTensor() is a drop-in replacement of <strong>numpy.empty()</strong>.</p>
+<p>Now, all make sense. torch.FloatTensor(2,2) will return an empty tensor. All elements are diminutive, near to zero. That’s why I got the odd results with <strong>nn.Parameter()</strong> (Actually, it’s not about <strong>nn.Parameter()</strong>, but the given tensor).</p>
+<p><br /></p>
+<h2>nn.Linear</h2>
+<p>The way to create parameters using <strong>nn.Linear()</strong> is a little different. From the official guide online, the way to instantiate is below,</p>
+<div class="highlight"><pre><span></span><code>CLASS torch.nn.Linear(in_features, out_features, bias=True)
+</code></pre></div>
+
+<p>We can set bias to False to make <strong>nn.Linear()</strong> perform like a simple matrix transformation. In my case, I used</p>
+<div class="highlight"><pre><span></span><code>weight = torch.nn.Linear(2, 2, bias=False)
+</code></pre></div>
+
+<p>Then, what’s about the initialized values? From the official source code,</p>
+<p><img alt="" src="/pictures/2.png" width="600px"></p>
+<p>The only additional step in <strong><strong>init</strong>()</strong> is self.reset_parameters() , compared to what <strong>nn.Parameter()</strong> does. <strong>nn.Linear()</strong> uses kaiming_uniform to uniforms its weight, rather than simply using an empty tensor as weight.</p>
+<p><br /></p>
+<h2>nn.Embedding</h2>
+<p><strong>nn.Embedding()</strong> creates a simple lookup table that stores embeddings of a fixed dictionary and size. This module is often used to store word embeddings and retrieve them using indices. The input to the module is a list of indices, and the output is the corresponding word embeddings.</p>
+<p>To create a <strong>nn.Embedding()</strong> parameter, a typical instance is:</p>
+<div class="highlight"><pre><span></span><code>weight = nn.Embedding(num_embedding, embedding_dim)
+</code></pre></div>
+
+<p>Just num_embedding and embedding_dim are essential. So what does <strong>nn.Embedding()</strong> do in its initialization process? In the official code, it also uses <strong>nn.Parameter()</strong> to create the weight. Note that as same as what happens in <strong>nn.Linear()</strong>, the weight value is reset as well. To be specific init.normal_() method is used to fill the weight tensor with values drawn from the normal distribution.</p>
+<p><img alt="" src="/pictures/3.png" width="600px"></p>
+<p><br /></p>
+<h2>Conclusion</h2>
+<p>So as a conclusion, <strong>nn.Parameter()</strong> receives the tensor that is passed into it, and does not do any initial processing such as uniformization. That means that if the tensor passed into is empty or uninitialized, the parameter will also be empty or uninitialized. But <strong>nn.Linear()</strong> and <strong>nn.Embedding()</strong> initialize their weight tensors with the uniform operation and normalization operation respectively. You won’t get an empty parameter even you only give the shape.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
+                            <li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
