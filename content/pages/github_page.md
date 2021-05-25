@@ -141,7 +141,7 @@ enter:
 ```text
 ghp-import -m "Generate Pelican site" --no-jekyll -b main output
 ```
-to put new output content to main branch. Then open [http://localhost:8000/](http://localhost:8000/)~
+to put new output content to main branch.
 
 also enter:
 ```text
