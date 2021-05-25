@@ -20,7 +20,8 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Audrey Wang\'s GitHub Page', 'https://github.com/yxwangnju'),)
+LINKS = (('My GitHub Page', 'https://github.com/yxwangnju'),
+         ('My Medium Blogs', 'https://audreywongkg.medium.com/'),)
 
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com'),)
