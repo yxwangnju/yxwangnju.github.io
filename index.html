@@ -19,7 +19,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">远程服务器连网配置+conda使用</a></h1>
+                    <h1 class="entry-title"><a href="/linux-commands.html">Linux commands</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2021-05-25T00:00:00+08:00">
                 Published: 周二 25 五月 2021
@@ -33,8 +33,55 @@
                 By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
         </address>
 <p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/conda.html">conda</a> </p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/command.html">command</a> </p>
 </footer><!-- /.post-info --><hr>
+<p><br /></p>
+<h1>这篇note记录linux下常用command</h1>
+<p>显示当前目录下文件大小:</p>
+<div class="highlight"><pre><span></span><code>ls -l
+</code></pre></div>
+
+<p>显示特定文件的大小:</p>
+<div class="highlight"><pre><span></span><code>ls -l | grep &#39;name&#39;
+</code></pre></div>
+
+<p>显示显卡状况:</p>
+<div class="highlight"><pre><span></span><code>watch -n 1 nvidia-smi
+</code></pre></div>
+
+<p>更改文件名:</p>
+<div class="highlight"><pre><span></span><code>mv file file&#39;
+</code></pre></div>
+
+<h2>... 持续更新中!</h2>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html" rel="bookmark"
+                           title="Permalink to 远程服务器连网配置+conda使用">远程服务器连网配置+conda使用</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-05-25T00:00:00+08:00">
+                Published: 周二 25 五月 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-05-25T00:00:00+08:00">
+                Updated: 周二 25 五月 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
+        </address>
+<p>In <a href="/category/technote.html">TechNote</a>.</p>
+<p>tags: <a href="/tag/conda.html">conda</a> <a href="/tag/command.html">command</a> </p>
+</footer><!-- /.post-info -->                <hr>
 <p><br /></p>
 <h1>一、远程服务器连网配置</h1>
 <p>实验室的服务器一般都是没联网的，因此需要让服务器使用其他已连网设备进行代理。一般就使用本地机器。首先下载推荐软件<a href="https://www.youngzsoft.net/ccproxy/">CCProxy</a>, 开启后确认好本地连接地址以及端口，比如111.222.33.44:808。如果本机使用了VPN进行代理，则需要开启二级代理（点击“高级”），并查询VPN的使用端口。</p>
@@ -53,88 +100,8 @@ export https_proxy=https://111.222.33.44:808
 <div class="highlight"><pre><span></span><code>wget www.baidu.com
 </code></pre></div>
 
-<p>如果返回网页数据，则联网成功！</p>
-<p><br /></p>
-<h1>二、Conda配置与使用</h1>
-<h2>1. 配置conda连网</h2>
-<p>进入服务器的.condarc文件（一般就在自己用户名的目录下），修改文件内容如下：</p>
-<div class="highlight"><pre><span></span><code>channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  - defaults
-show_channel_urls: true
-
-proxy_servers:
-  http: http://xxx.xx.xx:808
-  https: https://xxx.xx.xx:808
-ssl_verify: false
-</code></pre></div>
-
-<p>channel一般换成国内的镜像，proxy_server换成上面ccproxy配置的地址。</p>
-<p><br /></p>
-<h2>2. conda创建env</h2>
-<p>创建有特定版本python的conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda create -n envname python=3.7
-</code></pre></div>
-
-<p><code>proceed ([y]/n)?</code> 就输入 <code>y</code></p>
-<p>之后，可用conda或者pip安装其他的依赖包，假设所有依赖包都在requriment.txt文件中：</p>
-<div class="highlight"><pre><span></span><code>pip install -r requriment.txt
-</code></pre></div>
-
-<p>或者</p>
-<div class="highlight"><pre><span></span><code>conda install -r requriment.txt
-</code></pre></div>
-
-<p><br /></p>
-<h2>3. 其他conda命令</h2>
-<p>查看目前所有conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda info -e
-</code></pre></div>
-
-<p>查看目前环境下有哪些包：</p>
-<div class="highlight"><pre><span></span><code>conda list 或者 pip list
-</code></pre></div>
-
-<p>进入某个conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda activate envname 或者 source activate envname
-</code></pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tips-for-managing-my-blog-contents.html" rel="bookmark"
-                           title="Permalink to Tips for managing my blog contents">Tips for managing my blog contents</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2020-01-15T00:00:00+08:00">
-                Published: 周三 15 一月 2020
-        </abbr>
-		<br />
-        <abbr class="modified" title="2020-01-16T00:00:00+08:00">
-                Updated: 周四 16 一月 2020
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
-        </address>
-<p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/markdown.html">markdown</a> <a href="/tag/pelican.html">pelican</a> </p>
-</footer><!-- /.post-info -->                <hr>
-<p><br /></p>
-<h1>Introduction</h1>
-<p>Recently I started blogging. I create my websites with pelican and github pages. For content, I choosed to use markdown syntax to write. This blog records some helpful commands for writting.</p>
-<p><br /></p>
-<h1>Markdown</h1>
-<h2>Insert picture</h2>
-<p>This command can insert picture into blog and adjust the picture size.</p>
-<div class="highlight"><pre><span></span><code>![title](url){:height …</code></pre></div>
-                <a class="readmore" href="/tips-for-managing-my-blog-contents.html">read more</a>
+<p>如果返回网页数据，则联网成功 …</p>
+                <a class="readmore" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

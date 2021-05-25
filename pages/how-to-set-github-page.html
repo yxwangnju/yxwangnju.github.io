@@ -37,9 +37,9 @@ $ cd username.github.io
 
 <p><br /></p>
 <h2>3. Create new branch</h2>
-<p>When you enter <code>https://username.github.io</code>, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects <code>index.html</code> file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call <strong>source</strong>.</p>
-<div class="highlight"><pre><span></span><code>$ git checkout -b source
-Switched to a new branch &#39;source&#39;
+<p>When you enter <code>https://username.github.io</code>, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects <code>index.html</code> file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call <strong>notebook_source</strong>.</p>
+<div class="highlight"><pre><span></span><code>$ git checkout -b notebook_source
+Switched to a new branch &#39;notebook_source&#39;
 </code></pre></div>
 
 <p><br /></p>
@@ -56,7 +56,7 @@ Switched to a new branch &#39;source&#39;
 <li>Upload to GitHub Pages, which is a "y" in our case</li>
 </ul>
 <p><br /></p>
-<h2>5. Add pelican files to the source branch</h2>
+<h2>5. Add pelican files to the notebook_source branch</h2>
 <p>Add all the Pelican-generated files to the content branch of the local Git repo, commit the changes, and push the local changes to the remote repo hosted on GitHub by entering:</p>
 <div class="highlight"><pre><span></span><code>$ git add .
 $ git commit -m &#39;initial pelican commit to content&#39;
@@ -124,7 +124,7 @@ $ git push origin content
 <p>Now the exciting part is here when you get to view what you've published for everyone to see! Open your browser and enter: <em>https://username.github.io</em></p>
 <p><br /></p>
 <h1>How to modify in the future</h1>
-<p>After modification, under the source category and source branch, enter: </p>
+<p>After modification, under the notebook_source category and notebook_source branch, enter: </p>
 <div class="highlight"><pre><span></span><code>pelican content
 </code></pre></div>
 
@@ -132,7 +132,7 @@ $ git push origin content
 <p>enter:</p>
 <div class="highlight"><pre><span></span><code>git add -u (only add changes of tracked files)
 git commit -m &quot;.&quot;
-git push origin source
+git push origin notebook_source
 </code></pre></div>
 
 <p>to commit.</p>
