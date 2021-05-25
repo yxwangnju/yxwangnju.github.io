@@ -37,7 +37,7 @@ $ cd username.github.io
 
 <p><br /></p>
 <h2>3. Create new branch</h2>
-<p>When you enter <code>https://username.github.io</code>, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects <code>index.html</code> file from the master branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in master branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in master branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call <strong>source</strong>.</p>
+<p>When you enter <code>https://username.github.io</code>, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects <code>index.html</code> file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call <strong>source</strong>.</p>
 <div class="highlight"><pre><span></span><code>$ git checkout -b source
 Switched to a new branch &#39;source&#39;
 </code></pre></div>
@@ -100,15 +100,15 @@ This is the content of my super blog post.
 </code></pre></div>
 
 <ul>
-<li>Use ghp-import to add the contents of the output directory to the master branch:</li>
+<li>Use ghp-import to add the contents of the output directory to the main branch:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b master output
+<div class="highlight"><pre><span></span><code>$ ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
 </code></pre></div>
 
 <ul>
-<li>Push the local master branch to the remote repo:</li>
+<li>Push the local main branch to the remote repo:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ git push origin master
+<div class="highlight"><pre><span></span><code>$ git push origin main
 </code></pre></div>
 
 <ul>
@@ -130,10 +130,21 @@ $ git push origin content
 
 <p>to generate output/ files.</p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span><code>python -m pelican.server
+<div class="highlight"><pre><span></span><code>git push origin source
 </code></pre></div>
 
-<p>to listen local webpage. Then open <a href="http://localhost:8000/">http://localhost:8000/</a>~</p>
+<p>to commit.</p>
+<p>enter:</p>
+<div class="highlight"><pre><span></span><code>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
+</code></pre></div>
+
+<p>to put new output content to main branch. Then open <a href="http://localhost:8000/">http://localhost:8000/</a>~</p>
+<p>also enter:</p>
+<div class="highlight"><pre><span></span><code>git checkout main
+git push origin source
+</code></pre></div>
+
+<p>to commit.</p>
 <p><br /></p>
 <h1>References</h1>
 <ol>
