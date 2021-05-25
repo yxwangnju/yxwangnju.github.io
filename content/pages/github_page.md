@@ -125,7 +125,7 @@ Now the exciting part is here when you get to view what you've published for eve
 
 
 # How to modify in the future
-In the source category, enter: 
+After modification, under the source category and source branch, enter: 
 ```text
 pelican content
 ``` 
@@ -133,6 +133,8 @@ to generate output/ files.
 
 enter:
 ```text
+git add -u (only add changes of tracked files)
+git commit -m "XXX"
 git push origin source
 ```
 to commit.
