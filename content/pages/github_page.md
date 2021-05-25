@@ -31,10 +31,10 @@ $ cd username.github.io
 <br />
 
 ## 3. Create new branch
-When you enter `https://username.github.io`, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects `index.html` file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call **source**.
+When you enter `https://username.github.io`, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects `index.html` file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call **notebook_source**.
 ```text
-$ git checkout -b source
-Switched to a new branch 'source'
+$ git checkout -b notebook_source
+Switched to a new branch 'notebook_source'
 ```
 
 <br />
@@ -53,7 +53,7 @@ You can take the defaults on every question except:
 
 <br />
 
-## 5. Add pelican files to the source branch
+## 5. Add pelican files to the notebook_source branch
 Add all the Pelican-generated files to the content branch of the local Git repo, commit the changes, and push the local changes to the remote repo hosted on GitHub by entering:
 ```text
 $ git add .
@@ -125,7 +125,7 @@ Now the exciting part is here when you get to view what you've published for eve
 
 
 # How to modify in the future
-After modification, under the source category and source branch, enter: 
+After modification, under the notebook_source category and notebook_source branch, enter: 
 ```text
 pelican content
 ``` 
@@ -135,7 +135,7 @@ enter:
 ```text
 git add -u (only add changes of tracked files)
 git commit -m "."
-git push origin source
+git push origin notebook_source
 ```
 to commit.
 

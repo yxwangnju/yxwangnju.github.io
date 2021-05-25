@@ -2,7 +2,7 @@ Title: 远程服务器连网配置+conda使用
 Date: 2021-5-25
 Modified: 2021-5-25
 Category: TechNote
-Tags: conda
+Tags: conda, command
 Authors: Audrey Wang
 
 ---
