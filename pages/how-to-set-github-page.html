@@ -124,13 +124,15 @@ $ git push origin content
 <p>Now the exciting part is here when you get to view what you've published for everyone to see! Open your browser and enter: <em>https://username.github.io</em></p>
 <p><br /></p>
 <h1>How to modify in the future</h1>
-<p>In the source category, enter: </p>
+<p>After modification, under the source category and source branch, enter: </p>
 <div class="highlight"><pre><span></span><code>pelican content
 </code></pre></div>
 
 <p>to generate output/ files.</p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span><code>git push origin source
+<div class="highlight"><pre><span></span><code>git add -u (only add changes of tracked files)
+git commit -m &quot;.&quot;
+git push origin source
 </code></pre></div>
 
 <p>to commit.</p>
@@ -141,7 +143,7 @@ $ git push origin content
 <p>to put new output content to main branch.</p>
 <p>also enter:</p>
 <div class="highlight"><pre><span></span><code>git checkout main
-git push origin source
+git push origin main
 </code></pre></div>
 
 <p>to commit.</p>
