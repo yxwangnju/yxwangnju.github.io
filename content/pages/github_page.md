@@ -31,7 +31,7 @@ $ cd username.github.io
 <br />
 
 ## 3. Create new branch
-When you enter `https://username.github.io`, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects `index.html` file from the master branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in master branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in master branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call **source**.
+When you enter `https://username.github.io`, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects `index.html` file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call **source**.
 ```text
 $ git checkout -b source
 Switched to a new branch 'source'
@@ -101,13 +101,13 @@ All that's left to do is:
 ```text
 $ pelican content -s pelicanconf.py -r
 ```
-- Use ghp-import to add the contents of the output directory to the master branch:
+- Use ghp-import to add the contents of the output directory to the main branch:
 ```text
-$ ghp-import -m "Generate Pelican site" --no-jekyll -b master output
+$ ghp-import -m "Generate Pelican site" --no-jekyll -b main output
 ```
-- Push the local master branch to the remote repo:
+- Push the local main branch to the remote repo:
 ```text
-$ git push origin master
+$ git push origin main
 ```
 - Commit and push the new content to the content branch:
 ```text
@@ -133,9 +133,23 @@ to generate output/ files.
 
 enter:
 ```text
-python -m pelican.server
+git push origin source
 ```
-to listen local webpage. Then open [http://localhost:8000/](http://localhost:8000/)~
+to commit.
+
+enter:
+```text
+ghp-import -m "Generate Pelican site" --no-jekyll -b main output
+```
+to put new output content to main branch. Then open [http://localhost:8000/](http://localhost:8000/)~
+
+also enter:
+```text
+git checkout main
+git push origin source
+```
+to commit.
+
 
 <br />
 
