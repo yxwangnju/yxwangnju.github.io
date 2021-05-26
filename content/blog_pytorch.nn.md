@@ -56,7 +56,7 @@ weight = torch.nn.Linear(2, 2, bias=False)
 
 Then, what’s about the initialized values? From the official source code,
 
-![]({static}/pictures/2.png){: .image-process-large-photo}
+![]({static}/pictures/2.png){:width="420px"}
 
 The only additional step in **__init__()** is self.reset_parameters() , compared to what **nn.Parameter()** does. **nn.Linear()** uses kaiming_uniform to uniforms its weight, rather than simply using an empty tensor as weight.
 
