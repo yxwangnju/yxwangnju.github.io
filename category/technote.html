@@ -1,121 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <title>学习笔记 Tech Notebook - TechNote</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+	<meta charset="utf-8">
+	<title>学习笔记 Tech Notebook</title>
+	<meta name="description" content="">
+	<meta name="author" content="Audrey Wang">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
 </head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">学习笔记 Tech Notebook</a>
+			<ul class="nav">
+						<li><a href="/pages/about.html">About</a></li>
+						<li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
+					<li class="active"><a href="/category/technote.html">TechNote</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">学习笔记 Tech Notebook</a></h1>
-                <nav><ul>
-                    <li><a href="/pages/about.html">About</a></li>
-                    <li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
-                    <li class="active"><a href="/category/technote.html">TechNote</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/dynamic-kgs-vs-temporal-kgs.html">Dynamic KGs vs. Temporal KGs</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2021-05-26T00:00:00+08:00">
-                Published: 周三, 26 5月 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-26T00:00:00+08:00">
-                Updated: 周三, 26 5月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
-        </address>
-<p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/research.html">Research</a> </p>
-</footer><!-- /.post-info --><hr>
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
+				<li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://twitter.com">Twitter</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1>学习笔记 Tech Notebook <small>TechNote</small></h1></div>
+<div class='article'>
+	<h2>Dynamic KGs vs. Temporal KGs</h2>
+	<div class="well small">Permalink: <a class="more" href="/dynamic-kgs-vs-temporal-kgs.html">2021-05-26 00:00:00+08:00</a>
+by <a class="url fn" href="/author/audrey-wang.html">Audrey Wang </a>
+ in <a href="/category/technote.html">TechNote</a>
+tags: <a href="/tag/research.html">Research</a> </div>
+	<div class="summary"><hr>
 <p><br /></p>
 <blockquote>
 <p>这篇文章我也有放在medium上</p>
 </blockquote>
 <h2>Temporal Knowledge Graph</h2>
-<p>The temporal knowledge graph is a special type of knowledge graph. Usually, knowledge graph data is presented in the form of triples, which can be denoted as (h, r, t) where h, r and t are the abbreviations of head entity, relation, and tail entity respectively. In temporal knowledge graph, in addition to entities and relations, the temporal attribute of relations is included as well. Temporal knowledge graph data is presented in the form of quadruples, which are denoted as (h, r, t, a_t) where a_t is the temporal attribute on relations. For instance, (Trump, is_president_of, US, 2017–2020).</p>
-<p>Representation learning methods on temporal knowledge graphs are usually derived from the methods on usual knowledge graphs that are in triple form. For example, TransE-TAE model is designed based on TransE model.</p>
-<p><img alt="An illustration of TransE-TAE model" src="/pictures/4.png" width="600px"></p>
-<p>Temporal knowledge graph embedding methods usually learn embeddings of timestamps or time spans by inserting the temporal variable into the score function when training. After the training process is finished, embeddings of all entities, relations and temporal attributes are generated.</p>
-<p>The experiment tasks conducted on temporal knowledge graph mainly are link prediction and temporal information prediction. The link prediction task includes entity prediction and relation prediction, which are also the basic tasks on triple-form knowledge graph embedding. Formally, link prediction tasks can be denoted as (?, r, t, a_t), (h, r, ?, a_t) or (h, ?, t, a_t). The temporal information task aims to predict the timestamp or time span when a given event (triple) happened. Likewise, this task can be denoted as (h, r, t, ?). Latest studies on temporal knowledge graph are able to predict future events.</p>
-<p><br /></p>
-<h2>Dynamic Knowledge Graph</h2>
-<p>The dynamic knowledge graph is also called the evolving knowledge graph, where the topological structure or attributive information is changing over time. Considering that the alteration of attributes on entities and relations is usually trivial, the studies on dynamic knowledge graph generally focus on non-attributive knowledge graph and its topological structure. Frankly speaking, the topological alteration means the addition or deletion of entities and relations.</p>
-<p>By far, the study on dynamics on knowledge graph is still under-explored. Most of the existing studies on such topic only consider such a scenario that new entities are emerging. One apparent reason for this is the peculiarity of the knowledge graph. The in-store triples in a knowledge graph are usually immutable facts from the real world, which makes the deletion of existing entities and relations hardly happen. Besides, the amount of relation types is relatively limited compared to the enormous amount of entity types, making the emergence of new relation sporadical. There are some alternative names for emerging entities, such as out-of-sample entities and unseen entities.</p>
-<p><img align="center" alt="An emerging entity (Jnew) is added to the knowledge graph" src="/pictures/5.png" width="600px"></p>
-<p><br /></p>
-<h2>Differences</h2>
-<ol>
-<li>The data of temporal knowledge graph is in form of quadruple, while dynamic knowledge graph embedding mainly focuses on non-attributive triple data. </li>
-<li>Temporal knowledge graph embedding methods are trained on stationary datasets. Dynamic knowledge graph embedding methods are designed and trained on evolving datasets. </li>
-<li>Temporal knowledge graph embedding learns embeddings of temporal attributes and can predict temporal information for events. Dynamic knowledge graph embedding aims to learn the embeddings of emerging entities and relations (and may modify the embeddings of existing entities and relations) to predict the links between emerging entities and existing entities. </li>
-</ol>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html" rel="bookmark"
-                           title="Permalink to Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding">Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-05-25T00:00:00+08:00">
-                Published: 周二, 25 5月 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-25T00:00:00+08:00">
-                Updated: 周二, 25 5月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
-        </address>
-<p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/pytorch.html">pytorch</a> </p>
-</footer><!-- /.post-info -->                <hr>
+<p>The temporal knowledge graph is a special type of knowledge graph. Usually, knowledge graph data is presented in the form of triples, which can be denoted as (h, r, t) where h, r and t are the abbreviations of head entity, relation, and tail entity respectively …</p> <a class="btn primary xsmall" href="/dynamic-kgs-vs-temporal-kgs.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</h2>
+	<div class="well small">Permalink: <a class="more" href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html">2021-05-25 00:00:00+08:00</a>
+by <a class="url fn" href="/author/audrey-wang.html">Audrey Wang </a>
+ in <a href="/category/technote.html">TechNote</a>
+tags: <a href="/tag/pytorch.html">pytorch</a> </div>
+	<div class="summary"><hr>
 <p><br /></p>
 <blockquote>
 <p>这篇文章我也有放在medium上</p>
 </blockquote>
-<p>In a recent PyTorch practice, I used the <strong>torch.nn.Parameter()</strong> class to create a module parameter but found the parameter was initialized with diminutive values like 1.4013e-45, which brought about very strange returned results. I replaced <strong>torch.nn.Parameter()</strong> with <strong>torch.nn.Linear()</strong> later, and surprisingly found …</p>
-                <a class="readmore" href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/linuxxia-chang-yong-ming-ling-zheng-li.html" rel="bookmark"
-                           title="Permalink to Linux下常用命令整理">Linux下常用命令整理</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-05-25T00:00:00+08:00">
-                Published: 周二, 25 5月 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-25T00:00:00+08:00">
-                Updated: 周二, 25 5月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
-        </address>
-<p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/command.html">command</a> </p>
-</footer><!-- /.post-info -->                <hr>
+<p>In a recent PyTorch practice, I used the <strong>torch.nn.Parameter()</strong> class to create a module parameter but found the parameter was initialized with diminutive values like 1.4013e-45, which brought about very strange returned results. I replaced <strong>torch.nn.Parameter()</strong> with <strong>torch.nn.Linear()</strong> later, and surprisingly found …</p> <a class="btn primary xsmall" href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>Linux下常用命令整理</h2>
+	<div class="well small">Permalink: <a class="more" href="/linuxxia-chang-yong-ming-ling-zheng-li.html">2021-05-25 00:00:00+08:00</a>
+by <a class="url fn" href="/author/audrey-wang.html">Audrey Wang </a>
+ in <a href="/category/technote.html">TechNote</a>
+tags: <a href="/tag/linux.html">linux</a> <a href="/tag/command.html">command</a> </div>
+	<div class="summary"><hr>
 <p><br /></p>
 <h1>这篇note记录linux下常用command</h1>
 <p>显示当前目录下文件大小:</p>
@@ -134,33 +109,16 @@
 <div class="highlight"><pre><span></span><code>mv file file&#39;
 </code></pre></div>
 
-<h2>... 持续更新中!</h2>
-                <a class="readmore" href="/linuxxia-chang-yong-ming-ling-zheng-li.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html" rel="bookmark"
-                           title="Permalink to 远程服务器连网配置+conda使用">远程服务器连网配置+conda使用</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-05-25T00:00:00+08:00">
-                Published: 周二, 25 5月 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-25T00:00:00+08:00">
-                Updated: 周二, 25 5月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
-        </address>
-<p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/conda.html">conda</a> <a href="/tag/command.html">command</a> </p>
-</footer><!-- /.post-info -->                <hr>
+<h2>... 持续更新中!</h2> <a class="btn primary xsmall" href="/linuxxia-chang-yong-ming-ling-zheng-li.html">more…</a>
+	</div>
+</div>	
+<div class='article'>
+	<h2>远程服务器连网配置+conda使用</h2>
+	<div class="well small">Permalink: <a class="more" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">2021-05-25 00:00:00+08:00</a>
+by <a class="url fn" href="/author/audrey-wang.html">Audrey Wang </a>
+ in <a href="/category/technote.html">TechNote</a>
+tags: <a href="/tag/conda.html">conda</a> <a href="/tag/command.html">command</a> </div>
+	<div class="summary"><hr>
 <p><br /></p>
 <h1>一、远程服务器连网配置</h1>
 <p>实验室的服务器一般都是没联网的，因此需要让服务器使用其他已连网设备进行代理。一般就使用本地机器。首先下载推荐软件<a href="https://www.youngzsoft.net/ccproxy/">CCProxy</a>, 开启后确认好本地连接地址以及端口，比如111.222.33.44:808。如果本机使用了VPN进行代理，则需要开启二级代理（点击“高级”），并查询VPN的使用端口。</p>
@@ -179,36 +137,17 @@ export https_proxy=https://111.222.33.44:808
 <div class="highlight"><pre><span></span><code>wget www.baidu.com
 </code></pre></div>
 
-<p>如果返回网页数据，则联网成功 …</p>
-                <a class="readmore" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
-                            <li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+<p>如果返回网页数据，则联网成功 …</p> <a class="btn primary xsmall" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">more…</a>
+	</div>
+</div>	
 
-                            <li><a href="https://twitter.com">Twitter</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; Audrey Wang</p>
+		</footer>
+	  </div>
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+	</div>
 </body>
 </html>

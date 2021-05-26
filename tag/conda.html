@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <title>学习笔记 Tech Notebook - conda</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+	<meta charset="utf-8">
+	<title>学习笔记 Tech Notebook</title>
+	<meta name="description" content="">
+	<meta name="author" content="Audrey Wang">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link href="/theme/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/local.css" rel="stylesheet">
+	<link href="/theme/pygments.css" rel="stylesheet">
+
+	<!-- Feeds -->
+
+
+
+
 </head>
+<body>
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="/">学习笔记 Tech Notebook</a>
+			<ul class="nav">
+						<li><a href="/pages/about.html">About</a></li>
+						<li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
+					<li ><a href="/category/technote.html">TechNote</a></li>
+			</ul>
+			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">学习笔记 Tech Notebook</a></h1>
-                <nav><ul>
-                    <li><a href="/pages/about.html">About</a></li>
-                    <li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
-                    <li><a href="/category/technote.html">TechNote</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">远程服务器连网配置+conda使用</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2021-05-25T00:00:00+08:00">
-                Published: 周二, 25 5月 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-25T00:00:00+08:00">
-                Updated: 周二, 25 5月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
-        </address>
-<p>In <a href="/category/technote.html">TechNote</a>.</p>
-<p>tags: <a href="/tag/conda.html">conda</a> <a href="/tag/command.html">command</a> </p>
-</footer><!-- /.post-info --><hr>
+	<div class="container-fluid">
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
+				<li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				<li><a href="https://twitter.com">Twitter</a></li>
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+<div class="page-header"><h1>学习笔记 Tech Notebook <small>conda</small></h1></div>
+<div class='article'>
+	<h2>远程服务器连网配置+conda使用</h2>
+	<div class="well small">Permalink: <a class="more" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">2021-05-25 00:00:00+08:00</a>
+by <a class="url fn" href="/author/audrey-wang.html">Audrey Wang </a>
+ in <a href="/category/technote.html">TechNote</a>
+tags: <a href="/tag/conda.html">conda</a> <a href="/tag/command.html">command</a> </div>
+	<div class="summary"><hr>
 <p><br /></p>
 <h1>一、远程服务器连网配置</h1>
 <p>实验室的服务器一般都是没联网的，因此需要让服务器使用其他已连网设备进行代理。一般就使用本地机器。首先下载推荐软件<a href="https://www.youngzsoft.net/ccproxy/">CCProxy</a>, 开启后确认好本地连接地址以及端口，比如111.222.33.44:808。如果本机使用了VPN进行代理，则需要开启二级代理（点击“高级”），并查询VPN的使用端口。</p>
@@ -53,76 +80,17 @@ export https_proxy=https://111.222.33.44:808
 <div class="highlight"><pre><span></span><code>wget www.baidu.com
 </code></pre></div>
 
-<p>如果返回网页数据，则联网成功！</p>
-<p><br /></p>
-<h1>二、Conda配置与使用</h1>
-<h2>1. 配置conda连网</h2>
-<p>进入服务器的.condarc文件（一般就在自己用户名的目录下），修改文件内容如下：</p>
-<div class="highlight"><pre><span></span><code>channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  - defaults
-show_channel_urls: true
+<p>如果返回网页数据，则联网成功 …</p> <a class="btn primary xsmall" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">more…</a>
+	</div>
+</div>	
 
-proxy_servers:
-  http: http://xxx.xx.xx:808
-  https: https://xxx.xx.xx:808
-ssl_verify: false
-</code></pre></div>
 
-<p>channel一般换成国内的镜像，proxy_server换成上面ccproxy配置的地址。</p>
-<p><br /></p>
-<h2>2. conda创建env</h2>
-<p>创建有特定版本python的conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda create -n envname python=3.7
-</code></pre></div>
+		<footer>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; Audrey Wang</p>
+		</footer>
+	  </div>
 
-<p><code>proceed ([y]/n)?</code> 就输入 <code>y</code></p>
-<p>之后，可用conda或者pip安装其他的依赖包，假设所有依赖包都在requriment.txt文件中：</p>
-<div class="highlight"><pre><span></span><code>pip install -r requriment.txt
-</code></pre></div>
-
-<p>或者</p>
-<div class="highlight"><pre><span></span><code>conda install -r requriment.txt
-</code></pre></div>
-
-<p><br /></p>
-<h2>3. 其他conda命令</h2>
-<p>查看目前所有conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda info -e
-</code></pre></div>
-
-<p>查看目前环境下有哪些包：</p>
-<div class="highlight"><pre><span></span><code>conda list 或者 pip list
-</code></pre></div>
-
-<p>进入某个conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda activate envname 或者 source activate envname
-</code></pre></div>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
-                            <li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="https://twitter.com">Twitter</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+	</div>
 </body>
 </html>
