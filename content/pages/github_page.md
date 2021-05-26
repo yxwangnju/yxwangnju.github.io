@@ -17,7 +17,7 @@ Authors: Audrey Wang
 ## 1. Create a repository on GitHub
 Head over to GitHub and create a new repository named `username.github.io`, where `username` is your username (or organization name) on GitHub. Note that this repository should be public.
 
-![]({static}/pictures/1.png){: .image-process-large-photo}
+![]({static}/pictures/1.png){: width="600px"}
 
 <br />
 
