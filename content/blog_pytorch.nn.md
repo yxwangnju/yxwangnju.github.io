@@ -56,7 +56,7 @@ weight = torch.nn.Linear(2, 2, bias=False)
 
 Then, what’s about the initialized values? From the official source code,
 
-![]({static}/pictures/2.png){:width="600px"}
+![]({static}/pictures/2.png){: .image-process-large-photo}
 
 The only additional step in **__init__()** is self.reset_parameters() , compared to what **nn.Parameter()** does. **nn.Linear()** uses kaiming_uniform to uniforms its weight, rather than simply using an empty tensor as weight.
 
@@ -73,7 +73,7 @@ weight = nn.Embedding(num_embedding, embedding_dim)
 
 Just num_embedding and embedding_dim are essential. So what does **nn.Embedding()** do in its initialization process? In the official code, it also uses **nn.Parameter()** to create the weight. Note that as same as what happens in **nn.Linear()**, the weight value is reset as well. To be specific init.normal_() method is used to fill the weight tensor with values drawn from the normal distribution.
 
-![]({static}/pictures/3.png){:width="600px"}
+![]({static}/pictures/3.png){: .image-process-large-photo}
 
 <br />
 

@@ -13,7 +13,7 @@ Authors: Audrey Wang
 
 实验室的服务器一般都是没联网的，因此需要让服务器使用其他已连网设备进行代理。一般就使用本地机器。首先下载推荐软件[CCProxy](https://www.youngzsoft.net/ccproxy/), 开启后确认好本地连接地址以及端口，比如111.222.33.44:808。如果本机使用了VPN进行代理，则需要开启二级代理（点击“高级”），并查询VPN的使用端口。
 
-![]({static}/pictures/ccproxy.jpg){:height="400px"}
+![]({static}/pictures/ccproxy.jpg){: .image-process-large-photo}
 
 然后，在服务器上设置代理，输入以下命令：
 ```text

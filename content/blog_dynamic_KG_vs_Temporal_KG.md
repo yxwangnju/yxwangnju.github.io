@@ -31,7 +31,7 @@ The dynamic knowledge graph is also called the evolving knowledge graph, where t
 
 By far, the study on dynamics on knowledge graph is still under-explored. Most of the existing studies on such topic only consider such a scenario that new entities are emerging. One apparent reason for this is the peculiarity of the knowledge graph. The in-store triples in a knowledge graph are usually immutable facts from the real world, which makes the deletion of existing entities and relations hardly happen. Besides, the amount of relation types is relatively limited compared to the enormous amount of entity types, making the emergence of new relation sporadical. There are some alternative names for emerging entities, such as out-of-sample entities and unseen entities.
 
-![An emerging entity (Jnew) is added to the knowledge graph]({static}/pictures/5.png){:width="600px" align="center"}
+![An emerging entity (Jnew) is added to the knowledge graph]({static}/pictures/5.png){: .image-process-large-photo}
 
 <br />
 

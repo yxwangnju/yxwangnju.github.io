@@ -83,7 +83,7 @@ Summary: Short version for index and feeds
 This is the content of my super blog post.  
 ```
 You can also have your own metadata keys (so long as they don’t conflict with reserved metadata keywords) for use in your templates. The following table contains a list of reserved metadata keywords:
-![]({static}/pictures/2.jpg){:width="600px"}
+![]({static}/pictures/2.jpg){: .image-process-large-photo}
 
 <br />
 
@@ -127,17 +127,17 @@ Now the exciting part is here when you get to view what you've published for eve
 # How to modify in the future
 After modification, under the notebook_source category and notebook_source branch, enter: 
 ```text
-pelican content
+pelican content -t new-bootstrap2
 ``` 
-to generate output/ files.
+to generate output/ files. (using the new-bootstrap2 theme)
 
 enter:
 ```text
-git add -u (only add changes of tracked files)
+git add -u 
 git commit -m "."
 git push origin notebook_source
 ```
-to commit.
+to commit. (-u only add changes of tracked files)
 
 enter:
 ```text
