@@ -127,9 +127,9 @@ Now the exciting part is here when you get to view what you've published for eve
 # How to modify in the future
 After modification, under the notebook_source category and notebook_source branch, enter: 
 ```text
-pelican content -t new-bootstrap2
+pelican content
 ``` 
-to generate output/ files. (using the new-bootstrap2 theme)
+to generate output/ files. 
 
 enter:
 ```text
