@@ -1,91 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>How To Set GitHub Page | 学习笔记 Tech Notebook</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Audrey Wang" />
-    <meta name="kittycheck_rumble" content="true" />
-    <meta name="kittycheck_position" content="top=60,right=60" />
-
-    <!-- Le styles -->
-    <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="/theme/css/font-awesome.css" rel="stylesheet">
-    <link href="/theme/css/pygments.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="/theme/img/favicon.ico">
-    <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png">
-
-    <link href="/" type="application/atom+xml" rel="alternate" title="学习笔记 Tech Notebook ATOM Feed" />
-  </head>
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/index.html">学习笔记 Tech Notebook </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                <li ><a href="/pages/about.html">About</a></li>
-                <li class="active"><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
-                <li class="divider-vertical"></li>
-                <li >
-                  <a href="/category/technote.html">
-						        <i class="icon-folder-open icon-large"></i>TechNote
-					         </a>
-                </li>
-              <ul class="nav pull-right">
-                    <li><a href="/"><i class="icon-th-list"></i>Archives</a></li>
-              </ul>
-
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="span8" id="content">
-<section id="content" class="body well">
-    <h1 class="entry-title">How To Set GitHub Page</h1>
-    <hr>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>How To Set GitHub Page  - 学习笔记 Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+		<script src="/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="">
+							<img src="/theme/images/buruma_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		How To Set GitHub Page
+	</div>
+	<div class="message-body has-text-dark">
+		<hr>
 <p><br /></p>
 <h1>About Pelican</h1>
 <p><a href="http://docs.getpelican.com/en/">Pelican</a> is a utility that lets you create beautiful weblogs using just text files. <a href="https://pages.github.com/">Github Pages</a> allows users to store page content in a git repository along with their code. By combining Pelican with Github Pages, you can have a reliable and attractive blog site for your projects.</p>
@@ -97,22 +62,25 @@
 <p><br /></p>
 <h2>2. Clone the repository</h2>
 <p>Go to the folder where you want to store your project, and clone the new repository:</p>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/username/username.github.io
+<div class="highlight"><pre><span></span>$ git clone https://github.com/username/username.github.io
 $ cd username.github.io
-</code></pre></div>
+</pre></div>
+
 
 <p><br /></p>
 <h2>3. Create new branch</h2>
 <p>When you enter <code>https://username.github.io</code>, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects <code>index.html</code> file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call <strong>notebook_source</strong>.</p>
-<div class="highlight"><pre><span></span><code>$ git checkout -b notebook_source
+<div class="highlight"><pre><span></span>$ git checkout -b notebook_source
 Switched to a new branch &#39;notebook_source&#39;
-</code></pre></div>
+</pre></div>
+
 
 <p><br /></p>
 <h2>4. Configure Pelican</h2>
 <p>Now it's time for content configuration. Pelican provides a great initialization tool called pelican-quickstart that will ask you a series of questions about your blog.</p>
-<div class="highlight"><pre><span></span><code>$ pelican-quickstart
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ pelican-quickstart
+</pre></div>
+
 
 <p>You can take the defaults on every question except:</p>
 <ul>
@@ -124,20 +92,22 @@ Switched to a new branch &#39;notebook_source&#39;
 <p><br /></p>
 <h2>5. Add pelican files to the notebook_source branch</h2>
 <p>Add all the Pelican-generated files to the content branch of the local Git repo, commit the changes, and push the local changes to the remote repo hosted on GitHub by entering:</p>
-<div class="highlight"><pre><span></span><code>$ git add .
+<div class="highlight"><pre><span></span>$ git add .
 $ git commit -m &#39;initial pelican commit to content&#39;
 $ git push origin content
-</code></pre></div>
+</pre></div>
+
 
 <p><br /></p>
 <h2>6. Write content</h2>
 <p>Now you can get bloggy! All of your blog posts, photos, images, PDFs, etc., will live in the content directory, which is initially empty. We can use Markdown syntax. To begin creating a first post, enter:</p>
-<div class="highlight"><pre><span></span><code>$ cd content
+<div class="highlight"><pre><span></span>$ cd content
 $ touch first-post.md
-</code></pre></div>
+</pre></div>
+
 
 <p>Next, open the empty file first-post.md in your favorite text editor and add the following:</p>
-<div class="highlight"><pre><span></span><code>Title: My super title
+<div class="highlight"><pre><span></span>Title: My super title
 Date: 2010-12-03 10:20
 Modified: 2010-12-05 19:30
 Category: Python
@@ -147,14 +117,16 @@ Authors: Alexis Metaireau, Conan Doyle
 Summary: Short version for index and feeds
 
 This is the content of my super blog post.  
-</code></pre></div>
+</pre></div>
+
 
 <p>You can also have your own metadata keys (so long as they don’t conflict with reserved metadata keywords) for use in your templates. The following table contains a list of reserved metadata keywords:
 <img alt="" class="image-process-large-photo" src="/pictures/2.jpg"></p>
 <p><br /></p>
 <h2>7. Install ghp-import</h2>
-<div class="highlight"><pre><span></span><code>$ pip install pelican ghp-import Markdown
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ pip install pelican ghp-import Markdown
+</pre></div>
+
 
 <p><br /></p>
 <h2>8. Publish</h2>
@@ -162,28 +134,32 @@ This is the content of my super blog post.
 <ul>
 <li>Run Pelican to generate the static HTML files in output. <code>-r</code> is to enable watching for your modifications, instead of manually re-running it every time you want to see your changes. </li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ pelican content -s pelicanconf.py -r
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ pelican content -s pelicanconf.py -r
+</pre></div>
+
 
 <ul>
 <li>Use ghp-import to add the contents of the output directory to the main branch:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
+</pre></div>
+
 
 <ul>
 <li>Push the local main branch to the remote repo:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ git push origin main
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ git push origin main
+</pre></div>
+
 
 <ul>
 <li>Commit and push the new content to the content branch:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ git add content
+<div class="highlight"><pre><span></span>$ git add content
 $ git commit -m &#39;added a first post, a photo and an about page&#39;
 $ git push origin content
-</code></pre></div>
+</pre></div>
+
 
 <p><br /></p>
 <h2>9. Finally!</h2>
@@ -191,26 +167,30 @@ $ git push origin content
 <p><br /></p>
 <h1>How to modify in the future</h1>
 <p>After modification, under the notebook_source category and notebook_source branch, enter: </p>
-<div class="highlight"><pre><span></span><code>pelican content -t new-bootstrap2
-</code></pre></div>
+<div class="highlight"><pre><span></span>pelican content -t new-bootstrap2
+</pre></div>
+
 
 <p>to generate output/ files. (using the new-bootstrap2 theme)</p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span><code>git add -u 
+<div class="highlight"><pre><span></span>git add -u 
 git commit -m &quot;.&quot;
 git push origin notebook_source
-</code></pre></div>
+</pre></div>
+
 
 <p>to commit. (-u only add changes of tracked files)</p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span><code>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
-</code></pre></div>
+<div class="highlight"><pre><span></span>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
+</pre></div>
+
 
 <p>to put new output content to main branch.</p>
 <p>also enter:</p>
-<div class="highlight"><pre><span></span><code>git checkout main
+<div class="highlight"><pre><span></span>git checkout main
 git push origin main
-</code></pre></div>
+</pre></div>
+
 
 <p>to commit.</p>
 <p><br /></p>
@@ -219,37 +199,23 @@ git push origin main
 <li>Another useful blog: <a href="https://opensource.com/article/19/5/run-your-blog-github-pages-python">https://opensource.com/article/19/5/run-your-blog-github-pages-python</a></li>
 <li>Pelican document: <a href="https://docs.getpelican.com/en/stable/quickstart.html">https://docs.getpelican.com/en/stable/quickstart.html</a></li>
 </ol>
-</section>
-        </div><!--/span-->
-        <div class="span3 well sidebar-nav" id="sidebar">
-<ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><div><i class="icon-external-link"></i><a href="https://github.com/yxwangnju">My GitHub Page</a></div></li>
-    <li><div><i class="icon-external-link"></i><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></div></li>
-<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-    <li><a href="https://twitter.com"><i class="icon-Twitter-sign icon-large"></i>Twitter</a></li>
-
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="/category/technote.html">
-    <i class="icon-folder-open icon-large"></i>TechNote
-</a>
-</li>
-
-
-
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
-      <hr>
-
-    </div><!--/.fluid-container-->
-
-
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/theme/js/jquery-1.7.2.min.js"></script>
-    <script src="/theme/js/bootstrap.min.js"></script>
-  </body>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
 </html>

@@ -1,117 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding | 学习笔记 Tech Notebook</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Audrey Wang" />
-    <meta name="kittycheck_rumble" content="true" />
-    <meta name="kittycheck_position" content="top=60,right=60" />
-
-    <!-- Le styles -->
-    <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="/theme/css/font-awesome.css" rel="stylesheet">
-    <link href="/theme/css/pygments.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="/theme/img/favicon.ico">
-    <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png">
-
-    <link href="/" type="application/atom+xml" rel="alternate" title="学习笔记 Tech Notebook ATOM Feed" />
-  </head>
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/index.html">学习笔记 Tech Notebook </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                <li ><a href="/pages/about.html">About</a></li>
-                <li ><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
-                <li class="divider-vertical"></li>
-                <li class="active">
-                  <a href="/category/technote.html">
-						        <i class="icon-folder-open icon-large"></i>TechNote
-					         </a>
-                </li>
-              <ul class="nav pull-right">
-                    <li><a href="/"><i class="icon-th-list"></i>Archives</a></li>
-              </ul>
-
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="span8" id="content">
-<div class="row">
-    <div class="span2">
-        <div class="well">
-<footer class="post-info">
-<abbr class="published" title="2021-05-25T00:00:00+08:00">
-    <i class="icon-calendar"></i>&nbsp;周二, 25 5月 2021
-</abbr>
-<br/><a href="/author/audrey-wang.html"><i class="icon-user"></i>&nbsp;Audrey Wang</a>
-
-
-<br/>
-	&nbsp;&nbsp;<a href="/tag/pytorch.html" class="label"><i class="icon-tag"></i>&nbsp;pytorch</a>
-</footer><!-- /.post-info -->        </div>
-    </div>
-    <div class="span6">
-<section id="content" class="well">
-    <article>
-        <header>
-            <h1>
-                <a href=""
-                        rel="bookmark"
-                        title="Permalink to Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding">
-                        Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding
-                </a>
-            </h1>
-        </header>
-        <div class="entry-content">
-
-        <hr>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding  - 学习笔记 Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+		<script src="/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="">
+							<img src="/theme/images/buruma_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</h2>
+		<p><time itemprop="dateCreated" datetime="2021-05-25T00:00:00+08:00">二, 25  5 2021</time></p>
+	</div>
+	<div class="message-body has-text-dark">
+		<hr>
 <p><br /></p>
 <blockquote>
 <p>这篇文章我也有放在medium上</p>
@@ -120,15 +60,17 @@
 <p>I want to find an explanation for this. What do <strong>nn.Parameter()</strong> and <strong>nn.Linear()</strong> accurately do after being called? And what are the differences between them, and furthermore, <strong>nn.Embedding()</strong>, these frequently-used parameter building modules?</p>
 <p><br /></p>
 <h2>nn.Parameter</h2>
-<div class="highlight"><pre><span></span><code>weight = torch.nn.Parameter(torch.FloatTensor(2,2))
-</code></pre></div>
+<div class="highlight"><pre><span></span>weight = torch.nn.Parameter(torch.FloatTensor(2,2))
+</pre></div>
+
 
 <p>This code above shows an example of how to use <strong>nn.Parameter()</strong> to create a module parameter. We can see weight is created using a given tensor, which means the initialized value of weight should be the same as the given tensor torch.FloatTensor(2,2). Now I understand the diminutive values I got are original from the given tensor! Let’s move on, what’s the value we get using <strong>torch.FloatTensor()</strong>.</p>
-<div class="highlight"><pre><span></span><code>a = torch.FloatTensor(2,2)
+<div class="highlight"><pre><span></span>a = torch.FloatTensor(2,2)
 print(a)
 &gt;&gt; tensor([[4.6837e-39, 9.9184e-39],
            [9.0000e-39, 1.0561e-38]])
-</code></pre></div>
+</pre></div>
+
 
 <p>Extremely small values in all elements! Near to 0.</p>
 <p>In the online official guide, it says ‘torch.Tensor() is just an alias to torch.FloatTensor()’. And from the torch for numpy users notes, it seems that torch.FloatTensor() is a drop-in replacement of <strong>numpy.empty()</strong>.</p>
@@ -136,12 +78,14 @@ print(a)
 <p><br /></p>
 <h2>nn.Linear</h2>
 <p>The way to create parameters using <strong>nn.Linear()</strong> is a little different. From the official guide online, the way to instantiate is below,</p>
-<div class="highlight"><pre><span></span><code>CLASS torch.nn.Linear(in_features, out_features, bias=True)
-</code></pre></div>
+<div class="highlight"><pre><span></span>CLASS torch.nn.Linear(in_features, out_features, bias=True)
+</pre></div>
+
 
 <p>We can set bias to False to make <strong>nn.Linear()</strong> perform like a simple matrix transformation. In my case, I used</p>
-<div class="highlight"><pre><span></span><code>weight = torch.nn.Linear(2, 2, bias=False)
-</code></pre></div>
+<div class="highlight"><pre><span></span>weight = torch.nn.Linear(2, 2, bias=False)
+</pre></div>
+
 
 <p>Then, what’s about the initialized values? From the official source code,</p>
 <p><img alt="" src="/pictures/2.png" width="420px"></p>
@@ -150,49 +94,32 @@ print(a)
 <h2>nn.Embedding</h2>
 <p><strong>nn.Embedding()</strong> creates a simple lookup table that stores embeddings of a fixed dictionary and size. This module is often used to store word embeddings and retrieve them using indices. The input to the module is a list of indices, and the output is the corresponding word embeddings.</p>
 <p>To create a <strong>nn.Embedding()</strong> parameter, a typical instance is:</p>
-<div class="highlight"><pre><span></span><code>weight = nn.Embedding(num_embedding, embedding_dim)
-</code></pre></div>
+<div class="highlight"><pre><span></span>weight = nn.Embedding(num_embedding, embedding_dim)
+</pre></div>
+
 
 <p>Just num_embedding and embedding_dim are essential. So what does <strong>nn.Embedding()</strong> do in its initialization process? In the official code, it also uses <strong>nn.Parameter()</strong> to create the weight. Note that as same as what happens in <strong>nn.Linear()</strong>, the weight value is reset as well. To be specific init.normal_() method is used to fill the weight tensor with values drawn from the normal distribution.</p>
 <p><img alt="" src="/pictures/3.png" width="400px"></p>
 <p><br /></p>
 <h2>Conclusion</h2>
 <p>So as a conclusion, <strong>nn.Parameter()</strong> receives the tensor that is passed into it, and does not do any initial processing such as uniformization. That means that if the tensor passed into is empty or uninitialized, the parameter will also be empty or uninitialized. But <strong>nn.Linear()</strong> and <strong>nn.Embedding()</strong> initialize their weight tensors with the uniform operation and normalization operation respectively. You won’t get an empty parameter even you only give the shape.</p>
-        </div><!-- /.entry-content -->
-    </article>
-</section>
-</div>
-</div>
-        </div><!--/span-->
-        <div class="span3 well sidebar-nav" id="sidebar">
-<ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><div><i class="icon-external-link"></i><a href="https://github.com/yxwangnju">My GitHub Page</a></div></li>
-    <li><div><i class="icon-external-link"></i><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></div></li>
-<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-    <li><a href="https://twitter.com"><i class="icon-Twitter-sign icon-large"></i>Twitter</a></li>
-
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="/category/technote.html">
-    <i class="icon-folder-open icon-large"></i>TechNote
-</a>
-</li>
-
-
-
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
-      <hr>
-
-    </div><!--/.fluid-container-->
-
-
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/theme/js/jquery-1.7.2.min.js"></script>
-    <script src="/theme/js/bootstrap.min.js"></script>
-  </body>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
 </html>
