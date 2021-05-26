@@ -39,6 +39,8 @@ SOCIAL = (('Twitter', 'https://twitter.com'),)
 MENUITEMS_NAVBAR = (("About", "/pages/about.html"), 
                     ("How to set this page", "/pages/how-to-set-github-page.html"))
 
+MENUITEMS_NAVBAR_FEATURED = (("Tags", "/tags.html", "is-link"),)
+
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
