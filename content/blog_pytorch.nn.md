@@ -9,6 +9,8 @@ Authors: Audrey Wang
 
 <br />
 
+> 这篇文章我也有放在medium上
+
 In a recent PyTorch practice, I used the **torch.nn.Parameter()** class to create a module parameter but found the parameter was initialized with diminutive values like 1.4013e-45, which brought about very strange returned results. I replaced **torch.nn.Parameter()** with **torch.nn.Linear()** later, and surprisingly found the initialized values not odd anymore and the returned results reasonable.
 
 I want to find an explanation for this. What do **nn.Parameter()** and **nn.Linear()** accurately do after being called? And what are the differences between them, and furthermore, **nn.Embedding()**, these frequently-used parameter building modules?

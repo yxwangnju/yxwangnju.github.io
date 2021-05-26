@@ -1,4 +1,4 @@
-Title: Linux commands
+Title: Linux下常用命令整理
 Date: 2021-5-25
 Modified: 2021-5-25
 Category: TechNote
