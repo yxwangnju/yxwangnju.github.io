@@ -17,7 +17,7 @@ The temporal knowledge graph is a special type of knowledge graph. Usually, know
 
 Representation learning methods on temporal knowledge graphs are usually derived from the methods on usual knowledge graphs that are in triple form. For example, TransE-TAE model is designed based on TransE model.
 
-![]({static}/pictures/4.png){:width="600px"}
+![An illustration of TransE-TAE model]({static}/pictures/4.png){:width="600px"}
 
 Temporal knowledge graph embedding methods usually learn embeddings of timestamps or time spans by inserting the temporal variable into the score function when training. After the training process is finished, embeddings of all entities, relations and temporal attributes are generated.
 
@@ -31,7 +31,7 @@ The dynamic knowledge graph is also called the evolving knowledge graph, where t
 
 By far, the study on dynamics on knowledge graph is still under-explored. Most of the existing studies on such topic only consider such a scenario that new entities are emerging. One apparent reason for this is the peculiarity of the knowledge graph. The in-store triples in a knowledge graph are usually immutable facts from the real world, which makes the deletion of existing entities and relations hardly happen. Besides, the amount of relation types is relatively limited compared to the enormous amount of entity types, making the emergence of new relation sporadical. There are some alternative names for emerging entities, such as out-of-sample entities and unseen entities.
 
-![]({static}/pictures/5.png){:width="600px"}
+![An emerging entity (Jnew) is added to the knowledge graph]({static}/pictures/5.png){:width="600px" align="center"}
 
 <br />
 
