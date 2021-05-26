@@ -150,7 +150,7 @@ This is the content of my super blog post.
 </code></pre></div>
 
 <p>You can also have your own metadata keys (so long as they don’t conflict with reserved metadata keywords) for use in your templates. The following table contains a list of reserved metadata keywords:
-<img alt="" src="/pictures/2.jpg" width="600px"></p>
+<img alt="" class="image-process-large-photo" src="/pictures/2.jpg"></p>
 <p><br /></p>
 <h2>7. Install ghp-import</h2>
 <div class="highlight"><pre><span></span><code>$ pip install pelican ghp-import Markdown
@@ -191,17 +191,17 @@ $ git push origin content
 <p><br /></p>
 <h1>How to modify in the future</h1>
 <p>After modification, under the notebook_source category and notebook_source branch, enter: </p>
-<div class="highlight"><pre><span></span><code>pelican content
+<div class="highlight"><pre><span></span><code>pelican content -t new-bootstrap2
 </code></pre></div>
 
-<p>to generate output/ files.</p>
+<p>to generate output/ files. (using the new-bootstrap2 theme)</p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span><code>git add -u (only add changes of tracked files)
+<div class="highlight"><pre><span></span><code>git add -u 
 git commit -m &quot;.&quot;
 git push origin notebook_source
 </code></pre></div>
 
-<p>to commit.</p>
+<p>to commit. (-u only add changes of tracked files)</p>
 <p>enter:</p>
 <div class="highlight"><pre><span></span><code>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
 </code></pre></div>
