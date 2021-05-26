@@ -83,7 +83,10 @@ Summary: Short version for index and feeds
 This is the content of my super blog post.  
 ```
 You can also have your own metadata keys (so long as they don’t conflict with reserved metadata keywords) for use in your templates. The following table contains a list of reserved metadata keywords:
+
 ![]({static}/pictures/2.jpg){: .image-process-large-photo}
+
+![]({static}/pictures/2.jpg){: width="600px"}
 
 <br />
 
