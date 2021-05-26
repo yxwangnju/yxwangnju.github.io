@@ -94,7 +94,7 @@ print(a)
 
 
 <p>Then, what’s about the initialized values? From the official source code,</p>
-<p><img alt="" src="/pictures/2.png" width="420px"></p>
+<p><img alt="" class="image-process-large-photo" src="/pictures/2.png"></p>
 <p>The only additional step in <strong><strong>init</strong>()</strong> is self.reset_parameters() , compared to what <strong>nn.Parameter()</strong> does. <strong>nn.Linear()</strong> uses kaiming_uniform to uniforms its weight, rather than simply using an empty tensor as weight.</p>
 <p><br /></p>
 <h2>nn.Embedding</h2>
@@ -105,7 +105,7 @@ print(a)
 
 
 <p>Just num_embedding and embedding_dim are essential. So what does <strong>nn.Embedding()</strong> do in its initialization process? In the official code, it also uses <strong>nn.Parameter()</strong> to create the weight. Note that as same as what happens in <strong>nn.Linear()</strong>, the weight value is reset as well. To be specific init.normal_() method is used to fill the weight tensor with values drawn from the normal distribution.</p>
-<p><img alt="" src="/pictures/3.png" width="400px"></p>
+<p><img alt="" class="image-process-large-photo" src="/pictures/3.png"></p>
 <p><br /></p>
 <h2>Conclusion</h2>
 <p>So as a conclusion, <strong>nn.Parameter()</strong> receives the tensor that is passed into it, and does not do any initial processing such as uniformization. That means that if the tensor passed into is empty or uninitialized, the parameter will also be empty or uninitialized. But <strong>nn.Linear()</strong> and <strong>nn.Embedding()</strong> initialize their weight tensors with the uniform operation and normalization operation respectively. You won’t get an empty parameter even you only give the shape.</p>
