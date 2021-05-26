@@ -25,8 +25,8 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-TAG_URL = 'tag/{slug}.html'
-TAG_SAVE_AS = 'tag/{slug}.html'
+# TAG_URL = 'tags.html'
+# TAG_SAVE_AS = 'tags.html'
 
 # Blogroll
 LINKS = (('My GitHub Page', 'https://github.com/yxwangnju'),
