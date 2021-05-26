@@ -36,7 +36,7 @@ LINKS = (('My GitHub Page', 'https://github.com/yxwangnju'),
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com'),)
 
-MENUITEMS_NAVBAR = (("About", "/pages/docs.html"), 
+MENUITEMS_NAVBAR = (("About", "/pages/about.html"), 
                     ("How to set this page", "/pages/how-to-set-github-page.html"))
 
 DEFAULT_PAGINATION = False
