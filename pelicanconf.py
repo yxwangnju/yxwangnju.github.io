@@ -65,10 +65,11 @@ IMAGE_PROCESS = {
             "100vw"
         ),
         "srcset": [
+            ("400w", ["scale_in 400 300 True"]),
             ("600w", ["scale_in 600 450 True"]),
             ("800w", ["scale_in 800 600 True"]),
             ("1600w", ["scale_in 1600 1200 True"]),
         ],
-        "default": "800w",
+        "default": "400px",
     },
 }
