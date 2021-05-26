@@ -144,7 +144,7 @@ print(a)
 </code></pre></div>
 
 <p>Then, what’s about the initialized values? From the official source code,</p>
-<p><img alt="" class="image-process-large-photo" src="/pictures/2.png"></p>
+<p><img alt="" src="/pictures/2.png" width="420px"></p>
 <p>The only additional step in <strong><strong>init</strong>()</strong> is self.reset_parameters() , compared to what <strong>nn.Parameter()</strong> does. <strong>nn.Linear()</strong> uses kaiming_uniform to uniforms its weight, rather than simply using an empty tensor as weight.</p>
 <p><br /></p>
 <h2>nn.Embedding</h2>
