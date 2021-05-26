@@ -17,7 +17,7 @@ The temporal knowledge graph is a special type of knowledge graph. Usually, know
 
 Representation learning methods on temporal knowledge graphs are usually derived from the methods on usual knowledge graphs that are in triple form. For example, TransE-TAE model is designed based on TransE model.
 
-![An illustration of TransE-TAE model]({static}/pictures/4.png){:width="600px"}
+![An illustration of TransE-TAE model]({static}/pictures/4.png){: .image-process-article-image}
 
 Temporal knowledge graph embedding methods usually learn embeddings of timestamps or time spans by inserting the temporal variable into the score function when training. After the training process is finished, embeddings of all entities, relations and temporal attributes are generated.
 

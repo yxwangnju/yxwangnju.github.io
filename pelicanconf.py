@@ -45,3 +45,8 @@ PLUGINS = ['i18n_subsites', ]
 JINJA_ENVIRONMENT = {
     'extensions': ['jinja2.ext.i18n'],
 }
+
+IMAGE_PROCESS = {
+    "article-image": ["scale_in 300 300 True"],
+    "thumb": ["crop 0 0 50% 50%", "scale_out 150 150 True", "crop 0 0 150 150"],
+}
