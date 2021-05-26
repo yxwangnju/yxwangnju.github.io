@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 THEME = "../themes/buruma"
 AUTHOR = 'Audrey Wang'
 SITENAME = '学习笔记 Tech Notebook'
-SITEURL = ''
+SITEURL = 'https://yxwangnju.github.io/'
 
 STATIC_PATHS = ['pictures']
 
