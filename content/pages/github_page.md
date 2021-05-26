@@ -17,7 +17,7 @@ Authors: Audrey Wang
 ## 1. Create a repository on GitHub
 Head over to GitHub and create a new repository named `username.github.io`, where `username` is your username (or organization name) on GitHub. Note that this repository should be public.
 
-![]({static}/pictures/1.png){:width="600px"}
+![]({static}/pictures/1.png){: .image-process-large-photo}
 
 <br />
 
@@ -86,8 +86,6 @@ You can also have your own metadata keys (so long as they don’t conflict with 
 
 ![]({static}/pictures/2.jpg){: .image-process-large-photo}
 
-![]({static}/pictures/2.jpg){: width="600px"}
-
 <br />
 
 ## 7. Install ghp-import
@@ -123,6 +121,8 @@ $ git push origin content
 
 ## 9. Finally!
 Now the exciting part is here when you get to view what you've published for everyone to see! Open your browser and enter: *https://username.github.io*
+
+[Note]: I use the theme **buruma**.
 
 <br />
 

@@ -19,7 +19,7 @@ Recently I started blogging. I create my websites with pelican and github pages.
 ## Insert picture
 This command can insert picture into blog and adjust the picture size.
 ```text
-![title](url){:height="400px"}
+![title](url){: .image-process-large-photo}
 ```
 
 <br />
