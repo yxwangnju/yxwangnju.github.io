@@ -12,12 +12,21 @@ TIMEZONE = 'Asia/Shanghai'
 
 DEFAULT_LANG = 'en'
 
+DEFAULT_DATE = 'fs'
+DATE_FORMATS = {
+    'en': '%a, %d %b %Y',
+    'cn': '%Y-%m-%d(%a)',
+}
+
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = 'tag/{slug}.html'
 
 # Blogroll
 LINKS = (('My GitHub Page', 'https://github.com/yxwangnju'),
