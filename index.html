@@ -19,7 +19,57 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html">Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</a></h1>
+                    <h1 class="entry-title"><a href="/dynamic-kgs-vs-temporal-kgs.html">Dynamic KGs vs. Temporal KGs</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-05-26T00:00:00+08:00">
+                Published: 周三 26 五月 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-05-26T00:00:00+08:00">
+                Updated: 周三 26 五月 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
+        </address>
+<p>In <a href="/category/technote.html">TechNote</a>.</p>
+<p>tags: <a href="/tag/research.html">Research</a> </p>
+</footer><!-- /.post-info --><hr>
+<p><br /></p>
+<blockquote>
+<p>这篇文章我也有放在medium上</p>
+</blockquote>
+<h2>Temporal Knowledge Graph</h2>
+<p>The temporal knowledge graph is a special type of knowledge graph. Usually, knowledge graph data is presented in the form of triples, which can be denoted as (h, r, t) where h, r and t are the abbreviations of head entity, relation, and tail entity respectively. In temporal knowledge graph, in addition to entities and relations, the temporal attribute of relations is included as well. Temporal knowledge graph data is presented in the form of quadruples, which are denoted as (h, r, t, a_t) where a_t is the temporal attribute on relations. For instance, (Trump, is_president_of, US, 2017–2020).</p>
+<p>Representation learning methods on temporal knowledge graphs are usually derived from the methods on usual knowledge graphs that are in triple form. For example, TransE-TAE model is designed based on TransE model.</p>
+<p><img alt="" src="/pictures/4.png" width="600px"></p>
+<p>Temporal knowledge graph embedding methods usually learn embeddings of timestamps or time spans by inserting the temporal variable into the score function when training. After the training process is finished, embeddings of all entities, relations and temporal attributes are generated.</p>
+<p>The experiment tasks conducted on temporal knowledge graph mainly are link prediction and temporal information prediction. The link prediction task includes entity prediction and relation prediction, which are also the basic tasks on triple-form knowledge graph embedding. Formally, link prediction tasks can be denoted as (?, r, t, a_t), (h, r, ?, a_t) or (h, ?, t, a_t). The temporal information task aims to predict the timestamp or time span when a given event (triple) happened. Likewise, this task can be denoted as (h, r, t, ?). Latest studies on temporal knowledge graph are able to predict future events.</p>
+<p><br /></p>
+<h2>Dynamic Knowledge Graph</h2>
+<p>The dynamic knowledge graph is also called the evolving knowledge graph, where the topological structure or attributive information is changing over time. Considering that the alteration of attributes on entities and relations is usually trivial, the studies on dynamic knowledge graph generally focus on non-attributive knowledge graph and its topological structure. Frankly speaking, the topological alteration means the addition or deletion of entities and relations.</p>
+<p>By far, the study on dynamics on knowledge graph is still under-explored. Most of the existing studies on such topic only consider such a scenario that new entities are emerging. One apparent reason for this is the peculiarity of the knowledge graph. The in-store triples in a knowledge graph are usually immutable facts from the real world, which makes the deletion of existing entities and relations hardly happen. Besides, the amount of relation types is relatively limited compared to the enormous amount of entity types, making the emergence of new relation sporadical. There are some alternative names for emerging entities, such as out-of-sample entities and unseen entities.</p>
+<p><img alt="" src="/pictures/5.png" width="600px"></p>
+<p><br /></p>
+<h2>Differences</h2>
+<ol>
+<li>The data of temporal knowledge graph is in form of quadruple, while dynamic knowledge graph embedding mainly focuses on non-attributive triple data. </li>
+<li>Temporal knowledge graph embedding methods are trained on stationary datasets. Dynamic knowledge graph embedding methods are designed and trained on evolving datasets. </li>
+<li>Temporal knowledge graph embedding learns embeddings of temporal attributes and can predict temporal information for events. Dynamic knowledge graph embedding aims to learn the embeddings of emerging entities and relations (and may modify the embeddings of existing entities and relations) to predict the links between emerging entities and existing entities. </li>
+</ol>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html" rel="bookmark"
+                           title="Permalink to Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding">Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2021-05-25T00:00:00+08:00">
                 Published: 周二 25 五月 2021
@@ -34,58 +84,15 @@
         </address>
 <p>In <a href="/category/technote.html">TechNote</a>.</p>
 <p>tags: <a href="/tag/pytorch.html">pytorch</a> </p>
-</footer><!-- /.post-info --><hr>
+</footer><!-- /.post-info -->                <hr>
 <p><br /></p>
 <blockquote>
 <p>这篇文章我也有放在medium上</p>
 </blockquote>
-<p>In a recent PyTorch practice, I used the <strong>torch.nn.Parameter()</strong> class to create a module parameter but found the parameter was initialized with diminutive values like 1.4013e-45, which brought about very strange returned results. I replaced <strong>torch.nn.Parameter()</strong> with <strong>torch.nn.Linear()</strong> later, and surprisingly found the initialized values not odd anymore and the returned results reasonable.</p>
-<p>I want to find an explanation for this. What do <strong>nn.Parameter()</strong> and <strong>nn.Linear()</strong> accurately do after being called? And what are the differences between them, and furthermore, <strong>nn.Embedding()</strong>, these frequently-used parameter building modules?</p>
-<p><br /></p>
-<h2>nn.Parameter</h2>
-<div class="highlight"><pre><span></span><code>weight = torch.nn.Parameter(torch.FloatTensor(2,2))
-</code></pre></div>
-
-<p>This code above shows an example of how to use <strong>nn.Parameter()</strong> to create a module parameter. We can see weight is created using a given tensor, which means the initialized value of weight should be the same as the given tensor torch.FloatTensor(2,2). Now I understand the diminutive values I got are original from the given tensor! Let’s move on, what’s the value we get using <strong>torch.FloatTensor()</strong>.</p>
-<div class="highlight"><pre><span></span><code>a = torch.FloatTensor(2,2)
-print(a)
-&gt;&gt; tensor([[4.6837e-39, 9.9184e-39],
-           [9.0000e-39, 1.0561e-38]])
-</code></pre></div>
-
-<p>Extremely small values in all elements! Near to 0.</p>
-<p>In the online official guide, it says ‘torch.Tensor() is just an alias to torch.FloatTensor()’. And from the torch for numpy users notes, it seems that torch.FloatTensor() is a drop-in replacement of <strong>numpy.empty()</strong>.</p>
-<p>Now, all make sense. torch.FloatTensor(2,2) will return an empty tensor. All elements are diminutive, near to zero. That’s why I got the odd results with <strong>nn.Parameter()</strong> (Actually, it’s not about <strong>nn.Parameter()</strong>, but the given tensor).</p>
-<p><br /></p>
-<h2>nn.Linear</h2>
-<p>The way to create parameters using <strong>nn.Linear()</strong> is a little different. From the official guide online, the way to instantiate is below,</p>
-<div class="highlight"><pre><span></span><code>CLASS torch.nn.Linear(in_features, out_features, bias=True)
-</code></pre></div>
-
-<p>We can set bias to False to make <strong>nn.Linear()</strong> perform like a simple matrix transformation. In my case, I used</p>
-<div class="highlight"><pre><span></span><code>weight = torch.nn.Linear(2, 2, bias=False)
-</code></pre></div>
-
-<p>Then, what’s about the initialized values? From the official source code,</p>
-<p><img alt="" src="/pictures/2.png" width="600px"></p>
-<p>The only additional step in <strong><strong>init</strong>()</strong> is self.reset_parameters() , compared to what <strong>nn.Parameter()</strong> does. <strong>nn.Linear()</strong> uses kaiming_uniform to uniforms its weight, rather than simply using an empty tensor as weight.</p>
-<p><br /></p>
-<h2>nn.Embedding</h2>
-<p><strong>nn.Embedding()</strong> creates a simple lookup table that stores embeddings of a fixed dictionary and size. This module is often used to store word embeddings and retrieve them using indices. The input to the module is a list of indices, and the output is the corresponding word embeddings.</p>
-<p>To create a <strong>nn.Embedding()</strong> parameter, a typical instance is:</p>
-<div class="highlight"><pre><span></span><code>weight = nn.Embedding(num_embedding, embedding_dim)
-</code></pre></div>
-
-<p>Just num_embedding and embedding_dim are essential. So what does <strong>nn.Embedding()</strong> do in its initialization process? In the official code, it also uses <strong>nn.Parameter()</strong> to create the weight. Note that as same as what happens in <strong>nn.Linear()</strong>, the weight value is reset as well. To be specific init.normal_() method is used to fill the weight tensor with values drawn from the normal distribution.</p>
-<p><img alt="" src="/pictures/3.png" width="600px"></p>
-<p><br /></p>
-<h2>Conclusion</h2>
-<p>So as a conclusion, <strong>nn.Parameter()</strong> receives the tensor that is passed into it, and does not do any initial processing such as uniformization. That means that if the tensor passed into is empty or uninitialized, the parameter will also be empty or uninitialized. But <strong>nn.Linear()</strong> and <strong>nn.Embedding()</strong> initialize their weight tensors with the uniform operation and normalization operation respectively. You won’t get an empty parameter even you only give the shape.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>In a recent PyTorch practice, I used the <strong>torch.nn.Parameter()</strong> class to create a module parameter but found the parameter was initialized with diminutive values like 1.4013e-45, which brought about very strange returned results. I replaced <strong>torch.nn.Parameter()</strong> with <strong>torch.nn.Linear()</strong> later, and surprisingly found …</p>
+                <a class="readmore" href="/insight-into-pytorchnn-parameter-vs-linear-vs-embedding.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

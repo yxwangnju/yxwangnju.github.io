@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Dynamic KGs vs. Temporal KGs</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="这篇文章我也有放在medium上 Temporal Knowledge Graph The temporal knowledge graph is a special type of knowledge graph. Usually, knowledge graph data is..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">学习笔记 Tech Notebook</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
+                    <li class="active"><a href="/category/technote.html">TechNote</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/dynamic-kgs-vs-temporal-kgs.html" rel="bookmark"
+           title="Permalink to Dynamic KGs vs. Temporal KGs">Dynamic KGs vs. Temporal KGs</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-05-26T00:00:00+08:00">
+                Published: 周三 26 五月 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-05-26T00:00:00+08:00">
+                Updated: 周三 26 五月 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/audrey-wang.html">Audrey Wang</a>
+        </address>
+<p>In <a href="/category/technote.html">TechNote</a>.</p>
+<p>tags: <a href="/tag/research.html">Research</a> </p>
+</footer><!-- /.post-info -->      <hr>
+<p><br /></p>
+<blockquote>
+<p>这篇文章我也有放在medium上</p>
+</blockquote>
+<h2>Temporal Knowledge Graph</h2>
+<p>The temporal knowledge graph is a special type of knowledge graph. Usually, knowledge graph data is presented in the form of triples, which can be denoted as (h, r, t) where h, r and t are the abbreviations of head entity, relation, and tail entity respectively. In temporal knowledge graph, in addition to entities and relations, the temporal attribute of relations is included as well. Temporal knowledge graph data is presented in the form of quadruples, which are denoted as (h, r, t, a_t) where a_t is the temporal attribute on relations. For instance, (Trump, is_president_of, US, 2017–2020).</p>
+<p>Representation learning methods on temporal knowledge graphs are usually derived from the methods on usual knowledge graphs that are in triple form. For example, TransE-TAE model is designed based on TransE model.</p>
+<p><img alt="" src="/pictures/4.png" width="600px"></p>
+<p>Temporal knowledge graph embedding methods usually learn embeddings of timestamps or time spans by inserting the temporal variable into the score function when training. After the training process is finished, embeddings of all entities, relations and temporal attributes are generated.</p>
+<p>The experiment tasks conducted on temporal knowledge graph mainly are link prediction and temporal information prediction. The link prediction task includes entity prediction and relation prediction, which are also the basic tasks on triple-form knowledge graph embedding. Formally, link prediction tasks can be denoted as (?, r, t, a_t), (h, r, ?, a_t) or (h, ?, t, a_t). The temporal information task aims to predict the timestamp or time span when a given event (triple) happened. Likewise, this task can be denoted as (h, r, t, ?). Latest studies on temporal knowledge graph are able to predict future events.</p>
+<p><br /></p>
+<h2>Dynamic Knowledge Graph</h2>
+<p>The dynamic knowledge graph is also called the evolving knowledge graph, where the topological structure or attributive information is changing over time. Considering that the alteration of attributes on entities and relations is usually trivial, the studies on dynamic knowledge graph generally focus on non-attributive knowledge graph and its topological structure. Frankly speaking, the topological alteration means the addition or deletion of entities and relations.</p>
+<p>By far, the study on dynamics on knowledge graph is still under-explored. Most of the existing studies on such topic only consider such a scenario that new entities are emerging. One apparent reason for this is the peculiarity of the knowledge graph. The in-store triples in a knowledge graph are usually immutable facts from the real world, which makes the deletion of existing entities and relations hardly happen. Besides, the amount of relation types is relatively limited compared to the enormous amount of entity types, making the emergence of new relation sporadical. There are some alternative names for emerging entities, such as out-of-sample entities and unseen entities.</p>
+<p><img alt="" src="/pictures/5.png" width="600px"></p>
+<p><br /></p>
+<h2>Differences</h2>
+<ol>
+<li>The data of temporal knowledge graph is in form of quadruple, while dynamic knowledge graph embedding mainly focuses on non-attributive triple data. </li>
+<li>Temporal knowledge graph embedding methods are trained on stationary datasets. Dynamic knowledge graph embedding methods are designed and trained on evolving datasets. </li>
+<li>Temporal knowledge graph embedding learns embeddings of temporal attributes and can predict temporal information for events. Dynamic knowledge graph embedding aims to learn the embeddings of emerging entities and relations (and may modify the embeddings of existing entities and relations) to predict the links between emerging entities and existing entities. </li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
+                            <li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
