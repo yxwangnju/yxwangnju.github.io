@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>学习笔记 Tech Notebook</title>
-	<meta name="description" content="">
-	<meta name="author" content="Audrey Wang">
 
-	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
-	<!--[if lt IE 9]>
-		<script src="/theme/html5.js"></script>
-	<![endif]-->
+        <title>学习笔记 Tech Notebook - conda</title>
+        <meta charset="utf-8" />
 
-	<!-- Styles -->
-	<link href="/theme/bootstrap.min.css" rel="stylesheet">
-	<link href="/theme/local.css" rel="stylesheet">
-	<link href="/theme/pygments.css" rel="stylesheet">
 
-	<!-- Feeds -->
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="/theme/pygment.css" />
+
+        <script src="/theme/js/libs/modernizr-2.6.2.min.js"></script>
 
 
 
 
 </head>
-<body>
-	<div class="topbar">
-	  <div class="topbar-inner">
-		<div class="container-fluid">
-		  <a class="brand" href="/">学习笔记 Tech Notebook</a>
-			<ul class="nav">
-						<li><a href="/pages/about.html">About</a></li>
-						<li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
-					<li ><a href="/category/technote.html">TechNote</a></li>
-			</ul>
-			<p class="pull-right"><a href="/archives.html">[archives]</a> <a href="/tags.html">[tags]</a></p>
-		</div>
-	  </div>
-	</div>
 
-	<div class="container-fluid">
-	  <div class="sidebar">
-		<div class="well">
-			<h3>Blogroll</h3>
-			<ul>
-				<li><a href="https://github.com/yxwangnju">My GitHub Page</a></li>
-				<li><a href="https://audreywongkg.medium.com/">My Medium Blogs</a></li>
-			</ul>
-			<div class="social">
-			<h3>Social</h3>
-			<ul>
-				<li><a href="https://twitter.com">Twitter</a></li>
-			</ul>
-			</div>
-		</div>
-	  </div>
-	  <div class="content">
-<div class="page-header"><h1>学习笔记 Tech Notebook <small>conda</small></h1></div>
-<div class='article'>
-	<h2>远程服务器连网配置+conda使用</h2>
-	<div class="well small">Permalink: <a class="more" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">2021-05-25 00:00:00+08:00</a>
-by <a class="url fn" href="/author/audrey-wang.html">Audrey Wang </a>
- in <a href="/category/technote.html">TechNote</a>
-tags: <a href="/tag/conda.html">conda</a> <a href="/tag/command.html">command</a> </div>
-	<div class="summary"><hr>
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="/">学习笔记 Tech Notebook <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
+
+              </ul>
+            </div>
+
+<section id="content">
+
+
+
+   <div class="row">
+
+
+        <div class="eleven columns">
+                 <ol id="post-list">
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html" rel="bookmark" title="Permalink to 远程服务器连网配置+conda使用">远程服务器连网配置+conda使用</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2021-05-25T00:00:00+08:00"> 周二, 25 5月 2021 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="/author/audrey-wang.html"> Audrey Wang</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <hr>
 <p><br /></p>
 <h1>一、远程服务器连网配置</h1>
 <p>实验室的服务器一般都是没联网的，因此需要让服务器使用其他已连网设备进行代理。一般就使用本地机器。首先下载推荐软件<a href="https://www.youngzsoft.net/ccproxy/">CCProxy</a>, 开启后确认好本地连接地址以及端口，比如111.222.33.44:808。如果本机使用了VPN进行代理，则需要开启二级代理（点击“高级”），并查询VPN的使用端口。</p>
@@ -80,17 +79,86 @@ export https_proxy=https://111.222.33.44:808
 <div class="highlight"><pre><span></span><code>wget www.baidu.com
 </code></pre></div>
 
-<p>如果返回网页数据，则联网成功 …</p> <a class="btn primary xsmall" href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html">more…</a>
-	</div>
-</div>	
+<p>如果返回网页数据，则联网成功 …</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="/yuan-cheng-fu-wu-qi-lian-wang-pei-zhi-condashi-yong.html" rel="bookmark" title="Permalink to 远程服务器连网配置+conda使用">Read more <i class="icon-arrow-right"></i></a></div>
 
 
-		<footer>
-		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
-		  <p>&copy; Audrey Wang</p>
-		</footer>
-	  </div>
 
-	</div>
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="/tag/conda.html">conda</a>
+                                            <a class="danger label" href="/tag/command.html">command</a>
+                                </div>
+
+
+
+                        </article></li>
+                </ol><!-- /#posts-list -->
+
+        </div><!-- /.eleven.columns -->
+        
+<div class="three columns">
+
+  <h4>Pages</h4>
+
+  <ul>
+
+    <li ><a href="/pages/about.html">About</a></li>
+    <li ><a href="/pages/how-to-set-github-page.html">How To Set GitHub Page</a></li>
+  
+
+
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul class="blank">
+    <li><a href="https://twitter.com">Twitter</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+</section><!-- /#content -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="/theme/js/libs/gumby.min.js"></script>
+  <script src="/theme/js/plugins.js"></script>
 </body>
 </html>
