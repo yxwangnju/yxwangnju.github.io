@@ -71,25 +71,22 @@ Categories							</a>
 <p><br /></p>
 <h2>2. Clone the repository</h2>
 <p>Go to the folder where you want to store your project, and clone the new repository:</p>
-<div class="highlight"><pre><span></span>$ git clone https://github.com/username/username.github.io
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/username/username.github.io
 $ cd username.github.io
-</pre></div>
-
+</code></pre></div>
 
 <p><br /></p>
 <h2>3. Create new branch</h2>
 <p>When you enter <code>https://username.github.io</code>, what will happen? And how can GitHub detect your html file in repository? In fact, GitHub automatically detects <code>index.html</code> file from the main branch, and presents this file as your website entrance. Therefore, we need place our page files (the output/ folder in pelican) in main branch. I strongly prefer not to keep all the Pelican configuration files and raw Markdown files in main branch. So I keep the Pelican configuration and the raw content in a separate branch I like to call <strong>notebook_source</strong>.</p>
-<div class="highlight"><pre><span></span>$ git checkout -b notebook_source
+<div class="highlight"><pre><span></span><code>$ git checkout -b notebook_source
 Switched to a new branch &#39;notebook_source&#39;
-</pre></div>
-
+</code></pre></div>
 
 <p><br /></p>
 <h2>4. Configure Pelican</h2>
 <p>Now it's time for content configuration. Pelican provides a great initialization tool called pelican-quickstart that will ask you a series of questions about your blog.</p>
-<div class="highlight"><pre><span></span>$ pelican-quickstart
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ pelican-quickstart
+</code></pre></div>
 
 <p>You can take the defaults on every question except:</p>
 <ul>
@@ -101,22 +98,20 @@ Switched to a new branch &#39;notebook_source&#39;
 <p><br /></p>
 <h2>5. Add pelican files to the notebook_source branch</h2>
 <p>Add all the Pelican-generated files to the content branch of the local Git repo, commit the changes, and push the local changes to the remote repo hosted on GitHub by entering:</p>
-<div class="highlight"><pre><span></span>$ git add .
+<div class="highlight"><pre><span></span><code>$ git add .
 $ git commit -m &#39;initial pelican commit to content&#39;
 $ git push origin content
-</pre></div>
-
+</code></pre></div>
 
 <p><br /></p>
 <h2>6. Write content</h2>
 <p>Now you can get bloggy! All of your blog posts, photos, images, PDFs, etc., will live in the content directory, which is initially empty. We can use Markdown syntax. To begin creating a first post, enter:</p>
-<div class="highlight"><pre><span></span>$ cd content
+<div class="highlight"><pre><span></span><code>$ cd content
 $ touch first-post.md
-</pre></div>
-
+</code></pre></div>
 
 <p>Next, open the empty file first-post.md in your favorite text editor and add the following:</p>
-<div class="highlight"><pre><span></span>Title: My super title
+<div class="highlight"><pre><span></span><code>Title: My super title
 Date: 2010-12-03 10:20
 Modified: 2010-12-05 19:30
 Category: Python
@@ -126,16 +121,14 @@ Authors: Alexis Metaireau, Conan Doyle
 Summary: Short version for index and feeds
 
 This is the content of my super blog post.  
-</pre></div>
-
+</code></pre></div>
 
 <p>You can also have your own metadata keys (so long as they don’t conflict with reserved metadata keywords) for use in your templates. The following table contains a list of reserved metadata keywords:</p>
 <p><img alt="" class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/2.jpg"></p>
 <p><br /></p>
 <h2>7. Install ghp-import</h2>
-<div class="highlight"><pre><span></span>$ pip install pelican ghp-import Markdown
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ pip install pelican ghp-import Markdown
+</code></pre></div>
 
 <p><br /></p>
 <h2>8. Publish</h2>
@@ -143,32 +136,28 @@ This is the content of my super blog post.
 <ul>
 <li>Run Pelican to generate the static HTML files in output. <code>-r</code> is to enable watching for your modifications, instead of manually re-running it every time you want to see your changes. </li>
 </ul>
-<div class="highlight"><pre><span></span>$ pelican content -s pelicanconf.py -r
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ pelican content -s pelicanconf.py -r
+</code></pre></div>
 
 <ul>
 <li>Use ghp-import to add the contents of the output directory to the main branch:</li>
 </ul>
-<div class="highlight"><pre><span></span>$ ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
+</code></pre></div>
 
 <ul>
 <li>Push the local main branch to the remote repo:</li>
 </ul>
-<div class="highlight"><pre><span></span>$ git push origin main
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ git push origin main
+</code></pre></div>
 
 <ul>
 <li>Commit and push the new content to the content branch:</li>
 </ul>
-<div class="highlight"><pre><span></span>$ git add content
+<div class="highlight"><pre><span></span><code>$ git add content
 $ git commit -m &#39;added a first post, a photo and an about page&#39;
 $ git push origin content
-</pre></div>
-
+</code></pre></div>
 
 <p><br /></p>
 <h2>9. Finally!</h2>
@@ -177,30 +166,26 @@ $ git push origin content
 <p><br /></p>
 <h1>How to modify in the future</h1>
 <p>After modification, under the notebook_source category and notebook_source branch, enter: </p>
-<div class="highlight"><pre><span></span>pelican content
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>pelican content
+</code></pre></div>
 
 <p>to generate output/ files. </p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span>git add -u 
+<div class="highlight"><pre><span></span><code>git add -u 
 git commit -m &quot;.&quot;
 git push origin notebook_source
-</pre></div>
-
+</code></pre></div>
 
 <p>to commit. (-u only add changes of tracked files)</p>
 <p>enter:</p>
-<div class="highlight"><pre><span></span>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
+</code></pre></div>
 
 <p>to put new output content to main branch.</p>
 <p>also enter:</p>
-<div class="highlight"><pre><span></span>git checkout main
+<div class="highlight"><pre><span></span><code>git checkout main
 git push origin main
-</pre></div>
-
+</code></pre></div>
 
 <p>to commit.</p>
 <p><br /></p>
