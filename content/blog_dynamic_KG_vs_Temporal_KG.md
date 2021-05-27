@@ -1,13 +1,9 @@
 Title: Dynamic KGs vs. Temporal KGs
 Date: 2021-5-26
 Modified: 2021-5-26
-Category: TechNote
+Category: Research Summary
 Tags: Research
 Authors: Audrey Wang
-
----
-
-<br />
 
 > 这篇文章我也有放在medium上
 
