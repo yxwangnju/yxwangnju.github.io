@@ -97,6 +97,11 @@ ssl_verify: false
 </code></pre></div>
 
 <p>channel一般换成国内的镜像，proxy_server换成上面ccproxy配置的地址。</p>
+<p>如果使用的是pip来下载，则有所不同。需要配置以下的变量</p>
+<div class="highlight"><pre><span></span><code>pip install --proxy=https://111.222.33.44:808 package
+</code></pre></div>
+
+<p>更具体的可以看博客<a href="https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/">blog</a>。</p>
 <p><br /></p>
 <h2>2. conda创建env</h2>
 <p>创建有特定版本python的conda环境：</p>
@@ -110,6 +115,14 @@ ssl_verify: false
 
 <p>或者</p>
 <div class="highlight"><pre><span></span><code>conda install -r requriment.txt
+</code></pre></div>
+
+<p>如果是安装单一的依赖包，则：</p>
+<div class="highlight"><pre><span></span><code>pip install package
+</code></pre></div>
+
+<p>或者</p>
+<div class="highlight"><pre><span></span><code>conda install package
 </code></pre></div>
 
 <p><br /></p>
