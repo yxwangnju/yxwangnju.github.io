@@ -64,7 +64,7 @@ Categories							</a>
 	</div>
 	<div class="message-body has-text-dark">
 		<p>GCN最近两三年特别火，这篇article主要总结GCN这个模型的发展历程。</p>
-<h2>论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）</h2>
+<h3>论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）</h3>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/1.png"></p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/2.png"></p>
 <p>采用了两层传播。</p>
@@ -74,7 +74,7 @@ Categories							</a>
 <li>任务是针对节点分类node classification问题。</li>
 </ol>
 <p><br /></p>
-<h2>论文2：Inductive Representation Learning on Large Graphs -- Hamilton （NIP2017）也就是GraphSAGE</h2>
+<h3>论文2：Inductive Representation Learning on Large Graphs -- Hamilton （NIP2017）也就是GraphSAGE</h3>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/3.png"></p>
 <p>Loss function: </p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/4.png"></p>
@@ -85,16 +85,16 @@ Categories							</a>
 </ol>
 <p>对GCN的突破点是，实现了inductive化。</p>
 <p><br /></p>
-<h2>论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN</h2>
+<h3>论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN</h3>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/5.png"></p>
 <p>要点：适应了KG特性：不同的关系的W不同，即考虑了关系的特殊性。</p>
 <p><br /></p>
-<h2>论文4：End-to-end Structure-Aware Convolutional Networksfor Knowledge Base Completion  -- Shang （aaai 2017） Weighted GCN</h2>
+<h3>论文4：End-to-end Structure-Aware Convolutional Networksfor Knowledge Base Completion  -- Shang （aaai 2017） Weighted GCN</h3>
 <p>相比于kipf的经典GCN，这个weighted GCN为每一层的每个关系单独学习一个权重。</p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/6.png"></p>
 <p>要点：这里的权重仅仅是一个数，而不是向量。因此和R-GCN不同。</p>
 <p><br /></p>
-<h2>论文五：COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS -- Vashishth （ICLR 2020）</h2>
+<h3>论文五：COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS -- Vashishth （ICLR 2020）</h3>
 <p>提出了一个general的KG上的GCN模型。</p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/7.png"></p>
 <p>其中的W有三种：</p>
