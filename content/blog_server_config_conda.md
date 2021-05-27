@@ -13,17 +13,20 @@ Authors: Audrey Wang
 ![]({static}/pictures/ccproxy.jpg){: .image-process-large-photo}
 
 然后，在服务器上设置代理，输入以下命令：
+
 ```text
 export http_proxy=http://111.222.33.44:808
 export https_proxy=https://111.222.33.44:808
 ```
 然后验证是否生效：
+
 ```text
 echo $http_proxy
 ```
 如果显示正确，则ok！
 
 接下来检查是否能上网，输入以下命令：
+
 ```text
 wget www.baidu.com
 ```
@@ -36,6 +39,7 @@ wget www.baidu.com
 
 ## 1. 配置conda连网
 进入服务器的.condarc文件（一般就在自己用户名的目录下），修改文件内容如下：
+
 ```text
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -49,36 +53,61 @@ ssl_verify: false
 ```
 channel一般换成国内的镜像，proxy_server换成上面ccproxy配置的地址。
 
+如果使用的是pip来下载，则有所不同。需要配置以下的变量
+
+```text
+pip install --proxy=https://111.222.33.44:808 package
+```
+更具体的可以看博客[blog](https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/)。
+
 <br />
 
 ## 2. conda创建env
 创建有特定版本python的conda环境：
+
 ```text
 conda create -n envname python=3.7
 ```
 `proceed ([y]/n)?` 就输入 `y`
 
 之后，可用conda或者pip安装其他的依赖包，假设所有依赖包都在requriment.txt文件中：
+
 ```text
 pip install -r requriment.txt
 ```
 或者
+
 ```text
 conda install -r requriment.txt
 ```
+
+如果是安装单一的依赖包，则：
+
+```text
+pip install package
+```
+或者
+
+```text
+conda install package
+```
+
 
 <br />
 
 ## 3. 其他conda命令
 查看目前所有conda环境：
+
 ```text
 conda info -e
 ```
 查看目前环境下有哪些包：
+
 ```text
 conda list 或者 pip list
 ```
 进入某个conda环境：
+
 ```text
 conda activate envname 或者 source activate envname
 ```

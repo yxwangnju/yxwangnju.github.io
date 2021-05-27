@@ -19,7 +19,6 @@ DATE_FORMATS = {
     'cn': '%Y-%m-%d(%a)',
 }
 
-
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
