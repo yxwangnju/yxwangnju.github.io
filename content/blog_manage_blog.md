@@ -6,9 +6,6 @@ Tags: markdown, pelican
 Authors: Audrey Wang
 Status: draft
 
----
-
-<br />
 
 # Introduction
 Recently I started blogging. I create my websites with pelican and github pages. For content, I choosed to use markdown syntax to write. This blog records some helpful commands for writting.
