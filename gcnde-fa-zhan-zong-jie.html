@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>GCN的发展总结  - 学习笔记 Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
+		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="https://yxwangnju.github.io">
+							<img src="https://yxwangnju.github.io/theme/images/buruma_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="/pages/about.html">
+							About
+						</a>
+						<a class="navbar-item" href="/pages/how-to-set-github-page.html">
+							How to set this page
+						</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/research-summary.html">
+									Research Summary
+								</a>
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+								<a class="button is-info" href="/tags.html">Tags</a>
+								<a class="button is-info" href="/archives.html">Archives</a>
+								<a class="button is-link" href="/pages/other-links.html">Other Links</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		<h2>GCN的发展总结</h2>
+		<p><time itemprop="dateCreated" datetime="2021-04-21T00:00:00+08:00">周三, 21 4月 2021</time></p>
+	</div>
+	<div class="message-body has-text-dark">
+		<p>GCN最近两三年特别火，这篇article主要总结GCN这个模型的发展历程。</p>
+<h2>论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）</h2>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/1.png"></p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/2.png"></p>
+<p>采用了两层传播。</p>
+<p>Kipf的这篇工作针对的是图半监督学习的节点标签分类问题。图就是普通的单一无向关系图(比如朋友圈)，半监督学习就是在给定部分节点标签下，学习到所有节点的标签。因此这个模型的特点是：</p>
+<ol>
+<li>没有考虑到图中可能存在的多种关系。</li>
+<li>任务是针对节点分类node classification问题。</li>
+</ol>
+<p><br /></p>
+<h2>论文2：Inductive Representation Learning on Large Graphs -- Hamilton （NIP2017）也就是GraphSAGE</h2>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/3.png"></p>
+<p>Loss function: </p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/4.png"></p>
+<p>这篇文章的要点：</p>
+<ol>
+<li>也是针对的单一无向图，所以没有考虑和学习边</li>
+<li>提出了aggregator的概念</li>
+</ol>
+<p>对GCN的突破点是，实现了inductive化。</p>
+<p><br /></p>
+<h2>论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN</h2>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/5.png"></p>
+<p>要点：适应了KG特性：不同的关系的W不同，即考虑了关系的特殊性。</p>
+<p><br /></p>
+<h2>论文4：End-to-end Structure-Aware Convolutional Networksfor Knowledge Base Completion  -- Shang （aaai 2017） Weighted GCN</h2>
+<p>相比于kipf的经典GCN，这个weighted GCN为每一层的每个关系单独学习一个权重。</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/6.png"></p>
+<p>要点：这里的权重仅仅是一个数，而不是向量。因此和R-GCN不同。</p>
+<p><br /></p>
+<h2>论文五：COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS -- Vashishth （ICLR 2020）</h2>
+<p>提出了一个general的KG上的GCN模型。</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/7.png"></p>
+<p>其中的W有三种：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/8.png"></p>
+<p>可见weight不是relation-specific，而是type-specific的。</p>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
