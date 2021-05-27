@@ -4,9 +4,6 @@ Modified: 2020-1-16
 Tags: pelican, github
 Authors: Audrey Wang
 
----
-
-<br />
 
 # About Pelican
 [Pelican](http://docs.getpelican.com/en/) is a utility that lets you create beautiful weblogs using just text files. [Github Pages](https://pages.github.com/) allows users to store page content in a git repository along with their code. By combining Pelican with Github Pages, you can have a reliable and attractive blog site for your projects.
@@ -168,4 +165,6 @@ where lists the deployments and the time they were deployed.
 
 # References
 1. Another useful blog: [https://opensource.com/article/19/5/run-your-blog-github-pages-python](https://opensource.com/article/19/5/run-your-blog-github-pages-python)
-2. Pelican document: [https://docs.getpelican.com/en/stable/quickstart.html](https://docs.getpelican.com/en/stable/quickstart.html)
+2. [Pelican document](https://docs.getpelican.com/en/stable/quickstart.html)
+3. [Pelican themes](http://www.pelicanthemes.com/)
+4. [Buruma Theme](https://github.com/ivanhercaz/buruma)
