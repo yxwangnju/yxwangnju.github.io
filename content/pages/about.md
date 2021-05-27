@@ -9,6 +9,6 @@ Hi! I am Audrey Wang. This online tech page is mainly for publishing:
 <br />
 
 
-Go to [this page]({filename}/other_links.md) to find my other links:
+Go to [this page]({filename}other_links.md) to find my other links:
 
 <br />
