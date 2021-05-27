@@ -155,6 +155,14 @@ git push origin main
 ```
 to commit.
 
+<br />
+
+# Check the deployments of Page
+Note, Github also has a deployment page. after push all modification, you can enter:
+```text
+https://github.com/yxwangnju/yxwangnju.github.io/deployments
+```
+where lists the deployments and the time they were deployed.
 
 <br />
 
