@@ -7,7 +7,7 @@ Authors: Audrey Wang
 
 GCN最近两三年特别火，这篇article主要总结GCN这个模型的发展历程。
 
-## 论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）
+### 论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）
 
 ![.]({static}/pictures/gcn/1.png){: .image-process-large-photo}
 
@@ -22,7 +22,7 @@ Kipf的这篇工作针对的是图半监督学习的节点标签分类问题。�
 
 <br />
 
-## 论文2：Inductive Representation Learning on Large Graphs -- Hamilton （NIP2017）也就是GraphSAGE
+### 论文2：Inductive Representation Learning on Large Graphs -- Hamilton （NIP2017）也就是GraphSAGE
 
 ![.]({static}/pictures/gcn/3.png){: .image-process-large-photo}
 
@@ -39,7 +39,7 @@ Loss function:
 
 <br />
 
-## 论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN
+### 论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN
 
 ![.]({static}/pictures/gcn/5.png){: .image-process-large-photo}
 
@@ -48,7 +48,7 @@ Loss function:
 
 <br />
 
-## 论文4：End-to-end Structure-Aware Convolutional Networksfor Knowledge Base Completion  -- Shang （aaai 2017） Weighted GCN
+### 论文4：End-to-end Structure-Aware Convolutional Networksfor Knowledge Base Completion  -- Shang （aaai 2017） Weighted GCN
 
 相比于kipf的经典GCN，这个weighted GCN为每一层的每个关系单独学习一个权重。
 
@@ -58,7 +58,7 @@ Loss function:
 
 <br />
 
-## 论文五：COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS -- Vashishth （ICLR 2020）
+### 论文五：COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS -- Vashishth （ICLR 2020）
 
 提出了一个general的KG上的GCN模型。
 
