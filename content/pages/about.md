@@ -17,4 +17,4 @@ You can go to [this page]({filename}other_links.md) to find my other links:
 
 <br />
 
-![.]({static}/pictures/ptranse/1.jpg){: .image-process-large-photo align="center"}
+![.]({static}/pictures/get_hands_dirty.png){: .image-process-large-photo align="center"}
