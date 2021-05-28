@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>Paper总结 - RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space  - My Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
+		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="https://yxwangnju.github.io">
+							<img src="https://yxwangnju.github.io/theme/images/home_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="/pages/about.html">
+							About
+						</a>
+						<a class="navbar-item" href="/pages/how-to-set-github-page.html">
+							How to set this page
+						</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/paper-reading.html">
+									Paper Reading
+								</a>
+								<a class="navbar-item" href="/category/research-summary.html">
+									Research Summary
+								</a>
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+								<a class="button is-info" href="/tags.html">Tags</a>
+								<a class="button is-info" href="/archives.html">Archives</a>
+								<a class="button is-link" href="/pages/other-links.html">Other Links</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space</h2>
+		<p><time itemprop="dateCreated" datetime="2019-10-21T00:00:00+08:00">周一, 21 10月 2019</time></p>
+	</div>
+	<div class="message-body has-text-dark">
+		<p>这篇文章发表在2019年的ICLR上</p>
+<p>主要思想：将 <span class="math">\(h\)</span>，<span class="math">\(r\)</span>, <span class="math">\(t\)</span> 用复数来表示，即 <span class="math">\(h\)</span>, <span class="math">\(t\)</span>, <span class="math">\(r\)</span> <span class="math">\(\in\)</span> <span class="math">\(C\)</span>。</p>
+<p>首先，任何复数 <span class="math">\(Z\)</span> 可表示成： <span class="math">\(Z = r(\cos \theta+i \sin \theta) = r \cos \theta + ir \sin \theta\)</span> </p>
+<p>在RotatE中，约束 <span class="math">\(|r| = 1\)</span>，这样 <span class="math">\(r\)</span> 可看作是一种旋转，譬如</p>
+<p><span class="math">\(h \circ r=h(\cos \theta+i \sin \theta)=t^{\prime}\)</span>, 这里的 <span class="math">\(\circ\)</span> 是 element-wide product。</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/rotate/1.jpg"></p>
+<p>distance function: </p>
+<p><span class="math">\(d_{r}(h, t)=\left\|h \circ r-1\right\|\)</span></p>
+<p>Loss function:</p>
+<p><span class="math">\(L=-\log \sigma\left(\gamma-d_{r}(\mathbf{h}, \mathbf{t})\right)-\sum_{i=1}^{n} \frac{1}{k} \log \sigma\left(d_{r}\left(\mathbf{h}_{i}^{\prime}, \mathbf{t}_{i}^{\prime}\right)-\gamma\right)\)</span></p>
+<p>其中 <span class="math">\(d_{r}(\mathbf{h}, \mathbf{t})\)</span> 是 negative sample。</p>
+<p>RotatE 可以很好的 model 几乎所有关系：</p>
+<p>Three types of relation:</p>
+<ol>
+<li>symmetric / antisymmetry   eg. <span class="math">\(\left(h_{1}, r, h_{2}\right) \Leftrightarrow\left(h_{2}, r, h_{1}\right)\)</span></li>
+<li>inversion                  e.g. <span class="math">\(\left(h_{1}, r_{1}, h_{2}\right) \Leftrightarrow\left(h_{2}, r_{2}, h_{1}\right)\)</span></li>
+<li>composition                e.g. <span class="math">\(\left(h_{1}, r_{1}, h_{2}\right) \wedge\left(h_{2}, r_{2}, h_{3}\right) \Rightarrow\left(h_{1}, r_{3}, h_{3}\right)\)</span></li>
+</ol>
+<p>最后除了普通的Link prediction实验外，还进行了contry dataset的实验。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
