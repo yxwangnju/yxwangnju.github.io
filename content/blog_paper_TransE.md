@@ -13,10 +13,7 @@ Authors: Audrey Wang
 
 ![.]({static}/pictures/8.png){: .image-process-large-photo}
 
-学习的参数个数：
-```text
-n*d + m*d = (n+m)*d
-```
+学习的参数个数：$n \times d + m \times d = (n+m) \times d$
 
 实体之间的关系可分为四种：1-1, 1-n, n-1, n-n:
 
