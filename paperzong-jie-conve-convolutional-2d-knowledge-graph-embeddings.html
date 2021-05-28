@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>Paper总结 - ConvE: Convolutional 2D knowledge graph embeddings  - My Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
+		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="https://yxwangnju.github.io">
+							<img src="https://yxwangnju.github.io/theme/images/home_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="/pages/about.html">
+							About
+						</a>
+						<a class="navbar-item" href="/pages/how-to-set-github-page.html">
+							How to set this page
+						</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/paper-reading.html">
+									Paper Reading
+								</a>
+								<a class="navbar-item" href="/category/research-summary.html">
+									Research Summary
+								</a>
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+								<a class="button is-info" href="/tags.html">Tags</a>
+								<a class="button is-info" href="/archives.html">Archives</a>
+								<a class="button is-link" href="/pages/other-links.html">Other Links</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - ConvE: Convolutional 2D knowledge graph embeddings</h2>
+		<p><time itemprop="dateCreated" datetime="2019-10-24T00:00:00+08:00">周四, 24 10月 2019</time></p>
+	</div>
+	<div class="message-body has-text-dark">
+		<p>发表于AAAI2018。</p>
+<p>该篇文章利用了卷积操作，整个模型如下：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/conve/1.jpg"></p>
+<p>score function的定义如下：</p>
+<div class="math">\begin{equation}
+\psi_{r}\left(\mathbf{e}_{s}, \mathbf{e}_{o}\right)=f\left(\operatorname{vec}\left(f\left(\left[\overline{\mathbf{e}_{s}} ; \overline{\mathbf{r}_{r}}\right] * \omega\right)\right) \mathbf{W}\right) \mathbf{e}_{o}
+\end{equation}</div>
+<p>其中 <span class="math">\(\left[\overline{\mathbf{e}_{s}} ; \overline{\mathbf{r}_{r}}\right] * \omega\)</span> 就是卷积操作，<span class="math">\(\mathbf{W}\)</span> 就是映射。</p>
+<p>同时本文也用了 1-N scoring，以往的scoring都是1-1的打分，这篇文章提出了可用1-N的方式打分。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
