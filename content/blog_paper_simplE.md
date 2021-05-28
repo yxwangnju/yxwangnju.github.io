@@ -11,4 +11,4 @@ Authors: Audrey Wang
 
 ### 总结
 
-这篇文章是基于CP分解。文中认为CP分解中，对实体e分别用两个vector来表示，即$h_e$与$t_e$。其中he表示e处于头实体时的embedding, $t_e$是尾实体的embedding。
+这篇文章是基于CP分解。文中认为CP分解中，对实体e分别用两个vector来表示，即$h_e$与$t_e$。其中$h_e$表示 e 处于头实体时的embedding, $t_e$是尾实体的embedding。
