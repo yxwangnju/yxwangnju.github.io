@@ -68,8 +68,70 @@ Categories							</a>
 	<div class="message-body has-text-dark">
 		<p>作者是Kristina Toutanova, 和Danqi Chen</p>
 <p>本文提出了一个很简单的observed model，就可以在FB15k, WN18上的link prediction的性能超过已有的模型。文中认为原因就是这两个数据集中存在很多冗余的关系，比如语义相似的关系和inverse的关系。</p>
-<p>例子：r1和r2是两个相似的关系，它们经常共同存在，r1,r3是inverse的关系，也会经常共同出现，即(e1, r1, e2)的三元组如果存在，则(e1, r2, e2)和(e2, r3, e1)也会存在。那么r1与r2就是相似关系，r1与r3就是inverse关系。那么在测试集中要测试(e1, r2, e2)或者(e2, r3, e1)时，如果(e1, r1, e2)在训练集中存在，那么这两个三元组则非常可能被判断为正确。</p>
-<p>因此，为了解决FB15K和WN18这两个数据集中存在的问题，本文重新构造了一个数据集FB15k-237。这个数据集中删除了语义相似的关系或者inverse的关系，比如r1,r2,r3，删除了r2和r3，保留了r1，这样最后就只有237个关系。同时，对于测试集与验证集中的每个三元组，其实体之间在训练集中不能相连。也就是说验证集和测试集中要测试的entity pair在训练集中不能相连。</p>
+<p>例子：<span class="math">\(r_1\)</span>和<span class="math">\(r_2\)</span>是两个相似的关系，它们经常共同存在，<span class="math">\(r_1\)</span>, <span class="math">\(r_3\)</span>是inverse的关系，也会经常共同出现，即(<span class="math">\(e_1\)</span>, <span class="math">\(r_1\)</span>, <span class="math">\(e_2\)</span>)的三元组如果存在，则(<span class="math">\(e_1\)</span>, <span class="math">\(r_2\)</span>, <span class="math">\(e_2\)</span>)和(<span class="math">\(e_2\)</span>, <span class="math">\(r_3\)</span>, <span class="math">\(e_1\)</span>)也会存在。那么<span class="math">\(r_1\)</span>与<span class="math">\(r_2\)</span>就是相似关系，<span class="math">\(r_1\)</span>与<span class="math">\(r_3\)</span>就是inverse关系。那么在测试集中要测试(<span class="math">\(e_1\)</span>, <span class="math">\(r_2\)</span>, <span class="math">\(e_2\)</span>)或者(<span class="math">\(e_2\)</span>, <span class="math">\(r_3\)</span>, <span class="math">\(e_1\)</span>)时，如果(<span class="math">\(e_1\)</span>, <span class="math">\(r_1\)</span>, <span class="math">\(e_2\)</span>)在训练集中存在，那么这两个三元组则非常可能被判断为正确。</p>
+<p>因此，为了解决FB15K和WN18这两个数据集中存在的问题，本文重新构造了一个数据集FB15k-237。这个数据集中删除了语义相似的关系或者inverse的关系，比如<span class="math">\(r_1\)</span>,<span class="math">\(r_2\)</span>,<span class="math">\(r_3\)</span>，删除了<span class="math">\(r_2\)</span>和<span class="math">\(r_3\)</span>，保留了<span class="math">\(r_1\)</span>，这样最后就只有237个关系。同时，对于测试集与验证集中的每个三元组，其实体之间在训练集中不能相连。也就是说验证集和测试集中要测试的entity pair在训练集中不能相连。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 	</div>
 </article>
 			</div>
