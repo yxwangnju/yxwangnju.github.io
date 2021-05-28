@@ -48,7 +48,7 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 
 PLUGIN_PATHS = ['../pelican-plugins', ]
-PLUGINS = ['i18n_subsites', ]
+PLUGINS = ['i18n_subsites', 'latex']
 JINJA_ENVIRONMENT = {
     'extensions': ['jinja2.ext.i18n'],
 }
