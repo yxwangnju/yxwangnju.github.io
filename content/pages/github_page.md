@@ -135,9 +135,9 @@ enter:
 ```text
 git add -u 
 git commit -m "."
-git push origin notebook_source
+git push origin notebook_source:notebook_source
 ```
-to commit. (-u only add changes of tracked files)
+to commit notebook_source branch. (-u only add changes of tracked files)
 
 enter:
 ```text
@@ -145,12 +145,11 @@ ghp-import -m "Generate Pelican site" --no-jekyll -b main output
 ```
 to put new output content to main branch.
 
-also enter:
+lastly, enter:
 ```text
-git checkout main
-git push origin main
+git push origin main:main
 ```
-to commit.
+to commit main branch.
 
 <br />
 
