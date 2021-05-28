@@ -21,9 +21,13 @@ Authors: Audrey Wang
 
 于是SimplE为这个边构造了一个反向边(绿色所示)，这样$e_2$与$e_3$的更新就会影响到($e_1$, $e_2$)
 
-$\langle h_e, r, t_e\rangle \doteq \sum_{j=1}^{k} h_{e}[j] * r[j] * t_{e}[j]$
+\begin{equation}
+\langle h_e, r, t_e\rangle \doteq \sum_{j=1}^{k} h_{e}[j] * r[j] * t_{e}[j]
+\end{equation}
 
-$\langle t_e, r^{-1}, h_e\rangle \doteq \sum_{j=1}^{k} h_{e}[j] * r^{-1}[j] * t_{e}[j]$
+\begin{equation}
+\langle t_e, r^{-1}, h_e\rangle \doteq \sum_{j=1}^{k} h_{e}[j] * r^{-1}[j] * t_{e}[j]
+\end{equation}
 
 目标是使所有 $\langle h_e, r, t_e\rangle$ 与 $\langle t_e, r^{-1}, h_e\rangle$ 最小（或者最大化）。测试时只会使用 $r$，而不会使用 $r^{-1}$。
 
