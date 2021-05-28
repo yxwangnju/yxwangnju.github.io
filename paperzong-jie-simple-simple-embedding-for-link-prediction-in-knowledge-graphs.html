@@ -69,7 +69,15 @@ Categories							</a>
 		<p>这篇文章发表于NeurIPS 2018。</p>
 <p>感觉文章作者还是有很强的数学功底的，论文中CP分解部分不太容易理解。</p>
 <h3>总结</h3>
-<p>这篇文章是基于CP分解。文中认为CP分解中，对实体e分别用两个vector来表示，即<span class="math">\(h_e\)</span>与<span class="math">\(t_e\)</span>。其中<span class="math">\(h_e\)</span>表示 e 处于头实体时的embedding, <span class="math">\(t_e\)</span>是尾实体的embedding。</p>
+<p>这篇文章是基于CP分解。文中认为CP分解中，对实体e分别用两个vector来表示，即<span class="math">\(h_e\)</span>与<span class="math">\(t_e\)</span>。其中<span class="math">\(h_e\)</span>表示 e 处于头实体时的embedding, <span class="math">\(t_e\)</span>是尾实体的embedding。关系<span class="math">\(r\)</span>只有一种表示。</p>
+<p>作者认为这种方式有不足的地方，比如说：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/simple/1.jpg"></p>
+<p>假如(<span class="math">\(e_1\)</span>, <span class="math">\(r_1\)</span>, <span class="math">\(e_2\)</span>)是<span class="math">\(e_1\)</span>爱看某个电影，(<span class="math">\(e_2\)</span>, <span class="math">\(r_2\)</span>, <span class="math">\(e_3\)</span>)是<span class="math">\(e_2\)</span>中有<span class="math">\(e_3\)</span>参演。但它们彼此之间没有联系，但直观上感觉<span class="math">\(e_3\)</span>是否参演对<span class="math">\(e_1\)</span>是否爱看这部电影应该是有影响的。</p>
+<p>于是SimplE为这个边构造了一个反向边(绿色所示)，这样<span class="math">\(e_2\)</span>与<span class="math">\(e_3\)</span>的更新就会影响到(<span class="math">\(e_1\)</span>, <span class="math">\(e_2\)</span>)</p>
+<p><span class="math">\(\langle h_e, r, t_e\rangle \doteq \sum_{j=1}^{k} h_{e}[j] * r[j] * t_{e}[j]\)</span></p>
+<p><span class="math">\(\langle t_e, r^{-1}, h_e\rangle \doteq \sum_{j=1}^{k} h_{e}[j] * r^{-1}[j] * t_{e}[j]\)</span></p>
+<p>目标是使所有 <span class="math">\(\langle h_e, r, t_e\rangle\)</span> 与 <span class="math">\(\langle t_e, r^{-1}, h_e\rangle\)</span> 最小（或者最大化）。测试时只会使用 <span class="math">\(r\)</span>，而不会使用 <span class="math">\(r^{-1}\)</span>。</p>
+<p>文忠认为SimplE的表达能力是全面的，能够处理 Symmetric / anti-symmetric / inverse / transitive 所有类型的关系。</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
