@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="author" content="Audrey Wang" />
-		<title>Authors- My Tech Notebook
+		<title>Paper总结 - DKRL:Description-Embodied Knowledge Representation Learning  - My Tech Notebook
 </title>
 		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
 		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
@@ -60,15 +60,24 @@ Categories							</a>
 			</nav>
 		<section class="section">
 			<div class="container">
-	<h1 class="title">Authors</h1>
-
-	<div class="columns is-multiline is-centered">
-		<div class="tags are-large has-text-white">
-		<div class="column has-text-centered">
-			<p><span class="tag is-success"><a href="author/audrey-wang.html">Audrey Wang</a></p>
-			</div>
-		</div>
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - DKRL:Description-Embodied Knowledge Representation Learning</h2>
+		<p><time itemprop="dateCreated" datetime="2019-12-04T00:00:00+08:00">周三, 04 12月 2019</time></p>
 	</div>
+	<div class="message-body has-text-dark">
+		<blockquote>
+<p>这篇文章Accepted in AAAI2016</p>
+</blockquote>
+<p>摘要：已有的KRL模型都是基于structure information来建模的，即只基于三元组关系。事实上，许多知识库中也包含对实体的描述信息，如果在embedding中能考虑到这些文本描述信息，则会提升KRL的效果。在对描述文本进行embedding时，本文考虑了两种方式，一种是bag_of_words，另一种是CNN。Bog_od_words模型把文本内容看成无序的组合，但CNN考虑到了文本内容的位置(因为有窗口)。同时，这篇文章也可用于zero-shot场景的学习，即要测试的实体是全新的、在训练集中未出现过的。</p>
+<h3>特点(不足)：</h3>
+<ol>
+<li>zero-shot的场景只考虑了新增实体，没有考虑新增关系。</li>
+<li>因为考虑了实体的描述信息，因此需要的原始数据就要求比较高。在许多real-KG上不太work。</li>
+<li>也只考虑了FB15K，在上面加新增实体构成了FB20K</li>
+</ol>
+	</div>
+</article>
 			</div>
 		</section>
 		<footer class="footer">
