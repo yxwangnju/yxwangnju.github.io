@@ -16,4 +16,4 @@ You can go to [this page]({filename}other_links.md) to find my other links.
 
 <br />
 
-![.]({static}/pictures/get_hands_dirty.png){: width="600px" align="center"}
+<img alt="Get Hands Dirty!" src="{filename}/pictures/get_hands_dirty.png" data-action="zoom" width="800px" align="center">
