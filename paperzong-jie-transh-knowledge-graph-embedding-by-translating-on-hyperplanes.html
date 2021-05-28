@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="author" content="Audrey Wang" />
-		<title>Tags - My Tech Notebook
+		<title>Paper总结 - TransH: Knowledge graph embedding by translating on hyperplanes  - My Tech Notebook
 </title>
 		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
 		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
@@ -60,19 +60,20 @@ Categories							</a>
 			</nav>
 		<section class="section">
 			<div class="container">
-	<h1 class="title">Tags</h1>
-
-	<div class="tags are-medium">
-			<span class="tag"><a href="tag/bert.html">BERT (1)</a></span>
-			<span class="tag"><a href="tag/command.html">command (4)</a></span>
-			<span class="tag"><a href="tag/conda.html">conda (1)</a></span>
-			<span class="tag"><a href="tag/gcn.html">GCN (1)</a></span>
-			<span class="tag"><a href="tag/linux.html">linux (1)</a></span>
-			<span class="tag"><a href="tag/paper.html">Paper (4)</a></span>
-			<span class="tag"><a href="tag/pytorch.html">pytorch (1)</a></span>
-			<span class="tag"><a href="tag/research.html">Research (6)</a></span>
-			<span class="tag"><a href="tag/tensorflow.html">tensorflow (1)</a></span>
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - TransH: Knowledge graph embedding by translating on hyperplanes</h2>
+		<p><time itemprop="dateCreated" datetime="2019-10-17T00:00:00+08:00">周四, 17 10月 2019</time></p>
 	</div>
+	<div class="message-body has-text-dark">
+		<p>为了解决TransE无法很好地表达reflexive/one-to-many/many-to-one/many-to-many关系的问题，TransH会将实体的每个embedding投影到一个平面上，再在这些平面上做translation。</p>
+<p>对每一个关系，除了关系自身的embedding外，还定义了每个关系的投影平面的法向量Wr。</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/7.jpg"></p>
+<p>TransH的实验结果：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/8.jpg"></p>
+<p>同时，本论文也做了triple classification和text fact extraction的实验。</p>
+	</div>
+</article>
 			</div>
 		</section>
 		<footer class="footer">

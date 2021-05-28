@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="author" content="Audrey Wang" />
-		<title>Tags - My Tech Notebook
+		<title>Paper总结 - TransD: Knowledge graph embedding via dynamic mapping matrix  - My Tech Notebook
 </title>
 		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
 		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
@@ -60,19 +60,26 @@ Categories							</a>
 			</nav>
 		<section class="section">
 			<div class="container">
-	<h1 class="title">Tags</h1>
-
-	<div class="tags are-medium">
-			<span class="tag"><a href="tag/bert.html">BERT (1)</a></span>
-			<span class="tag"><a href="tag/command.html">command (4)</a></span>
-			<span class="tag"><a href="tag/conda.html">conda (1)</a></span>
-			<span class="tag"><a href="tag/gcn.html">GCN (1)</a></span>
-			<span class="tag"><a href="tag/linux.html">linux (1)</a></span>
-			<span class="tag"><a href="tag/paper.html">Paper (4)</a></span>
-			<span class="tag"><a href="tag/pytorch.html">pytorch (1)</a></span>
-			<span class="tag"><a href="tag/research.html">Research (6)</a></span>
-			<span class="tag"><a href="tag/tensorflow.html">tensorflow (1)</a></span>
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - TransD: Knowledge graph embedding via dynamic mapping matrix</h2>
+		<p><time itemprop="dateCreated" datetime="2019-10-22T00:00:00+08:00">周二, 22 10月 2019</time></p>
 	</div>
+	<div class="message-body has-text-dark">
+		<p>我感觉这篇文章没有什么太吸引人的地方。</p>
+<p>文章的目的是：认为CTransR考虑了关系的种类，但没有考虑实体的种类。</p>
+<p>方法：对实体和关系都用了2个vector来embedding。比如对(h, r, t)，用h, hp, r, rp, t, tp来embedding。其中:
+<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/9.png"></p>
+<p>接着定义了两个映射矩阵：
+<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/10.png"></p>
+<p>得到映射后的两个向量：
+<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/11.png"></p>
+<p>score function还是translation-based：
+<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/12.png"></p>
+<p>Loss function:
+<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/13.png"></p>
+	</div>
+</article>
 			</div>
 		</section>
 		<footer class="footer">
