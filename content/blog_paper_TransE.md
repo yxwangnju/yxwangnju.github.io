@@ -11,7 +11,7 @@ Authors: Audrey Wang
 
 距离公式：
 
-![.]({static}/pictures/gcn/8.png){: .image-process-large-photo}
+![.]({static}/pictures/8.png){: .image-process-large-photo}
 
 学习的参数个数：
 ```text
@@ -20,6 +20,6 @@ n*d + m*d = (n+m)*d
 
 实体之间的关系可分为四种：1-1, 1-n, n-1, n-n:
 
-![.]({static}/pictures/gcn/6.jpg){: .image-process-large-photo}
+![.]({static}/pictures/6.jpg){: .image-process-large-photo}
 
 TransE在处理irreflexive和one-to-one的关系时表现更好。
