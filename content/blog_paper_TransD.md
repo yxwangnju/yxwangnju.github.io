@@ -9,7 +9,7 @@ Authors: Audrey Wang
 
 文章的目的是：认为CTransR考虑了关系的种类，但没有考虑实体的种类。
 
-方法：对实体和关系都用了2个vector来embedding。比如对(h, r, t)，用$h$, $h_p$, $r$, $r_p$, $t$, $t_p$来embedding。其中: $h, h_{p} \in R^{m}, t, t_{p} \in R^{n}$
+方法：对实体和关系都用了2个vector来embedding。比如对(h, r, t)，用 $h$, $h_p$, $r$, $r_p$, $t$, $t_p$ 来embedding。其中: $h, h_{p} \in R^{m}, t, t_{p} \in R^{n}$
 
 接着定义了两个映射矩阵：
 
