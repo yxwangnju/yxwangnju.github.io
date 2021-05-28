@@ -11,7 +11,7 @@ TransR其实和TransH很相似，针对不同的关系将实体映射到不同�
 
 ![.]({static}/pictures/TransR/1.png){: .image-process-large-photo}
 
-对于每一个关系r，都有一个映射矩阵Mr，将实体映射到关系空间中。
+对于每一个关系$r$，都有一个映射矩阵$M_r$，将实体映射到关系空间中。
 
 ![.]({static}/pictures/TransR/2.png){: .image-process-large-photo}
 
