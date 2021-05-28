@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>Paper总结 - KB2E: Learning to represent knowledge graphs with Gaussian embedding  - My Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
+		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="https://yxwangnju.github.io">
+							<img src="https://yxwangnju.github.io/theme/images/home_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="/pages/about.html">
+							About
+						</a>
+						<a class="navbar-item" href="/pages/how-to-set-github-page.html">
+							How to set this page
+						</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/paper-reading.html">
+									Paper Reading
+								</a>
+								<a class="navbar-item" href="/category/research-summary.html">
+									Research Summary
+								</a>
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+								<a class="button is-info" href="/tags.html">Tags</a>
+								<a class="button is-info" href="/archives.html">Archives</a>
+								<a class="button is-link" href="/pages/other-links.html">Other Links</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - KB2E: Learning to represent knowledge graphs with Gaussian embedding</h2>
+		<p><time itemprop="dateCreated" datetime="2019-10-22T00:00:00+08:00">周二, 22 10月 2019</time></p>
+	</div>
+	<div class="message-body has-text-dark">
+		<p>这篇文章发表于2015年，用了高斯分布来描述试题表述的不确性。对每个实体和关系用高斯分布来表示，即</p>
+<p><span class="math">\(\mathcal{P}_{h} \sim \mathcal{N}\left(\boldsymbol{\mu}_{h}, \boldsymbol{\Sigma}_{h}\right)\)</span></p>
+<p><span class="math">\(\mathcal{P}_{r} \sim \mathcal{N}\left(\boldsymbol{\mu}_{r}, \boldsymbol{\Sigma}_{r}\right)\)</span></p>
+<p><span class="math">\(\mathcal{P}_{t} \sim \mathcal{N}\left(\boldsymbol{\mu}_{t}, \boldsymbol{\Sigma}_{t}\right)\)</span></p>
+<p>然后，还是使用translation 那一套思想，想要 (h-t) 与 r 尽可能吻合。</p>
+<p><span class="math">\(P_{e} \sim N\left(u_{n}-u_{t}, \Sigma_{n}+\Sigma_{r}\right) \quad P_{r} \sim N\left(u_{r}, \Sigma_{r}\right)\)</span></p>
+<p>Then, they use two method to model the similarity of <span class="math">\(P_e\)</span> and <span class="math">\(P_r\)</span>.</p>
+<p>Loss function：</p>
+<p><span class="math">\(\mathcal{L}=\sum_{(h, r, t) \in \Gamma} \sum_{\left(h^{\prime}, r^{\prime}, t^{\prime}\right) \in \Gamma_{(h, r, t)}^{\prime}}\left[\mathcal{E}(h, r, t)+\gamma-\mathcal{E}\left(h^{\prime}, r^{\prime}, t^{\prime}\right)\right]_{+}\)</span></p>
+<p>Experiments on two Tasks:</p>
+<ol>
+<li>Link Prediction</li>
+<li>Triple classification</li>
+</ol>
+<p><strong>Motivation: They think TransE/TransH/TransR all don't consider the uncertainty of embeddings.</strong></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
