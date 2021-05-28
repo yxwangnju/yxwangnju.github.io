@@ -177,21 +177,20 @@ $ git push origin content
 <p>enter:</p>
 <div class="highlight"><pre><span></span><code>git add -u 
 git commit -m &quot;.&quot;
-git push origin notebook_source
+git push origin notebook_source:notebook_source
 </code></pre></div>
 
-<p>to commit. (-u only add changes of tracked files)</p>
+<p>to commit notebook_source branch. (-u only add changes of tracked files)</p>
 <p>enter:</p>
 <div class="highlight"><pre><span></span><code>ghp-import -m &quot;Generate Pelican site&quot; --no-jekyll -b main output
 </code></pre></div>
 
 <p>to put new output content to main branch.</p>
-<p>also enter:</p>
-<div class="highlight"><pre><span></span><code>git checkout main
-git push origin main
+<p>lastly, enter:</p>
+<div class="highlight"><pre><span></span><code>git push origin main:main
 </code></pre></div>
 
-<p>to commit.</p>
+<p>to commit main branch.</p>
 <p><br /></p>
 <h1>Check the deployments of Page</h1>
 <p>Note, Github also has a deployment page. after push all modification, you can enter:</p>
