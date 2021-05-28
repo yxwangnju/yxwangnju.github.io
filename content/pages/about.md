@@ -15,6 +15,4 @@ This tech webpage is mainly for me to publish:
 
 You can go to [this page]({filename}other_links.md) to find my other links:
 
-<br />
-
 ![.]({static}/pictures/get_hands_dirty.png){: .image-process-large-photo align="center"}
