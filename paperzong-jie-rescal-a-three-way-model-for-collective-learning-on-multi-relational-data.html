@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="author" content="Audrey Wang" />
-		<title>Tags - My Tech Notebook
+		<title>Paper总结 - RESCAL: A three-way model for collective learning on multi-relational data  - My Tech Notebook
 </title>
 		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
 		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
@@ -60,19 +60,21 @@ Categories							</a>
 			</nav>
 		<section class="section">
 			<div class="container">
-	<h1 class="title">Tags</h1>
-
-	<div class="tags are-medium">
-			<span class="tag"><a href="tag/bert.html">BERT (1)</a></span>
-			<span class="tag"><a href="tag/command.html">command (4)</a></span>
-			<span class="tag"><a href="tag/conda.html">conda (1)</a></span>
-			<span class="tag"><a href="tag/gcn.html">GCN (1)</a></span>
-			<span class="tag"><a href="tag/linux.html">linux (1)</a></span>
-			<span class="tag"><a href="tag/paper.html">Paper (7)</a></span>
-			<span class="tag"><a href="tag/pytorch.html">pytorch (1)</a></span>
-			<span class="tag"><a href="tag/research.html">Research (9)</a></span>
-			<span class="tag"><a href="tag/tensorflow.html">tensorflow (1)</a></span>
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - RESCAL: A three-way model for collective learning on multi-relational data</h2>
+		<p><time itemprop="dateCreated" datetime="2019-10-16T00:00:00+08:00">周三, 16 10月 2019</time></p>
 	</div>
+	<div class="message-body has-text-dark">
+		<p>这篇文章是2011年发表在ICML上的。</p>
+<p>A: matrix of entity embedding</p>
+<p>Rk: matrix of k-th relation embedding</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/1.png">是一个矩阵，即关于关系k的实体间的邻接矩阵</p>
+<p>优化目标：<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/2.png"></p>
+<p>其中：<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/3.png"> 并且 <img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/4.png"></p>
+<p>总之，RESCAL就是对每一个关系建立了一个关系矩阵，有多个关系就有多少个关系矩阵。因此，RESCAL一个很大的缺点就是训练参数太多了。</p>
+	</div>
+</article>
 			</div>
 		</section>
 		<footer class="footer">
