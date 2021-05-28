@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="author" content="Audrey Wang" />
-		<title>Paper总结 - DKRL:Description-Embodied Knowledge Representation Learning  - My Tech Notebook
+		<title>Paper总结 - LAN: Logic Attention Based Neighborhood Aggregation for Inductive Knowledge Graph Embedding  - My Tech Notebook
 </title>
 		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
 		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
@@ -62,19 +62,23 @@ Categories							</a>
 			<div class="container">
 <article class="message is-info">
 	<div class="message-header">
-		<h2>Paper总结 - DKRL:Description-Embodied Knowledge Representation Learning</h2>
+		<h2>Paper总结 - LAN: Logic Attention Based Neighborhood Aggregation for Inductive Knowledge Graph Embedding</h2>
 		<p><time itemprop="dateCreated" datetime="2019-12-04T00:00:00+08:00">周三, 04 12月 2019</time></p>
 	</div>
 	<div class="message-body has-text-dark">
-		<blockquote>
-<p>这篇文章Accepted in AAAI2016</p>
-</blockquote>
-<p>摘要：已有的KRL模型都是基于structure information来建模的，即只基于三元组关系。事实上，许多知识库中也包含对实体的描述信息，如果在embedding中能考虑到这些文本描述信息，则会提升KRL的效果。在对描述文本进行embedding时，本文考虑了两种方式，一种是bag_of_words，另一种是CNN。Bog_od_words模型把文本内容看成无序的组合，但CNN考虑到了文本内容的位置(因为有窗口)。同时，这篇文章也可用于zero-shot场景的学习，即要测试的实体是全新的、在训练集中未出现过的。</p>
-<h3>特点(不足)：</h3>
+		<p>Accepted in AAAI2019</p>
+<h3>阅读时发现的特性(不足)：</h3>
 <ol>
-<li>zero-shot的场景只考虑了新增实体，没有考虑新增关系。</li>
-<li>因为考虑了实体的描述信息，因此需要的原始数据就要求比较高。在许多real-KG上不太work。</li>
-<li>也只考虑了FB15K，在上面加新增实体构成了FB20K。</li>
+<li>仍然学习的是 neiboirhood aggregator，那么这种通用的 aggregator，每来一个新实体不需经过训练就直接得到 embedding，是否造成这个 embedding 的质量并不好。</li>
+<li>只考虑到新实体的加入。</li>
+<li>新实体必须是只出现在head位置或只出现在 tail 位置的实体。对于既出现在 head 又出现在 tail 的实体无法执行。</li>
+<li>只在一个数据集 (FB15K) 上做实验。</li>
+</ol>
+<p><br /></p>
+<h3>文章的创新点：</h3>
+<ol>
+<li>获取周围邻居的 neighbors 后，在 pooling 层求新实体的 embedding 时，引入了 attention mechanism。这个 attention mechanism 引用了 logic rule (概率)，这是关键的地方。</li>
+<li>做了充足的小实验，比如 pooling 层用 mean、LSTM 以及各种 attention 变种。因为用了 attention，还加了一个 case study。</li>
 </ol>
 	</div>
 </article>
