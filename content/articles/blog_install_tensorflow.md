@@ -26,4 +26,4 @@ pip就是python依赖包安装工具，我觉得pip是最方便的。在python�
 ![]({static}/pictures/7.png){: .image-process-large-photo}
 
 ## conda配置不同的环境
-如果装了tensorflow，再安装tensorflow-gpu，默认会运行tensorflow-gpu，如果本机不支持CUDA，就开始报错。而上面的安装方法的那个列表不支持删除。可以打开cmd，输入pip list，这样可以看到所有已经安装的包。pip uninstall tensorflow和pip uninstall tensorflow-gpu就可以删除这两个包。然后重新安装tensorflow。最好使用conda来配置不同的环境。具体conda配置环境可查看这个article[conda配置]({filename}/blog_server_config_conda.md)。
+如果装了tensorflow，再安装tensorflow-gpu，默认会运行tensorflow-gpu，如果本机不支持CUDA，就开始报错。而上面的安装方法的那个列表不支持删除。可以打开cmd，输入pip list，这样可以看到所有已经安装的包。pip uninstall tensorflow和pip uninstall tensorflow-gpu就可以删除这两个包。然后重新安装tensorflow。最好使用conda来配置不同的环境。具体conda配置环境可查看这个article[conda配置]({filename}/articles/blog_server_config_conda.md)。
