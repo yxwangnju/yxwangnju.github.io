@@ -68,16 +68,15 @@ Categories							</a>
 	<div class="message-body has-text-dark">
 		<p>我感觉这篇文章没有什么太吸引人的地方。</p>
 <p>文章的目的是：认为CTransR考虑了关系的种类，但没有考虑实体的种类。</p>
-<p>方法：对实体和关系都用了2个vector来embedding。比如对(h, r, t)，用<span class="math">\(h\)</span>, <span class="math">\(h_p\)</span>, <span class="math">\(r\)</span>, <span class="math">\(r_p\)</span>, <span class="math">\(t\)</span>, <span class="math">\(t_p\)</span>来embedding。其中:
-<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/9.png"></p>
-<p>接着定义了两个映射矩阵：
-<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/10.png"></p>
-<p>得到映射后的两个向量：
-<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/11.png"></p>
-<p>score function还是translation-based：
-<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/12.png"></p>
-<p>Loss function:
-<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/13.png"></p>
+<p>方法：对实体和关系都用了2个vector来embedding。比如对(h, r, t)，用<span class="math">\(h\)</span>, <span class="math">\(h_p\)</span>, <span class="math">\(r\)</span>, <span class="math">\(r_p\)</span>, <span class="math">\(t\)</span>, <span class="math">\(t_p\)</span>来embedding。其中: <span class="math">\(h, h_{p} \in R^{m}, t, t_{p} \in R^{n}\)</span></p>
+<p>接着定义了两个映射矩阵：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/10.png"></p>
+<p>得到映射后的两个向量：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/11.png"></p>
+<p>score function还是translation-based：</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/12.png"></p>
+<p>Loss function:</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/13.png"></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
