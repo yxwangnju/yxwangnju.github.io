@@ -40,7 +40,8 @@ LINKS = (('My GitHub Page', 'https://github.com/yxwangnju'),
 SOCIAL = (('Twitter', 'https://twitter.com'),)
 
 MENUITEMS_NAVBAR = (("About", "/pages/about.html"), 
-                    ("How to set this page", "/pages/how-to-set-github-page.html"))
+                    ("How to set this page", "/pages/how-to-set-github-page.html"),
+                    ("Useful Websites", "/pages/some-useful-websites.html"))
 
 MENUITEMS_NAVBAR_FEATURED = (("Tags", "/tags.html", "is-info"),
                              ("Archives", "/archives.html", "is-info"),
