@@ -25,6 +25,9 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+PATH = 'content'
+ARTICLE_PATHS = ['articles']
+ARTICLE_SAVE_AS = 'articles/{slug}.html'
 # TAG_URL = 'tags.html'
 # TAG_SAVE_AS = 'tags.html'
 
