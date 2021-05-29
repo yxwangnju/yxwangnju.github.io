@@ -15,7 +15,7 @@
 		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
 				<div class="navbar-brand">
 						<a class="navbar-item" href="https://yxwangnju.github.io">
-							<img src="https://yxwangnju.github.io/theme/images/home_logo.png" width="112" height="28">
+							<img src="https://yxwangnju.github.io/theme/images/buruma_logo.png" width="112" height="28">
 						</a>
 					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
 						<span aria-hidden="true"></span>
@@ -66,7 +66,7 @@ Categories							</a>
 <article class="message is-info">
 	<div class="message-header">
 		<h2>Insight into PyTorch.nn: Parameter vs. Linear vs. Embedding</h2>
-		<p><time itemprop="dateCreated" datetime="2021-05-25T00:00:00+08:00">周二, 25 5月 2021</time></p>
+		<p><time itemprop="dateCreated" datetime="2021-05-25T00:00:00+08:00">二, 25  5 2021</time></p>
 	</div>
 	<div class="message-body has-text-dark">
 		<hr>
@@ -78,15 +78,17 @@ Categories							</a>
 <p>I want to find an explanation for this. What do <strong>nn.Parameter()</strong> and <strong>nn.Linear()</strong> accurately do after being called? And what are the differences between them, and furthermore, <strong>nn.Embedding()</strong>, these frequently-used parameter building modules?</p>
 <p><br /></p>
 <h2>nn.Parameter</h2>
-<div class="highlight"><pre><span></span><code>weight = torch.nn.Parameter(torch.FloatTensor(2,2))
-</code></pre></div>
+<div class="highlight"><pre><span></span>weight = torch.nn.Parameter(torch.FloatTensor(2,2))
+</pre></div>
+
 
 <p>This code above shows an example of how to use <strong>nn.Parameter()</strong> to create a module parameter. We can see weight is created using a given tensor, which means the initialized value of weight should be the same as the given tensor torch.FloatTensor(2,2). Now I understand the diminutive values I got are original from the given tensor! Let’s move on, what’s the value we get using <strong>torch.FloatTensor()</strong>.</p>
-<div class="highlight"><pre><span></span><code>a = torch.FloatTensor(2,2)
+<div class="highlight"><pre><span></span>a = torch.FloatTensor(2,2)
 print(a)
 &gt;&gt; tensor([[4.6837e-39, 9.9184e-39],
            [9.0000e-39, 1.0561e-38]])
-</code></pre></div>
+</pre></div>
+
 
 <p>Extremely small values in all elements! Near to 0.</p>
 <p>In the online official guide, it says ‘torch.Tensor() is just an alias to torch.FloatTensor()’. And from the torch for numpy users notes, it seems that torch.FloatTensor() is a drop-in replacement of <strong>numpy.empty()</strong>.</p>
@@ -94,12 +96,14 @@ print(a)
 <p><br /></p>
 <h2>nn.Linear</h2>
 <p>The way to create parameters using <strong>nn.Linear()</strong> is a little different. From the official guide online, the way to instantiate is below,</p>
-<div class="highlight"><pre><span></span><code>CLASS torch.nn.Linear(in_features, out_features, bias=True)
-</code></pre></div>
+<div class="highlight"><pre><span></span>CLASS torch.nn.Linear(in_features, out_features, bias=True)
+</pre></div>
+
 
 <p>We can set bias to False to make <strong>nn.Linear()</strong> perform like a simple matrix transformation. In my case, I used</p>
-<div class="highlight"><pre><span></span><code>weight = torch.nn.Linear(2, 2, bias=False)
-</code></pre></div>
+<div class="highlight"><pre><span></span>weight = torch.nn.Linear(2, 2, bias=False)
+</pre></div>
+
 
 <p>Then, what’s about the initialized values? From the official source code,</p>
 <p><img alt="" class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/2.png"></p>
@@ -108,8 +112,9 @@ print(a)
 <h2>nn.Embedding</h2>
 <p><strong>nn.Embedding()</strong> creates a simple lookup table that stores embeddings of a fixed dictionary and size. This module is often used to store word embeddings and retrieve them using indices. The input to the module is a list of indices, and the output is the corresponding word embeddings.</p>
 <p>To create a <strong>nn.Embedding()</strong> parameter, a typical instance is:</p>
-<div class="highlight"><pre><span></span><code>weight = nn.Embedding(num_embedding, embedding_dim)
-</code></pre></div>
+<div class="highlight"><pre><span></span>weight = nn.Embedding(num_embedding, embedding_dim)
+</pre></div>
+
 
 <p>Just num_embedding and embedding_dim are essential. So what does <strong>nn.Embedding()</strong> do in its initialization process? In the official code, it also uses <strong>nn.Parameter()</strong> to create the weight. Note that as same as what happens in <strong>nn.Linear()</strong>, the weight value is reset as well. To be specific init.normal_() method is used to fill the weight tensor with values drawn from the normal distribution.</p>
 <p><img alt="" class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/3.png"></p>

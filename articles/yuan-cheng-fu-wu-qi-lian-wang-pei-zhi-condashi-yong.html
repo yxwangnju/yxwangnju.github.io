@@ -15,7 +15,7 @@
 		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
 				<div class="navbar-brand">
 						<a class="navbar-item" href="https://yxwangnju.github.io">
-							<img src="https://yxwangnju.github.io/theme/images/home_logo.png" width="112" height="28">
+							<img src="https://yxwangnju.github.io/theme/images/buruma_logo.png" width="112" height="28">
 						</a>
 					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
 						<span aria-hidden="true"></span>
@@ -66,32 +66,35 @@ Categories							</a>
 <article class="message is-info">
 	<div class="message-header">
 		<h2>远程服务器连网配置+conda使用</h2>
-		<p><time itemprop="dateCreated" datetime="2021-05-25T00:00:00+08:00">周二, 25 5月 2021</time></p>
+		<p><time itemprop="dateCreated" datetime="2021-05-25T00:00:00+08:00">二, 25  5 2021</time></p>
 	</div>
 	<div class="message-body has-text-dark">
 		<h1>一、远程服务器连网配置</h1>
 <p>实验室的服务器一般都是没联网的，因此需要让服务器使用其他已连网设备进行代理。一般就使用本地机器。首先下载推荐软件<a href="https://www.youngzsoft.net/ccproxy/">CCProxy</a>, 开启后确认好本地连接地址以及端口，比如111.222.33.44:808。如果本机使用了VPN进行代理，则需要开启二级代理（点击“高级”），并查询VPN的使用端口。</p>
 <p><img alt="" class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/ccproxy.jpg"></p>
 <p>然后，在服务器上设置代理，输入以下命令：</p>
-<div class="highlight"><pre><span></span><code>export http_proxy=http://111.222.33.44:808
+<div class="highlight"><pre><span></span>export http_proxy=http://111.222.33.44:808
 export https_proxy=https://111.222.33.44:808
-</code></pre></div>
+</pre></div>
+
 
 <p>然后验证是否生效：</p>
-<div class="highlight"><pre><span></span><code>echo $http_proxy
-</code></pre></div>
+<div class="highlight"><pre><span></span>echo $http_proxy
+</pre></div>
+
 
 <p>如果显示正确，则ok！</p>
 <p>接下来检查是否能上网，输入以下命令：</p>
-<div class="highlight"><pre><span></span><code>wget www.baidu.com
-</code></pre></div>
+<div class="highlight"><pre><span></span>wget www.baidu.com
+</pre></div>
+
 
 <p>如果返回网页数据，则联网成功！</p>
 <p><br /></p>
 <h1>二、Conda配置与使用</h1>
 <h2>1. 配置conda连网</h2>
 <p>进入服务器的.condarc文件（一般就在自己用户名的目录下），修改文件内容如下：</p>
-<div class="highlight"><pre><span></span><code>channels:
+<div class="highlight"><pre><span></span>channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
   - defaults
 show_channel_urls: true
@@ -100,50 +103,59 @@ proxy_servers:
   http: http://xxx.xx.xx:808
   https: https://xxx.xx.xx:808
 ssl_verify: false
-</code></pre></div>
+</pre></div>
+
 
 <p>channel一般换成国内的镜像，proxy_server换成上面ccproxy配置的地址。</p>
 <p>如果使用的是pip来下载，则有所不同。需要配置以下的变量</p>
-<div class="highlight"><pre><span></span><code>pip install --proxy=https://111.222.33.44:808 package
-</code></pre></div>
+<div class="highlight"><pre><span></span>pip install --proxy=https://111.222.33.44:808 package
+</pre></div>
+
 
 <p>更具体的可以看博客<a href="https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/">blog</a>。</p>
 <p><br /></p>
 <h2>2. conda创建env</h2>
 <p>创建有特定版本python的conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda create -n envname python=3.7
-</code></pre></div>
+<div class="highlight"><pre><span></span>conda create -n envname python=3.7
+</pre></div>
+
 
 <p><code>proceed ([y]/n)?</code> 就输入 <code>y</code></p>
 <p>之后，可用conda或者pip安装其他的依赖包，假设所有依赖包都在requriment.txt文件中：</p>
-<div class="highlight"><pre><span></span><code>pip install -r requriment.txt
-</code></pre></div>
+<div class="highlight"><pre><span></span>pip install -r requriment.txt
+</pre></div>
+
 
 <p>或者</p>
-<div class="highlight"><pre><span></span><code>conda install -r requriment.txt
-</code></pre></div>
+<div class="highlight"><pre><span></span>conda install -r requriment.txt
+</pre></div>
+
 
 <p>如果是安装单一的依赖包，则：</p>
-<div class="highlight"><pre><span></span><code>pip install package
-</code></pre></div>
+<div class="highlight"><pre><span></span>pip install package
+</pre></div>
+
 
 <p>或者</p>
-<div class="highlight"><pre><span></span><code>conda install package
-</code></pre></div>
+<div class="highlight"><pre><span></span>conda install package
+</pre></div>
+
 
 <p><br /></p>
 <h2>3. 其他conda命令</h2>
 <p>查看目前所有conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda info -e
-</code></pre></div>
+<div class="highlight"><pre><span></span>conda info -e
+</pre></div>
+
 
 <p>查看目前环境下有哪些包：</p>
-<div class="highlight"><pre><span></span><code>conda list 或者 pip list
-</code></pre></div>
+<div class="highlight"><pre><span></span>conda list 或者 pip list
+</pre></div>
+
 
 <p>进入某个conda环境：</p>
-<div class="highlight"><pre><span></span><code>conda activate envname 或者 source activate envname
-</code></pre></div>
+<div class="highlight"><pre><span></span>conda activate envname 或者 source activate envname
+</pre></div>
 	</div>
 </article>
 			</div>
