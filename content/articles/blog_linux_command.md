@@ -5,10 +5,6 @@ Category: TechNote
 Tags: linux, command
 Authors: Audrey Wang
 
----
-
-<br />
-
 # 这篇note记录linux下常用command
 显示当前目录下文件大小:
 ```text
