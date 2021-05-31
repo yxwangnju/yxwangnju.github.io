@@ -2,7 +2,7 @@ Title: 如何写一份好的简历
 Date: 2021-5-29
 Modified: 2021-5-29
 Category: Others
-Tags: markdown, pelican
+Tags: others
 Authors: Audrey Wang
 
 这周六学校组织了关于如何写好一份简历的讲座，挺有收获的。这篇blog稍微总结了下讲座的重点内容。
