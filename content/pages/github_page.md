@@ -141,7 +141,7 @@ to commit notebook_source branch. (-u only add changes of tracked files)
 
 enter:
 ```text
-ghp-import -m "Generate Pelican site" --no-jekyll -b main output
+ghp-import -m "Generate Pelican site" --no-jekyll -b main output -c audreyw.top
 ```
 to put new output content to main branch.
 
