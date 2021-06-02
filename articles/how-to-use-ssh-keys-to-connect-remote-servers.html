@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="author" content="Audrey Wang" />
-		<title>Tags - Audrey W.&#39;s Tech Notebook
+		<title>How to use SSH keys to connect remote servers  - Audrey W.&#39;s Tech Notebook
 </title>
 		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
 		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
@@ -66,21 +66,45 @@ Categories							</a>
 			</nav>
 		<section class="section">
 			<div class="container">
-	<h1 class="title">Tags</h1>
-
-	<div class="tags are-medium">
-			<span class="tag"><a href="tag/bert.html">BERT (1)</a></span>
-			<span class="tag"><a href="tag/command.html">command (5)</a></span>
-			<span class="tag"><a href="tag/conda.html">conda (1)</a></span>
-			<span class="tag"><a href="tag/gcn.html">GCN (1)</a></span>
-			<span class="tag"><a href="tag/linux.html">linux (1)</a></span>
-			<span class="tag"><a href="tag/others.html">others (1)</a></span>
-			<span class="tag"><a href="tag/paper.html">Paper (18)</a></span>
-			<span class="tag"><a href="tag/pytorch.html">pytorch (1)</a></span>
-			<span class="tag"><a href="tag/research.html">Research (20)</a></span>
-			<span class="tag"><a href="tag/ssh.html">ssh (1)</a></span>
-			<span class="tag"><a href="tag/tensorflow.html">tensorflow (1)</a></span>
+<article class="message is-info">
+	<div class="message-header">
+		<h2>How to use SSH keys to connect remote servers</h2>
+		<p><time itemprop="dateCreated" datetime="2020-02-04T00:00:00+08:00">周二, 04 2月 2020</time></p>
 	</div>
+	<div class="message-body has-text-dark">
+		<h2>How SSH Keys Work?</h2>
+<p>Firstly, users should have a <code>‘public key/private key’</code> pair to connect to a remote server. Briefly, <strong>user's local client stores the private key, while the remote sever stores the public key</strong>.</p>
+<p>When client wants to connect server, the client will send a request to the server. After server recerives the request and passed the authentication, it returns a string to client. Then client will encrypt this string using its private key and send the encrypted string to server to get authenticated.</p>
+<p><br /></p>
+<h2>Steps</h2>
+<h3>1. Create Key Pair</h3>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -C &quot;name&quot;
+</code></pre></div>
+
+<p><code>-t</code> denotes the encryption algorithm, and <code>-C</code> denotes the name for the ssh keys (usually client name).</p>
+<p>This command will generate two files (id_rsa and id_rsa.pub) in folder <code>~/.ssh</code>. id_rsa is the private key and id_rsa.pub is the public key.</p>
+<h3>2. Copy the Public Key to Server</h3>
+<div class="highlight"><pre><span></span><code>scp ~/.ssh/id_rsa.pub yxwang@&lt;server_ip&gt;:~/.ssh
+</code></pre></div>
+
+<h3>3. Put the Public Key to Authorized Keys</h3>
+<p>Continuely in server, enter the following command:</p>
+<div class="highlight"><pre><span></span><code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</code></pre></div>
+
+<p>and </p>
+<div class="highlight"><pre><span></span><code>chmod 600 ~/.ssh/authorized_keys
+</code></pre></div>
+
+<h3>4. Connect to Server in Client and Done!</h3>
+<div class="highlight"><pre><span></span><code>ssh yxwang@&lt;server_ip&gt;
+</code></pre></div>
+
+<p><br /></p>
+<h2>Note</h2>
+<p>Sometime after the configuration above, we still need password to login. In such situation, we can follow this <a href="https://blog.csdn.net/silentwolfyh/article/details/83656101">blog</a> to find solution.</p>
+	</div>
+</article>
 			</div>
 		</section>
 		<footer class="footer">
