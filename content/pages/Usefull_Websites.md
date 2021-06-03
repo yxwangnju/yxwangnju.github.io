@@ -8,3 +8,6 @@ Authors: Audrey Wang
 
 [http://www.sciweavers.org/free-online-latex-equation-editor](http://www.sciweavers.org/free-online-latex-equation-editor)
 
+### Online paper citation graph
+
+[https://www.connectedpapers.com](https://www.connectedpapers.com/)
