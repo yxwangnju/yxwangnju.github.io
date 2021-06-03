@@ -6,6 +6,7 @@ THEME = "../themes/buruma"
 AUTHOR = 'Audrey Wang'
 SITENAME = 'Audrey W.\'s Tech Notebook'
 SITEURL = 'https://yxwangnju.github.io/'
+REVERSE_CATEGORY_ORDER = True
 
 STATIC_PATHS = ['pictures']
 
