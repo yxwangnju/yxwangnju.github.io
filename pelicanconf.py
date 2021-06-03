@@ -55,7 +55,7 @@ DEFAULT_PAGINATION = False
 
 # 这里添加了各种plugin，render_math就是可以使用latex公式
 PLUGIN_PATHS = ['../pelican-plugins', ]
-PLUGINS = ['i18n_subsites', 'render_math']
+PLUGINS = ['i18n_subsites', 'render_math', 'pelimoji']
 JINJA_ENVIRONMENT = {
     'extensions': ['jinja2.ext.i18n'],
 }

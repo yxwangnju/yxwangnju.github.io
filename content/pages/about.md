@@ -1,14 +1,13 @@
 Title: About
 Date: 2019-10-29 10:21
 
-Hello! I am Audrey Wang (She/Her). 
+Hi! I am [**Audrey Wang**](https://github.com/yxwangnju) (She/Her). 
 
 <br />
 
-This tech webpage is mainly for me to publish:
+I build this website mainly for writing technotes. I also upload other articles that record some of my interesting or important experiences. :smile:
 
-- Handbooks of configuration. (Because I don't want to repeat searching the internet every time).
-- Summary knowledge of my reseach.
+
 
 <br />
 
