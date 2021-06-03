@@ -5,7 +5,7 @@ Hi! I am [**Audrey Wang**](https://github.com/yxwangnju) (She/Her).
 
 <br />
 
-I build this website mainly for writing technotes. I also upload other articles that record some of my interesting or important experiences. :smile:
+I build this website mainly for writing technotes. I also upload other articles that record some of my interesting or important experiences.
 
 
 
@@ -15,4 +15,4 @@ You can go to [this page]({filename}other_links.md) to find my other links.
 
 <br />
 
-<img alt="Get Hands Dirty!" src="{static}/pictures/get_hands_dirty.png" data-action="zoom" width="800px" class="center">
+<!-- <img alt="Get Hands Dirty!" src="{static}/pictures/get_hands_dirty.png" data-action="zoom" width="600px" class="center"> -->
