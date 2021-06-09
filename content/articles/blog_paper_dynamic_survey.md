@@ -98,7 +98,7 @@ We call both $CTDG$ and $DTDG$ dynamic graph. Most existing models for dynamic l
 
 **Datasets**: A collection of datasets used for research on static and dynamic graphs. 
 
-![.]({static}/pictures/survey_dynamic/2.png){: width="600px"}
+![.]({static}/pictures/survey_dynamic/2.png){: .image-process-large-photo}
 
 <br />
 
