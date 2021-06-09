@@ -2,7 +2,7 @@ Title: Dynamic KGs vs. Temporal KGs
 Date: 2021-5-26
 Modified: 2021-5-26
 Category: Research Summary
-Tags: Research
+Tags: Research, dynamics
 Authors: Audrey Wang
 
 > 这篇文章我也有放在medium上
