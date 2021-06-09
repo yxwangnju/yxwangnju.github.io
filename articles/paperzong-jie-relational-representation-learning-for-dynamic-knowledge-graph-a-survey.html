@@ -78,37 +78,49 @@ Categories							</a>
 <p>Firtly I want present the devolope line of KGRL. (Understanding big picture of KGRL is very necessary!!)</p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/survey_dynamic/1.png"></p>
 <p>In this section I present several definations:</p>
-<p><strong>Dynamic Graph (Not KG)</strong>:
-1. Continuous-time dynamic graph (<span class="math">\(CTDG\)</span>): <span class="math">\(CTDG = (G,O)\)</span>, <span class="math">\(G\)</span> representes graph at time <span class="math">\(t_1\)</span>, <span class="math">\(O\)</span> represents several observations occur after <span class="math">\(t_1\)</span>. This defination of dynamic graph can capture all the changes happened over time.
-2. Discrete-time dynamic graph (<span class="math">\(DTDG\)</span>): <span class="math">\(DTDG = (G_1, G_2, ..., G_n)\)</span>. Each <span class="math">\(G_i\)</span> is a snapshot and representes graph at time <span class="math">\(i\)</span>. <span class="math">\(DTDG\)</span> may not capture all the changes on a graph because there may be a time interval between two adjacent snapshots.</p>
+<p><strong>Dynamic Graph (Not KG)</strong>:</p>
+<ol>
+<li>Continuous-time dynamic graph (<span class="math">\(CTDG\)</span>): <span class="math">\(CTDG = (G,O)\)</span>, <span class="math">\(G\)</span> representes graph at time <span class="math">\(t_1\)</span>, <span class="math">\(O\)</span> represents several observations occur after <span class="math">\(t_1\)</span>. This defination of dynamic graph can capture all the changes happened over time.</li>
+<li>Discrete-time dynamic graph (<span class="math">\(DTDG\)</span>): <span class="math">\(DTDG = (G_1, G_2, ..., G_n)\)</span>. Each <span class="math">\(G_i\)</span> is a snapshot and representes graph at time <span class="math">\(i\)</span>. <span class="math">\(DTDG\)</span> may not capture all the changes on a graph because there may be a time interval between two adjacent snapshots.</li>
+</ol>
 <p>We call both <span class="math">\(CTDG\)</span> and <span class="math">\(DTDG\)</span> dynamic graph. Most existing models for dynamic learning is on <span class="math">\(DTDG\)</span> because it is easier.</p>
 <p><strong>KGs</strong>: I think I am a bit of familiar with.</p>
-<p><strong>General Tasks for Dynamic graphs</strong>:
-1. Node classification
-2. Graph complement/Link prediction: main task of KGs
-3. Graph classification</p>
+<p><strong>General Tasks for Dynamic graphs</strong>:</p>
+<ol>
+<li>Node classification</li>
+<li>Graph complement/Link prediction: main task of KGs</li>
+<li>Graph classification</li>
+</ol>
 <p><strong>Streaming scenario</strong>: A model may not have enough time to retrain compeletly or in part when new observations arrive. Streaming scernarios are often best handled by <span class="math">\(CTDGs\)</span>.</p>
 <p><br /></p>
 <h3>Encoder-decoder framework for static graph and KGs:</h3>
-<p><strong>Decoders for static graph</strong>: very simple
-1. average of two vectors
-2. element-wise multiplication of two vectors
-3. element-wise absolute value of the difference of the two vectors
-4. elemet-wise squared value of the difference of the two vectors</p>
-<p><strong>Decoders for static KGs</strong>: much more complex. Examples of each catelogue is shown in previous picture.
-1. Translation-based models
-2. Bilinearity-based models
-3. Neural network-based models </p>
-<p><strong>Encoders for static graph</strong>:
-1. High-Order Proximity Matrices: an extension of adjacency matrices
-2. Shallow Encoders
-3. Decomposition Approaches: its idea is that connected nodes are close to each other in the embedded space.
-4. Random Walk Approaches
-5. Autoencoder Approades:
-6. GCN Approaches</p>
-<p><strong>Encoders for static KGs</strong>: very few compared to static graph
-1. shallow encoders
-2. GCNs: such as R-GCN</p>
+<p><strong>Decoders for static graph</strong>: very simple</p>
+<ol>
+<li>average of two vectors</li>
+<li>element-wise multiplication of two vectors</li>
+<li>element-wise absolute value of the difference of the two vectors</li>
+<li>elemet-wise squared value of the difference of the two vectors</li>
+</ol>
+<p><strong>Decoders for static KGs</strong>: much more complex. Examples of each catelogue is shown in previous picture.</p>
+<ol>
+<li>Translation-based models</li>
+<li>Bilinearity-based models</li>
+<li>Neural network-based models </li>
+</ol>
+<p><strong>Encoders for static graph</strong>:</p>
+<ol>
+<li>High-Order Proximity Matrices: an extension of adjacency matrices</li>
+<li>Shallow Encoders</li>
+<li>Decomposition Approaches: its idea is that connected nodes are close to each other in the embedded space.</li>
+<li>Random Walk Approaches</li>
+<li>Autoencoder Approades:</li>
+<li>GCN Approaches</li>
+</ol>
+<p><strong>Encoders for static KGs</strong>: very few compared to static graph</p>
+<ol>
+<li>shallow encoders</li>
+<li>GCNs: such as R-GCN</li>
+</ol>
 <h3>Encoder-decoder framework for dynamic graph: (Note that no Encoders and Decoders of dynamic KGs are introduced in this survey paper).</h3>
 <p><strong>Decoders for dynamic graph</strong>: I know nearly nothing about this.</p>
 <ol>
