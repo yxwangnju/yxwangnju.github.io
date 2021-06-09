@@ -13,7 +13,7 @@ And in the end they highlighr directions for future research.
 
 Firtly I want present the devolope line of KGRL. (Understanding big picture of KGRL is very necessary!!)
 
-![.]({static}/pictures/survey_dynamic/1.png){: .image-process-large-photo}
+![.]({static}/pictures/survey_dynamic/1.png){: width="600px"}
 
 In this section I present several definations:
 
@@ -98,7 +98,7 @@ We call both $CTDG$ and $DTDG$ dynamic graph. Most existing models for dynamic l
 
 **Datasets**: A collection of datasets used for research on static and dynamic graphs. 
 
-![.]({static}/pictures/survey_dynamic/1.png){: .image-process-large-photo}
+![.]({static}/pictures/survey_dynamic/2.png){: width="600px"}
 
 <br />
 
