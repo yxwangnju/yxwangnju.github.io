@@ -18,6 +18,7 @@ Firtly I want present the devolope line of KGRL. (Understanding big picture of K
 In this section I present several definations:
 
 **Dynamic Graph (Not KG)**:
+
 1. Continuous-time dynamic graph ($CTDG$): $CTDG = (G,O)$, $G$ representes graph at time $t_1$, $O$ represents several observations occur after $t_1$. This defination of dynamic graph can capture all the changes happened over time.
 2. Discrete-time dynamic graph ($DTDG$): $DTDG = (G_1, G_2, ..., G_n)$. Each $G_i$ is a snapshot and representes graph at time $i$. $DTDG$ may not capture all the changes on a graph because there may be a time interval between two adjacent snapshots.
 
@@ -26,6 +27,7 @@ We call both $CTDG$ and $DTDG$ dynamic graph. Most existing models for dynamic l
 **KGs**: I think I am a bit of familiar with.
 
 **General Tasks for Dynamic graphs**:
+
 1. Node classification
 2. Graph complement/Link prediction: main task of KGs
 3. Graph classification
@@ -36,17 +38,20 @@ We call both $CTDG$ and $DTDG$ dynamic graph. Most existing models for dynamic l
 
 ### Encoder-decoder framework for static graph and KGs:
 **Decoders for static graph**: very simple
+
 1. average of two vectors
 2. element-wise multiplication of two vectors
 3. element-wise absolute value of the difference of the two vectors
 4. elemet-wise squared value of the difference of the two vectors
 
 **Decoders for static KGs**: much more complex. Examples of each catelogue is shown in previous picture.
+
 1. Translation-based models
 2. Bilinearity-based models
 3. Neural network-based models 
 
 **Encoders for static graph**:
+
 1. High-Order Proximity Matrices: an extension of adjacency matrices
 2. Shallow Encoders
 3. Decomposition Approaches: its idea is that connected nodes are close to each other in the embedded space.
@@ -55,6 +60,7 @@ We call both $CTDG$ and $DTDG$ dynamic graph. Most existing models for dynamic l
 6. GCN Approaches
 
 **Encoders for static KGs**: very few compared to static graph
+
 1. shallow encoders
 2. GCNs: such as R-GCN
 
