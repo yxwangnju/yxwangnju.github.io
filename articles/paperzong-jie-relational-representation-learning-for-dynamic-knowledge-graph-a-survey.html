@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="author" content="Audrey Wang" />
+		<title>Paper总结 - Relational Representation Learning for Dynamic (Knowledge) Graph: A Survey  - Audrey W.&#39;s Tech Notebook
+</title>
+		<link rel="stylesheet" type="text/css" href="https://yxwangnju.github.io/theme/css/style.min.css">
+		<script src="https://yxwangnju.github.io/theme/js/menu.js"></script>
+		<!-- Pending to improve -->
+	</head>
+	<body>
+		<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" href="https://yxwangnju.github.io">
+							<img src="https://yxwangnju.github.io/theme/images/home_logo.png" width="112" height="28">
+						</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarMain" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="/pages/about.html">
+							About
+						</a>
+						<a class="navbar-item" href="/pages/how-to-set-github-page.html">
+							How to set this page
+						</a>
+						<a class="navbar-item" href="/pages/some-useful-websites.html">
+							Useful Websites
+						</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="/categories">
+Categories							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="/category/technote.html">
+									TechNote
+								</a>
+								<a class="navbar-item" href="/category/research-summary.html">
+									Research Summary
+								</a>
+								<a class="navbar-item" href="/category/paper-reading.html">
+									Paper Reading
+								</a>
+								<a class="navbar-item" href="/category/others.html">
+									Others
+								</a>
+							</div>
+						</div>
+				</div>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+								<a class="button is-info" href="/tags.html">Tags</a>
+								<a class="button is-info" href="/archives.html">Archives</a>
+								<a class="button is-link" href="/pages/other-links.html">Other Links</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</nav>
+		<section class="section">
+			<div class="container">
+<article class="message is-info">
+	<div class="message-header">
+		<h2>Paper总结 - Relational Representation Learning for Dynamic (Knowledge) Graph: A Survey</h2>
+		<p><time itemprop="dateCreated" datetime="2019-09-10T00:00:00+08:00">周二, 10 9月 2019</time></p>
+	</div>
+	<div class="message-body has-text-dark">
+		<p>This paper did a detailed survey on Representation Learning on (Knowledge) Graph. It gives a valid devolopment progress on static KGRL and makes a summary on approaches of Dynamic Graph Representation Learning. They describes existing models from an encode-decode perspective and categorize these encoders and decoders based on the techniques they employ.</p>
+<p>And in the end they highlighr directions for future research.</p>
+<p><br /></p>
+<p>Firtly I want present the devolope line of KGRL. (Understanding big picture of KGRL is very necessary!!)</p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/survey_dynamic/1.png"></p>
+<p>In this section I present several definations:</p>
+<p><strong>Dynamic Graph (Not KG)</strong>:
+1. Continuous-time dynamic graph (<span class="math">\(CTDG\)</span>): <span class="math">\(CTDG = (G,O)\)</span>, <span class="math">\(G\)</span> representes graph at time <span class="math">\(t_1\)</span>, <span class="math">\(O\)</span> represents several observations occur after <span class="math">\(t_1\)</span>. This defination of dynamic graph can capture all the changes happened over time.
+2. Discrete-time dynamic graph (<span class="math">\(DTDG\)</span>): <span class="math">\(DTDG = (G_1, G_2, ..., G_n)\)</span>. Each <span class="math">\(G_i\)</span> is a snapshot and representes graph at time <span class="math">\(i\)</span>. <span class="math">\(DTDG\)</span> may not capture all the changes on a graph because there may be a time interval between two adjacent snapshots.</p>
+<p>We call both <span class="math">\(CTDG\)</span> and <span class="math">\(DTDG\)</span> dynamic graph. Most existing models for dynamic learning is on <span class="math">\(DTDG\)</span> because it is easier.</p>
+<p><strong>KGs</strong>: I think I am a bit of familiar with.</p>
+<p><strong>General Tasks for Dynamic graphs</strong>:
+1. Node classification
+2. Graph complement/Link prediction: main task of KGs
+3. Graph classification</p>
+<p><strong>Streaming scenario</strong>: A model may not have enough time to retrain compeletly or in part when new observations arrive. Streaming scernarios are often best handled by <span class="math">\(CTDGs\)</span>.</p>
+<p><br /></p>
+<h3>Encoder-decoder framework for static graph and KGs:</h3>
+<p><strong>Decoders for static graph</strong>: very simple
+1. average of two vectors
+2. element-wise multiplication of two vectors
+3. element-wise absolute value of the difference of the two vectors
+4. elemet-wise squared value of the difference of the two vectors</p>
+<p><strong>Decoders for static KGs</strong>: much more complex. Examples of each catelogue is shown in previous picture.
+1. Translation-based models
+2. Bilinearity-based models
+3. Neural network-based models </p>
+<p><strong>Encoders for static graph</strong>:
+1. High-Order Proximity Matrices: an extension of adjacency matrices
+2. Shallow Encoders
+3. Decomposition Approaches: its idea is that connected nodes are close to each other in the embedded space.
+4. Random Walk Approaches
+5. Autoencoder Approades:
+6. GCN Approaches</p>
+<p><strong>Encoders for static KGs</strong>: very few compared to static graph
+1. shallow encoders
+2. GCNs: such as R-GCN</p>
+<h3>Encoder-decoder framework for dynamic graph: (Note that no Encoders and Decoders of dynamic KGs are introduced in this survey paper).</h3>
+<p><strong>Decoders for dynamic graph</strong>: I know nearly nothing about this.</p>
+<ol>
+<li>Time -predicting decoders</li>
+<li>Time-conditioned decoders</li>
+<li>Staleness</li>
+</ol>
+<p><strong>Encoders for dynamic graph</strong>:</p>
+<ol>
+<li>Aggregating Temporal Observations</li>
+<li>Aggregating Static Features</li>
+<li>Time as a Regularizer</li>
+<li>Decomposition-based Encoders</li>
+<li>Random Walk Encoders</li>
+<li>Sequence-Model Encoders</li>
+<li>Autoencoder-based Encoders</li>
+</ol>
+<p><br /></p>
+<h3>Applications, Datasets and Codes</h3>
+<p><strong>Applications</strong>:</p>
+<ol>
+<li>Link prediction</li>
+<li>Entity/relation prediction</li>
+<li>Recommender Systems</li>
+<li>Time Prediction</li>
+<li>Node classfication</li>
+<li>Graph classification</li>
+<li>Network clustering</li>
+<li>Question/query answering</li>
+</ol>
+<p><strong>Datasets</strong>: A collection of datasets used for research on static and dynamic graphs. </p>
+<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/survey_dynamic/1.png"></p>
+<p><br /></p>
+<h3>Future Direction:</h3>
+<ol>
+<li>The best way to extend the existing models for daynamic graph to KGs is still not clear! </li>
+<li>Currently representation learning algorithms have been mostly designed for <span class="math">\(DTDG\)</span>, with only few works on <span class="math">\(CTDG\)</span>. </li>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+	</div>
+</article>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column">
+							<p>Website generated with <a href="https://getpelican.com">Pelican</a>. <a href="https://github.com/ivanhercaz/buruma">Buruma</a> theme by <a href="https://ivanhercaz.com">Ivanhercaz</a></p>
+						<p><a href="https://bulma.io">
+							<img src="/theme/images/made_with_bulma.png" alt="Made with Bulma" width="128" height="24">
+						</a></p>
+					</div>
+					<div class="column">
+							<p>All rights reserved © Audrey Wang</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
