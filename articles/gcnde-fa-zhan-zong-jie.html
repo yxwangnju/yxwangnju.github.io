@@ -74,8 +74,8 @@ Categories							</a>
 	<div class="message-body has-text-dark">
 		<p>GCN最近两三年特别火，这篇article主要总结GCN这个模型的发展历程。</p>
 <h3>论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）</h3>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/1.png"></p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/2.png"></p>
+<p><span class="math">\(Z=f(X, A)=\operatorname{softmax}\left(\hat{A} \operatorname{ReLU}\left(\hat{A} X W^{(0)}\right) W^{(1)}\right)\)</span></p>
+<p><span class="math">\(\hat{A}=\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}}\)</span></p>
 <p>采用了两层传播。</p>
 <p>Kipf的这篇工作针对的是图半监督学习的节点标签分类问题。图就是普通的单一无向关系图(比如朋友圈)，半监督学习就是在给定部分节点标签下，学习到所有节点的标签。因此这个模型的特点是：</p>
 <ol>
@@ -86,7 +86,7 @@ Categories							</a>
 <h3>论文2：Inductive Representation Learning on Large Graphs -- Hamilton （NIP2017）也就是GraphSAGE</h3>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/3.png"></p>
 <p>Loss function: </p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/4.png"></p>
+<p><span class="math">\(J_{\mathcal{G}}\left(\mathbf{z}_{u}\right)=-\log \left(\sigma\left(\mathbf{z}_{u}^{\top} \mathbf{z}_{v}\right)\right)-Q \cdot \mathbb{E}_{v_{n} \sim P_{n}(v)} \log \left(\sigma\left(-\mathbf{z}_{u}^{\top} \mathbf{z}_{v_{n}}\right)\right)\)</span></p>
 <p>这篇文章的要点：</p>
 <ol>
 <li>也是针对的单一无向图，所以没有考虑和学习边</li>
@@ -95,20 +95,82 @@ Categories							</a>
 <p>对GCN的突破点是，实现了inductive化。</p>
 <p><br /></p>
 <h3>论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN</h3>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/5.png"></p>
+<p><span class="math">\(h_{i}^{(l+1)}=\sigma\left(\sum_{r \in \mathcal{R}} \sum_{j \in \mathcal{N}_{i}^{r}} \frac{1}{c_{i, r}} W_{r}^{(l)} h_{j}^{(l)}+W_{0}^{(l)} h_{i}^{(l)}\right)\)</span></p>
 <p>要点：适应了KG特性：不同的关系的W不同，即考虑了关系的特殊性。</p>
 <p><br /></p>
 <h3>论文4：End-to-end Structure-Aware Convolutional Networksfor Knowledge Base Completion  -- Shang （aaai 2017） Weighted GCN</h3>
 <p>相比于kipf的经典GCN，这个weighted GCN为每一层的每个关系单独学习一个权重。</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/6.png"></p>
+<p><span class="math">\(h_{i}^{l+1}=\sigma\left(\sum_{j \in \mathbf{N}_{\mathbf{i}}} \alpha_{t}^{l} h_{j}^{l} W^{l}+h_{i}^{l} W^{l}\right)\)</span></p>
 <p>要点：这里的权重仅仅是一个数，而不是向量。因此和R-GCN不同。</p>
 <p><br /></p>
 <h3>论文五：COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS -- Vashishth （ICLR 2020）</h3>
 <p>提出了一个general的KG上的GCN模型。</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/7.png"></p>
+<p><span class="math">\(\boldsymbol{h}_{v}=f\left(\sum_{(u, r) \in \mathcal{N}(v)} \boldsymbol{W}_{\lambda(r)} \phi\left(\boldsymbol{x}_{u}, \boldsymbol{z}_{r}\right)\right)\)</span></p>
 <p>其中的W有三种：</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/gcn/8.png"></p>
+<p><span class="math">\(\boldsymbol{W}_{\mathrm{dir}(r)}=\left\{<div class="math">\begin{array}{ll}\boldsymbol{W}_{O}, &amp; r \in \mathcal{R} \\ \boldsymbol{W}_{I}, &amp; r \in \mathcal{R}_{i n v} \\ \boldsymbol{W}_{S}, &amp; r=\top(\text { self-loop })\end{array}</div>\right.\)</span></p>
 <p>可见weight不是relation-specific，而是type-specific的。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 	</div>
 </article>
 			</div>
