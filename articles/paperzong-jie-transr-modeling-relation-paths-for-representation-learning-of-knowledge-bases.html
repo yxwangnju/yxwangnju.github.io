@@ -76,18 +76,18 @@ Categories							</a>
 <p>TransR其实和TransH很相似，针对不同的关系将实体映射到不同的空间中。文中认为TransE和TransH的缺点是将entity和relation放在同一维度空间中。于是提出了可将entity和relation映射在不同空间。</p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/TransR/1.png"></p>
 <p>对于每一个关系 <span class="math">\(r\)</span>，都有一个映射矩阵 <span class="math">\(M_r\)</span>，将实体映射到关系空间中。</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/TransR/2.png"></p>
+<p><span class="math">\(h \in R^{n}, t \in R^{n}, r \in R^{m}\)</span></p>
 <p>这里实体的维数和关系的维数不必相等。</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/TransR/3.png"></p>
+<p><span class="math">\(\mathbf{h}_{r}=\mathbf{h} \mathbf{M}_{r}, \quad \mathbf{t}_{r}=\mathbf{t} \mathbf{M}_{r}\)</span></p>
 <p>Score function:</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/TransR/4.png"></p>
+<p><span class="math">\(f_{r}(h, t)=\left\|\mathbf{h}_{r}+\mathbf{r}-\mathbf{t}_{r}\right\|_{2}^{2}\)</span></p>
 <hr>
 <p>同时，还提出了CTransR (Cluster-based TransR)</p>
 <p>按照不同的关系将pair(h, t)划分到不同的cluster中，比如：</p>
 <p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/TransR/1.jpg"></p>
 <p>对每一个簇学习一个关系表示。</p>
 <p>score function定义为：</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/TransR/5.png"></p>
+<p><span class="math">\(f_{r}(h, t)=\left\|\mathbf{h}_{r, c}+\mathbf{r}_{c}-\mathbf{t}_{r, c}\right\|_{2}^{2}+\alpha\left\|\mathbf{r}_{c}-\mathbf{r}\right\|_{2}^{2}\)</span></p>
 <p>实验部分也是在三个任务上进行了比较：</p>
 <ol>
 <li>link prediction</li>
