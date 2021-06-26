@@ -66,6 +66,6 @@ $\boldsymbol{h}_{v}=f\left(\sum_{(u, r) \in \mathcal{N}(v)} \boldsymbol{W}_{\lam
 
 其中的W有三种：
 
-$\boldsymbol{W}_{\mathrm{dir}(r)}=\left\{\begin{array}{ll}\boldsymbol{W}_{O}, & r \in \mathcal{R} \\ \boldsymbol{W}_{I}, & r \in \mathcal{R}_{i n v} \\ \boldsymbol{W}_{S}, & r=\top(\text { self-loop })\end{array}\right.$
+![.]({static}/pictures/gcn/8.png){: .image-process-large-photo}
 
 可见weight不是relation-specific，而是type-specific的。
