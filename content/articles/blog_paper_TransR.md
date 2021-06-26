@@ -13,15 +13,15 @@ TransR其实和TransH很相似，针对不同的关系将实体映射到不同�
 
 对于每一个关系 $r$，都有一个映射矩阵 $M_r$，将实体映射到关系空间中。
 
-![.]({static}/pictures/TransR/2.png){: .image-process-large-photo}
+$h \in R^{n}, t \in R^{n}, r \in R^{m}$
 
 这里实体的维数和关系的维数不必相等。
 
-![.]({static}/pictures/TransR/3.png){: .image-process-large-photo}
+$\mathbf{h}_{r}=\mathbf{h} \mathbf{M}_{r}, \quad \mathbf{t}_{r}=\mathbf{t} \mathbf{M}_{r}$
 
 Score function:
 
-![.]({static}/pictures/TransR/4.png){: .image-process-large-photo}
+$f_{r}(h, t)=\left\|\mathbf{h}_{r}+\mathbf{r}-\mathbf{t}_{r}\right\|_{2}^{2}$
 
 ----
 
@@ -35,7 +35,7 @@ Score function:
 
 score function定义为：
 
-![.]({static}/pictures/TransR/5.png){: .image-process-large-photo}
+$f_{r}(h, t)=\left\|\mathbf{h}_{r, c}+\mathbf{r}_{c}-\mathbf{t}_{r, c}\right\|_{2}^{2}+\alpha\left\|\mathbf{r}_{c}-\mathbf{r}\right\|_{2}^{2}$
 
 实验部分也是在三个任务上进行了比较：
 
