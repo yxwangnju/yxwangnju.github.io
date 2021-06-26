@@ -9,9 +9,9 @@ GCN最近两三年特别火，这篇article主要总结GCN这个模型的发展�
 
 ### 论文1：SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS -- Kipf（ICLR 2016）
 
-![.]({static}/pictures/gcn/1.png){: .image-process-large-photo}
+$Z=f(X, A)=\operatorname{softmax}\left(\hat{A} \operatorname{ReLU}\left(\hat{A} X W^{(0)}\right) W^{(1)}\right)$
 
-![.]({static}/pictures/gcn/2.png){: .image-process-large-photo}
+$\hat{A}=\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}}$
 
 采用了两层传播。
 
@@ -28,7 +28,7 @@ Kipf的这篇工作针对的是图半监督学习的节点标签分类问题。�
 
 Loss function: 
 
-![.]({static}/pictures/gcn/4.png){: .image-process-large-photo}
+$J_{\mathcal{G}}\left(\mathbf{z}_{u}\right)=-\log \left(\sigma\left(\mathbf{z}_{u}^{\top} \mathbf{z}_{v}\right)\right)-Q \cdot \mathbb{E}_{v_{n} \sim P_{n}(v)} \log \left(\sigma\left(-\mathbf{z}_{u}^{\top} \mathbf{z}_{v_{n}}\right)\right)$
 
 这篇文章的要点：
 
@@ -41,7 +41,7 @@ Loss function:
 
 ### 论文3：Modeling Relational Data with Graph Convolutional Networks -- Schlichtkrull (2017) 也就是R-GCN
 
-![.]({static}/pictures/gcn/5.png){: .image-process-large-photo}
+$h_{i}^{(l+1)}=\sigma\left(\sum_{r \in \mathcal{R}} \sum_{j \in \mathcal{N}_{i}^{r}} \frac{1}{c_{i, r}} W_{r}^{(l)} h_{j}^{(l)}+W_{0}^{(l)} h_{i}^{(l)}\right)$
 
 要点：适应了KG特性：不同的关系的W不同，即考虑了关系的特殊性。
 
@@ -52,7 +52,7 @@ Loss function:
 
 相比于kipf的经典GCN，这个weighted GCN为每一层的每个关系单独学习一个权重。
 
-![.]({static}/pictures/gcn/6.png){: .image-process-large-photo}
+$h_{i}^{l+1}=\sigma\left(\sum_{j \in \mathbf{N}_{\mathbf{i}}} \alpha_{t}^{l} h_{j}^{l} W^{l}+h_{i}^{l} W^{l}\right)$
 
 要点：这里的权重仅仅是一个数，而不是向量。因此和R-GCN不同。
 
@@ -62,10 +62,10 @@ Loss function:
 
 提出了一个general的KG上的GCN模型。
 
-![.]({static}/pictures/gcn/7.png){: .image-process-large-photo}
+$\boldsymbol{h}_{v}=f\left(\sum_{(u, r) \in \mathcal{N}(v)} \boldsymbol{W}_{\lambda(r)} \phi\left(\boldsymbol{x}_{u}, \boldsymbol{z}_{r}\right)\right)$
 
 其中的W有三种：
 
-![.]({static}/pictures/gcn/8.png){: .image-process-large-photo}
+$\boldsymbol{W}_{\mathrm{dir}(r)}=\left\{\begin{array}{ll}\boldsymbol{W}_{O}, & r \in \mathcal{R} \\ \boldsymbol{W}_{I}, & r \in \mathcal{R}_{i n v} \\ \boldsymbol{W}_{S}, & r=\top(\text { self-loop })\end{array}\right.$
 
 可见weight不是relation-specific，而是type-specific的。
