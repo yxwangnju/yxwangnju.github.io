@@ -9,9 +9,7 @@ Authors: Audrey Wang
 
 ### 总结
 
-距离公式：
-
-$dis=\|h+r-t\|_{L_{1} / L_{2}}$
+距离公式：$dis=\|h+r-t\|_{L_{1} / L_{2}}$
 
 学习的参数个数：$n \times d + m \times d = (n+m) \times d$
 
