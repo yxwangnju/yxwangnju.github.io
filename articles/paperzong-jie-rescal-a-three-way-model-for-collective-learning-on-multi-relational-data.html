@@ -73,12 +73,75 @@ Categories							</a>
 	</div>
 	<div class="message-body has-text-dark">
 		<p>这篇文章是2011年发表在ICML上的。</p>
-<p>A: matrix of entity embedding</p>
-<p>Rk: matrix of k-th relation embedding</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/1.png">是一个矩阵，即关于关系k的实体间的邻接矩阵</p>
-<p>优化目标：<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/2.png"></p>
-<p>其中：<img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/3.png"> 并且 <img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/RESCAL/4.png"></p>
+<p>以下是符号表示是：</p>
+<p><span class="math">\(A\)</span>: matrix of entity embedding</p>
+<p><span class="math">\(R_k\)</span>: matrix of k-th relation embedding</p>
+<p><span class="math">\(\mathcal{X}_{k} \approx A R_{k} A^{T}\)</span>, for <span class="math">\(k=1, \ldots, m\)</span> 是一个矩阵，即关于关系k的实体间的邻接矩阵</p>
+<p>优化目标：<span class="math">\(\min _{A, R_{k}} f\left(A, R_{k}\right)+g\left(A, R_{k}\right)\)</span></p>
+<p>其中：<span class="math">\(f\left(A, R_{k}\right)=\frac{1}{2}\left(\sum_{k}\left\|\mathcal{X}_{k}-A R_{k} A^{T}\right\|_{F}^{2}\right)\)</span> 并且 <span class="math">\(g\left(A, R_{k}\right)=\frac{1}{2} \lambda\left(\|A\|_{F}^{2}+\sum_{k}\left\|R_{k}\right\|_{F}^{2}\right)\)</span></p>
 <p>总之，RESCAL就是对每一个关系建立了一个关系矩阵，有多个关系就有多少个关系矩阵。因此，RESCAL一个很大的缺点就是训练参数太多了。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 	</div>
 </article>
 			</div>
