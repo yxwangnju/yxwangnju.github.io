@@ -13,16 +13,17 @@ Authors: Audrey Wang
 
 接着定义了两个映射矩阵：
 
-![.]({static}/pictures/10.png){: .image-process-large-photo}
+$\mathbf{M}_{r h}=\mathbf{r}_{p} \mathbf{h}_{p}^{\top}+\mathbf{I}^{m \times n}$
+$\mathbf{M}_{r t}=\mathbf{r}_{p} \mathbf{t}_{p}^{\top}+\mathbf{I}^{m \times n}$
 
 得到映射后的两个向量：
 
-![.]({static}/pictures/11.png){: .image-process-large-photo}
+$\mathbf{h}_{\perp}=\mathbf{M}_{r h} \mathbf{h}, \quad \mathbf{t}_{\perp}=\mathbf{M}_{r t} \mathbf{t}$
 
 score function还是translation-based：
 
-![.]({static}/pictures/12.png){: .image-process-large-photo}
+$f_{r}(\mathbf{h}, \mathbf{t})=-\left\|\mathbf{h}_{\perp}+\mathbf{r}-\mathbf{t}_{\perp}\right\|_{2}^{2}$
 
 Loss function:
 
-![.]({static}/pictures/13.png){: .image-process-large-photo}
+$L=\sum_{\xi \in \Delta} \sum_{\xi^{\prime} \in \Delta^{\prime}}\left[\gamma+f_{r}\left(\xi^{\prime}\right)-f_{r}(\xi)\right]_{+}$
