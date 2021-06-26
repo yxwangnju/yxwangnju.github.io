@@ -76,13 +76,14 @@ Categories							</a>
 <p>文章的目的是：认为CTransR考虑了关系的种类，但没有考虑实体的种类。</p>
 <p>方法：对实体和关系都用了2个vector来embedding。比如对(h, r, t)，用 <span class="math">\(h\)</span>, <span class="math">\(h_p\)</span>, <span class="math">\(r\)</span>, <span class="math">\(r_p\)</span>, <span class="math">\(t\)</span>, <span class="math">\(t_p\)</span> 来embedding。其中: <span class="math">\(h, h_{p} \in R^{m}, t, t_{p} \in R^{n}\)</span></p>
 <p>接着定义了两个映射矩阵：</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/10.png"></p>
+<p><span class="math">\(\mathbf{M}_{r h}=\mathbf{r}_{p} \mathbf{h}_{p}^{\top}+\mathbf{I}^{m \times n}\)</span>
+<span class="math">\(\mathbf{M}_{r t}=\mathbf{r}_{p} \mathbf{t}_{p}^{\top}+\mathbf{I}^{m \times n}\)</span></p>
 <p>得到映射后的两个向量：</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/11.png"></p>
+<p><span class="math">\(\mathbf{h}_{\perp}=\mathbf{M}_{r h} \mathbf{h}, \quad \mathbf{t}_{\perp}=\mathbf{M}_{r t} \mathbf{t}\)</span></p>
 <p>score function还是translation-based：</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/12.png"></p>
+<p><span class="math">\(f_{r}(\mathbf{h}, \mathbf{t})=-\left\|\mathbf{h}_{\perp}+\mathbf{r}-\mathbf{t}_{\perp}\right\|_{2}^{2}\)</span></p>
 <p>Loss function:</p>
-<p><img alt="." class="image-process-large-photo" src="https://yxwangnju.github.io/pictures/13.png"></p>
+<p><span class="math">\(L=\sum_{\xi \in \Delta} \sum_{\xi^{\prime} \in \Delta^{\prime}}\left[\gamma+f_{r}\left(\xi^{\prime}\right)-f_{r}(\xi)\right]_{+}\)</span></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
