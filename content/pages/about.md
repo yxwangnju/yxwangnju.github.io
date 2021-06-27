@@ -17,11 +17,11 @@ You can go to [this page]({filename}other_links.md) to find my other links.
 
 <!-- <img alt="Get Hands Dirty!" src="{static}/pictures/get_hands_dirty.png" data-action="zoom" width="600px" class="center"> -->
 
-<br />
-
 ---
 
 ## My (Interesting) Reading For this Week 
 
-t@bopinion/status/1408879840799907843?s=20
+<br />
+
+t@bopinion/status/1408879840799907843
 
