@@ -3,7 +3,7 @@ Date: 2021-6-29
 
 ## 总览
 
-### 一、数组[|link|]({filename}/articles/blog_bert_serving.md) 
+### 一、数组[:link:]({filename}/articles/blog_bert_serving.md) 
 
 #### 1. 二分搜索
   - 33 Search in Rotated Sorted Array
