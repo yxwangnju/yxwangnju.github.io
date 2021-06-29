@@ -1,8 +1,8 @@
 Title: My LeetCode Solutions
 Date: 2021-6-29 
 
-## Overlook
-```text
+## 总览
+
 project
 │   README.md
 │   file001.txt    
@@ -19,6 +19,5 @@ project
 └───folder2
     │   file021.txt
     │   file022.txt
-```
 
-[./articles/]({filename}/blog_bert_serving.md)
+[here]({filename}/articles/blog_bert_serving.md)
