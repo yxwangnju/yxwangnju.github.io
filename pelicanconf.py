@@ -46,6 +46,7 @@ MENUITEMS_NAVBAR = (("About", "/pages/about.html"),
 
 MENUITEMS_NAVBAR_FEATURED = (("Tags", "/tags.html", "is-info"),
                              ("Archives", "/archives.html", "is-info"),
+                             ("LeetCode", "/pages/my-leetcode-solutions.html", "is-link"),
                              ("Other Links", "/pages/other-links.html", "is-link"))
 
 DEFAULT_PAGINATION = False
