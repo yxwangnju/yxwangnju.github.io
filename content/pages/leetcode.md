@@ -61,6 +61,4 @@ Date: 2021-6-29
 
 <br />
 
-## 讲解
-
-- ### [数组]({filename}/articles/blog_bert_serving.md) 
+- #### [数组]({filename}/articles/blog_bert_serving.md) 
