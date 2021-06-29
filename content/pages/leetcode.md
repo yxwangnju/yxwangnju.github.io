@@ -5,14 +5,14 @@ Date: 2021-6-29
 
 ### [一、数组]({filename}/articles/blog_bert_serving.md) 
 
-1. 二分搜索
+#### 1. 二分搜索
   - 33 Search in Rotated Sorted Array
   - 34 Find First and Last Position of Element in Sorted Array
   - 35 Search Insert Position
   - 153 Minimum in Rotated Sorted Arra
   - 220 Contains Duplicate III
 
-2. 分而治之
+#### 2. 分而治之
 
 ### 二、哈希表
 
