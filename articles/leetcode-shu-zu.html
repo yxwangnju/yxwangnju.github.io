@@ -79,7 +79,8 @@ Categories							</a>
 		<h2>数组</h2>
 <h3>Q1: #33 Search in Rotated Sorted Array 在翻转的有序数组中搜索</h3>
 <p><strong>问题描述：</strong></p>
-<div class="highlight"><pre><span></span><code>给定一个有序无重复值数组并将其翻转，例如 [0,1,2,4,5,6,7] 翻转后变成 [4,5,6,7,0,1,2]，我们需要在翻转后的数组 A 中查询一个值 v，并返回其所在下标。如果没有该值，则返回-1。要求满足搜索时间复杂度为O(log n)
+<div class="highlight"><pre><span></span><code>给定一个有序无重复值数组并将其翻转，例如 [0,1,2,4,5,6,7] 翻转后变成 [4,5,6,7,0,1,2]。
+我们需要在翻转后的数组 A 中查询一个值 v，并返回其所在下标。如果没有该值，则返回-1。要求满足搜索时间复杂度为O(log n)
 
 例如：
 Input: nums = [4,5,6,7,0,1,2], target = 0
@@ -89,7 +90,7 @@ Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 </code></pre></div>
 
-<p><strong>解决方法：</strong> 采用二分搜索法。获得了中间数后，判断接下来要搜索的是左半段还是右半段。这种情况下有一种规律，即如果中间数小于最右边的数，则右半段是有序的；若中间数大于最右边数，则左半段是有序的。因此，可用如下算法：</p>
+<p><strong>解决方法：</strong> 同样采用二分搜索法。获得了中间数后，判断接下来要搜索的是左半段还是右半段。这种情况下有一种规律，即如果中间数小于最右边的数，则右半段是有序的；若中间数大于最右边数，则左半段是有序的。因此，可用如下算法：</p>
 <div class="highlight"><pre><span></span><code>while 最左 &lt; 最右：
     if 中间数 == 目标值：
         返回中间数小标
@@ -106,7 +107,29 @@ Output: -1
 返回 -1
 </code></pre></div>
 
-<p><br /></p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p><br /></p>
+<h3>Q2: #153 Find Minimum in Rotated Sorted Array 在翻转的有序数组中查找最小值</h3>
+<p><strong>问题描述：</strong></p>
+<div class="highlight"><pre><span></span><code>给定一个有序无重复值数组并将其翻转，例如 [0,1,2,4,5,6,7] 翻转后变成 [4,5,6,7,0,1,2]。
+我们需要在翻转后的数组 A 中查找最小值并返回该值。要求满足搜索时间复杂度为O(log n)
+
+例如：
+Input: nums = [3,4,5,1,2]
+Output: 1
+</code></pre></div>
+
+<p><strong>解决方法：</strong> 同样采用二分搜索法。获得了中间数后，判断接下来要搜索的是左半段还是右半段。如果中间数小于最右边的数，则右半段是有序的，且中间值是右半段中最小的，接下来就在左半段+中间值之中寻找；若中间数大于最右边数，则左半段是有序的，且最小值一定在右半段中，于是在右半段中搜索最小值。</p>
+<div class="highlight"><pre><span></span><code>while (left &lt; right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] &lt; nums[right]) {
+        right = mid;
+    } 
+    else {
+        left = mid + 1;
+    }
+}
+return nums[left];
+</code></pre></div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div>
 </article>
 			</div>
