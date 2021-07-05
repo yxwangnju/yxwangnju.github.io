@@ -41,6 +41,7 @@ while 最左 < 最右：
 ```
 
 <br />
+
 ### Q2: \#153 Find Minimum in Rotated Sorted Array 在翻转的有序数组中查找最小值
 
 **问题描述：**
@@ -68,3 +69,82 @@ while (left < right) {
 }
 return nums[left];
 ```
+
+<br />
+
+### Q3: \#34 Find First and Last Position of Element in Sorted Arra 寻找有序数组中特定元素起止位置
+
+**问题描述：**
+
+```text
+给定一个升序的数组nums和一个目标元素target，寻找目标元素的起止位置。要求满足搜索时间复杂度为O(log n)。
+
+例如：
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+```
+
+**解决方法：** 同样利用二分查找法。比较中间值与target值，如果中间值小于target值，则在右半段查找，如果中间值大于target值，则在左半段查找，如果中间值等于target值，则取右半段的终止位置与左半段的起始位置。
+
+<br />
+
+### Q4: \#35 Search Insert Position 寻找插入位置
+
+**问题描述：**
+
+```text
+给定一个有序且无重复元素的数组nums，和一个目标值target，返回target所在的下标值。要求满足搜索时间复杂度为O(log n)。
+
+例如：
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+```
+
+**解决方法：** 这就是最简单的二分查找法例子。太简单。
+
+<br />
+
+### Q4: \#220 Contains Duplicate III 存在重复的元素
+
+**问题描述：**
+
+```text
+给定一个整数数组nums和两个整数k与t，如果数组中存在两个不同索引i与j满足：
+abs(nums[i] - nums[j]) <= t
+abs(i - j) <= k
+则返回true，没有则返回false。
+
+例如：
+Input: nums = [1,2,3,1], k = 3, t = 0
+Output: true
+
+Input: nums = [1,5,9,1,5,9], k = 2, t = 3
+Output: false
+```
+
+**解决方法：** 最暴力的方法就是从左至右查找，用两个循环，时间复杂度是O($n^2$)。但一种更高效的方法是利用桶排序算法(Bucket Sort)，就是将数组的每个元素分配到多个桶中。在这道题中，我们设置值范围为[0,t],[t+1,2t+1],...的多个桶，然后遍历数组。在不考虑窗口k的情况下，对于当前的元素nums[x]，如果 1). 如果要插入的桶中已经有元素，则返回true。因为每个桶内部元素值的值差异都不超过t。2). 如果要插入的桶中没有元素，则检查前后的邻居桶中是否存在元素在范围[nums[x]-t, nums[x]+t]之间，如果有则返回true；如果没有则将nums[x]插入要插入的桶中。(注意每个桶中元素最多为1个，否则就返回true了。)
+
+但当考虑窗口k时，如果连续插入k个值后仍没有返回true，则需要向后移动窗口。那么就需要删除前一个窗口开始元素所在的桶。算法代码如下：
+
+```text
+if t < 0 or not nums or k <= 0:
+    return False
+buckets = {}
+width = t + 1
+
+for n, i in enumerate(nums):
+    buck = i // width
+    if buck in buckets:
+        return True
+    else:
+        buckets[buck] = i
+        if buck - 1 in buckets and i - buckets[buck-1] <= t:
+            return True
+        if buck + 1 in buckets and buckets[buck+1] - i <= t:
+            return True
+        if n >= k:
+            del buckets[nums[n-k] // width]
+return False
+```
+
+利用桶算法的时间复杂度是O(n)。
